@@ -1,0 +1,64 @@
+.about-us {
+    background-color: var(--clr-section-bgrd);
+    text-align: center;
+}
+
+.about-us h1 {
+    color: #fff;
+    padding: 0.5em;
+    font-size: 2.2em;
+    padding-bottom: 0.6em;
+}
+
+.about-us .container {
+    display: flex;
+    gap: 2em;
+}
+
+.about-us .container {
+    display: flex;
+    padding: 0 0 2em 0;
+    justify-content: space-between;
+}
+
+
+.about-us .content {
+    flex: 0 0 45%;
+    padding: 3em;
+    align-self: center;
+    color: #fff;
+    padding-right: 0;
+
+}
+
+/* Card Animations */
+.about-us .media {
+    display: flex;
+    gap: 2em;
+    width: 35em;
+}
+
+.about-us .card {
+    flex: 0 1 10em;
+    height: 22.222em;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.5);
+    border-radius: 0.4em;
+    transition: all 0.4s ease-in;
+}
+
+.about-us .card:focus,
+.about-us .card:hover {
+    flex: 0 0 33.333em;
+}
+
+
+.about-us .card img {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}

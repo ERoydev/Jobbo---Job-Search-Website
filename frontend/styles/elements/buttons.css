@@ -1,0 +1,61 @@
+.auth-btn {
+    padding: 0.5em 1em;
+    border: 1px solid var(--clr-btn-bgrd);
+    border-radius: 0.3em;
+    color: var(--clr-btn-bgrd)
+}
+
+.auth-btn:focus,
+.auth-btn:hover {
+    background-color: var(--clr-btn-bgrd);
+    color: rgb(26, 26, 26);
+    transition: background-color 0.3s ease-in;
+}
+
+.submit-btn:focus,
+.submit-btn:hover {
+    color: rgb(26, 26, 26);
+    transition: color 0.3s ease-in;
+}
+
+a:focus,
+a:hover {
+    color: var(--clr-btn-bgrd);
+    transition: color 0.3s ease-in;
+}
+
+.subscribe-btn:focus,
+.subscribe-btn:hover {
+    color: rgb(26, 26, 26);
+    transition: color 0.3s ease-in;
+}
+
+.apply-job:focus,
+.apply-job:hover {
+    display: block;
+     color: rgb(26, 26, 26);
+    transition: color 0.3s ease-in;
+}
+
+.categories-btn {
+    border-radius: 0.3em;
+}
+
+.categories-btn:focus,
+.categories-btn:hover {
+    color: rgb(26, 26, 26);
+    transition: color 0.3s ease-in;
+}
+
+.createcv-btn {
+    font-size: 0.9em;
+    padding: 0.7em 1em;
+    background-color: var(--clr-btn-bgrd);
+    border-radius: 0.3em;
+}
+
+.createcv-btn:focus,
+.createcv-btn:hover {
+    color: rgb(26, 26, 26);
+    transition: color 0.3s ease-in;
+}

@@ -1,0 +1,87 @@
+.site-header {
+    display: flex;
+    padding: 1em 5em;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3em;
+}
+
+.site-header ul,
+.site-header p {
+    padding-bottom: 0;
+}
+
+.head-banner .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.head-banner .container .banner {
+    padding: 7em 0;
+}
+
+
+.head-banner {
+    padding: 1.5em 0 2em 0;
+}
+
+.site-title {
+    font-size: 1.8em;
+    font-weight: 800;
+}
+
+.head-banner .media {
+    width: 40em;
+    height: 37em;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+}
+
+
+.head-banner .media img {
+    width: auto;
+}
+
+.head-banner .wrapper {
+    width: 23em;
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+
+.head-banner .wrapper input {
+    width: 23em;
+    padding: 0.7em;
+    border-radius: 0.3em;
+    background-color: #fff;
+}
+
+.head-banner .wrapper a {
+    background: var(--clr-btn-bgrd);
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    position: absolute;
+    right: 0.5em;
+    top: 0.4em;
+}
+
+.head-banner .banner {
+    width: 35%;
+}
+
+.head-banner .banner h1 {
+    color: #fff;
+    padding-bottom: 0.2em;
+}
+
+.head-banner .banner p {
+    color: #B1B1B1;
+    padding-bottom: 3em;
+}
+
+.clr-coral {
+    color: #CA5717;
+    font-size: 1.1em;
+}

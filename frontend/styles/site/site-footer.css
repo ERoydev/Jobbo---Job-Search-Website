@@ -1,0 +1,108 @@
+
+.site-footer .footer-ul {
+    display: flex;
+    padding: 3em 3em 2em 3em;
+}
+
+.site-footer p a {
+    font-size: 3em;
+    font-weight: 800;
+}
+
+
+.site-footer .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.site-footer .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em;
+}
+
+.site-footer ul {
+    padding-left: 0;
+}
+
+.site-footer li {
+    display: block;
+    width: 15.55em;
+    gap: 1em;
+}
+
+.site-footer p {
+    color: #fff;
+}
+
+.site-footer .copyright p{
+    font-size: 0.8em;
+    color: #757575d7;
+}
+
+.site-footer .terms-btn {
+    font-size: 0.9em;
+    font-weight: normal;
+    text-decoration: underline;
+    color: #757575d7;
+}
+
+.site-footer .title {
+    color: #fff;
+    font-size: 1.2em;
+    padding-bottom: 0.7em;
+}
+
+.site-footer input {
+    display: block;
+    padding: 0.3em 0.54em;
+    margin-bottom: 1em;
+    border: 1px solid #b3b3b3;
+    border-radius: 0.3em;
+    background-color: rgba(0, 0, 0, 0);
+    color: #b3b3b3;
+}
+
+.site-footer p {
+    color: #575757;
+    font-size: 0.8em;
+    padding-bottom: 0.6em;
+}
+
+.site-footer .subscribe-btn {
+    text-align: center;
+    font-size: 1.1em;
+    display: block;
+    padding: 0.3em 0.3em;
+    background-color: var(--clr-btn-bgrd);
+    font-weight: 300;
+    border-radius: 0.3em;   
+}
+
+.site-footer li:nth-child(1) p,
+.site-footer li:nth-child(2) p {
+    padding-bottom: 1.85em;
+    
+}
+
+.site-footer .socials {
+    display: flex;
+    width: 7em;
+    gap: 1em;
+    padding-bottom: 0;
+}
+
+.site-footer .socials svg {
+    width: 2.5em;
+    fill: #cacaca49;
+}
+
+
+.site-footer .socials svg:hover {
+    fill: #cacacaa4;
+}
+
+.site-footer form input::placeholder {
+    color: #fff;
+}

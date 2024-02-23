@@ -1,0 +1,48 @@
+.cv {
+    background-color: #fff;
+    padding: 0 6.5em 6em 6.5em;
+}
+
+.cv .wrapper {
+    width: 70%;
+    margin: 0 auto;
+    background-color: #dddddd73;
+    padding: 3em;
+    display: flex;
+    border-radius: 0.2em;
+}
+
+.cv .wrapper .content {
+    width: 55.555em;
+    padding: 3em 0 0 0;
+}
+
+.cv .wrapper h1 {
+    font-size: 2.5em;
+}
+
+.cv .wrapper p {
+    font-size: 0.9em;
+    color: #5f5f5f;
+    padding-bottom: 4.5em;
+}
+
+.cv .media {
+    width: 72em;
+}
+
+
+.cv svg {
+    position: relative;
+    top: 0.1111em;
+    display: inline-block;
+    width: 1em;
+    fill: #fff;
+    margin-right: 0.1em;
+}
+
+.cv span:hover svg {
+    fill: rgb(26, 26, 26);
+    transition: fill 0.3s ease-in;
+}
+

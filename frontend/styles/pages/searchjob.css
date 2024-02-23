@@ -1,0 +1,182 @@
+.post-form-container {
+    background: #fff;
+    padding: 2em;
+}
+
+.post-form-container .container {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-keywords {
+    display: flex;
+    position: relative;
+    justify-content: start;
+    align-items: center;
+}
+
+.search-keywords input{
+    width: 100%;
+    padding: 1.3em 3em;
+}
+
+.search-keywords svg {
+    width: 1.111em;
+    position: absolute;
+    left: 1.111em;
+    fill: #444444;
+}
+
+.search-info {
+    display: flex;
+    gap: 2em;
+}
+
+.search-info .post-form-submit {
+    box-sizing: content-box;
+    padding: 1.3em 2.5em;
+    width: 27px;
+    border: none;
+    border-radius: 80px;
+    background-color: rgb(57, 87, 168);
+    fill: #fff;
+}
+
+.search-info .post-form-submit:focus,
+.search-info .post-form-submit:hover {
+    background-color: rgba(69, 155, 69, 0.877);
+    transition: background-color 0.3s ease-in;
+    cursor: pointer;
+}
+
+.jobs-list .title p {
+    padding-bottom: 0.2em;
+}
+
+form h1 {
+    font-size: 3.5em;
+    font-weight: 400;
+}
+
+.post-form-container .search-title p {
+    padding-bottom: 0;
+}
+
+.post-form-container .search-title {
+    text-align: center;
+    padding: 4em 0 0.7em 0;
+}
+
+.search-form {
+    padding-bottom: 7em;
+}
+
+.heading-title {
+    text-transform: uppercase;
+    color: #090;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: -0.5px;
+}
+
+/* JOBS LIST */
+.jobs-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobs-list .row:first-child {
+    border-top: 1px solid rgb(177, 177, 177);
+}
+
+.jobs-list .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(177, 177, 177);
+    padding: 1.5em 2.3em;
+    width: 100%;
+    gap: 3em;
+}
+
+.jobs-list img {
+    width: 90px;
+    border-radius: 50%;
+}
+
+.jobs-list .title {
+    position: relative;
+    top: 10px;
+    flex-grow: 1;
+}
+
+.jobs-list p {
+    font-size: 0.8em;
+    color: #090;
+    font-weight: 300;
+}
+
+.jobs-list .info {
+    font-size: 0.9em;
+    color: #888888;
+}
+
+.jobs-list h4 {
+    font-size: 1.4em;
+    font-weight: 300;
+}
+
+.jobs-list .row:focus,
+.jobs-list .row:hover {
+    background-color: rgba(125, 201, 125, 0.1);
+    transition: background-color 0.3s ease-in;
+    cursor: pointer;
+    .fav-btn {
+        display: block;
+        transition: display 0.3s ease-in;
+    }
+}
+
+
+.jobs-list .wrapper div {
+    display: flex;
+    gap: 3em;
+}
+
+.jobs-list .wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.jobs-list .row {
+    position: relative;
+}
+
+.jobs-list .wrapper .salary {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-right: 2.7em;
+    color: #259425;
+}
+
+.jobs-list .wrapper .fav-btn {
+    width: 1.4em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1em;
+    display: none;
+}
+
+.jobs-list .wrapper .fav-btn:hover {
+    fill:#98002e;
+}
+
+.jobs-list .place {
+    color: #636363;
+    font-weight: 500;
+}
