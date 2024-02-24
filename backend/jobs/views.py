@@ -7,7 +7,7 @@ from rest_framework import status
 
 
 @api_view(['GET', 'POST'])
-def jobs_list(request):
+def jobs_list(request, format=None):
     """Get all job post, serialize them, return json"""
 
     if request.method == 'GET':
@@ -23,7 +23,7 @@ def jobs_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['GET', 'PUT', 'DELETE'])
-def job_detail(request, id):
+def job_detail(request, id, format=None):
 
     try:
         job = JobsListed.objects.get(pk=id)
