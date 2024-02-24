@@ -25,6 +25,7 @@ class JobsListed(models.Model):
     job_type = models.CharField(max_length=30,
                                 choices=JOB_TYPE_CHOICES,
                                 default='Full time')
+    
     job_employment_type = models.CharField(max_length=30,
                                     choices=JOB_LOCATION_CHOICES,
                                     default='Office')

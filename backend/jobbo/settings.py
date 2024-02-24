@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     # Installed apps
     'jobbo',
     'jobs',
+    'rest_framework',
+    'accounts',
 ]
 
 MIDDLEWARE = [
