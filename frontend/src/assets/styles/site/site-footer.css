@@ -98,11 +98,31 @@
     fill: #cacaca49;
 }
 
-
 .site-footer .socials svg:hover {
     fill: #cacacaa4;
 }
 
 .site-footer form input::placeholder {
     color: #fff;
+}
+
+
+@media (max-width: 1370px) {
+    .site-footer .footer-ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .site-footer .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-footer .wrapper .socials {
+        justify-content: center;
+        align-items: center;
+    }
+
 }
