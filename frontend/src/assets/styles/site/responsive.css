@@ -12,9 +12,22 @@
     .banner {
         flex-grow: 1;
     }
+
+    .site-footer .footer-ul .title{
+        font-size: 1.4em;
+        font-weight: bold;
+    }
+    
+    .site-footer .footer-ul a {
+        font-size: 1.3em;
+    }
+    .footer-ul p {
+        text-align: center;
+    }
+    .footer-ul ul {
+        text-align: center;
+    }
 }
-
-
         
 /* Low resolution Tablets and iPads */
 @media (min-width: 481px) and (max-width: 767px) {
@@ -28,6 +41,10 @@
 
     .banner {
         flex-grow: 1;
+    }
+
+    .footer-links {
+        display: flex;
     }
 }
         

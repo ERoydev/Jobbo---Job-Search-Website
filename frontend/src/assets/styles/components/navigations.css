@@ -39,6 +39,10 @@
         pointer-events: none;
     }
 
+.footer-links {
+    display: flex;
+}
+
 @media (max-width: 1000px) {
 
     .nav-btn {
