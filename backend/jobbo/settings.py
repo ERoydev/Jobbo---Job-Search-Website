@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'jobbo',
     'jobs',
     'rest_framework',
+    'rest_framework.authtoken'
     'accounts',
 ]
 
