@@ -1,0 +1,29 @@
+
+/* Mobile Devices */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 1em 2em;
+    }
+}
+        
+/* Low resolution Tablets and iPads */
+@media (min-width: 481px) and (max-width: 767px) {
+    .site-header {
+        padding: 1em 3em;
+    }
+}
+        
+/* Tablets iPads (Portrait) */
+@media (min-width: 768px) and (max-width: 1024px){
+
+}
+    
+/* Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+
+}
+    
+/* Big boi Monitors */
+@media (min-width: 1281px) {
+
+}

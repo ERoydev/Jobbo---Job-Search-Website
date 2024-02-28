@@ -1,0 +1,140 @@
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    list-style: none;
+    padding-right: 3em;
+}
+
+.main-nav li:nth-last-child(2) {
+    margin-left: 3em;
+    padding-right: 1.5em;
+}
+
+.site-header label svg {
+    width: 2em;
+    fill: #fff;
+}
+
+.nav-btn {
+    padding: 1em 1.5em;
+    border-radius: 10px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(220, 220, 220, 0.308);
+}
+
+.main-nav .extra {
+    display: none;
+}
+
+.nav-btn {
+    display: none;
+}
+
+#nav-toggle {
+        appearance: none;
+        pointer-events: none;
+    }
+
+@media (max-width: 1000px) {
+
+    .nav-btn {
+        display: block;
+    }
+
+    .main-nav .extra {
+        display: block;
+    }
+
+    .main-nav {
+        opacity: 0;
+        position: fixed;
+        inset: 0;
+        transition: opacity 0.3s ease-in;
+        pointer-events: none;
+        background: #333333da;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .main-nav li {
+        display: block;
+        padding: 0 0.5em;
+        transform: translateY(-10em);
+        opacity: 0;
+        transition:
+            opacity 0.3s ease-in,
+            transform 0.2s ease-out;
+    }
+
+    .main-nav li:nth-child(2) { transition-delay: 0.2s; }
+    .main-nav li:nth-child(3) { transition-delay: 0.4s; }
+
+    .site .main-nav li {
+        margin: 0;
+        padding: 0;
+        font-size: 1.3em;
+    }
+
+    .site .main-nav li a:not(.auth-btn) {
+        font-size: 1.6em;
+    }
+
+
+    #nav-toggle:checked + .site .main-nav {
+        opacity: 1;
+        z-index: 10;
+        pointer-events: all;
+    }
+
+    #nav-toggle:checked + .site .main-nav li {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #nav-toggle:checked + .site .main-nav ul {
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #nav-toggle:checked + .site .main-nav {
+        display: block;
+    }
+
+    #nav-toggle:checked + .site .site-header label[for="nav-toggle"] {
+        position: fixed;
+        top: 2em; right: 2em;
+        z-index: 100;
+        background: rgb(0, 0, 0);
+        padding: 1em 1.5em;
+        border-radius: 0.5em;
+    }
+
+    #nav-toggle:checked + .site .site-header label[for="nav-toggle"] {
+        background-color: rgba(85, 85, 85, 0.562);
+    }
+    .main-nav ul {
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        position: relative;
+        gap: 1em;
+    }
+
+    .main-nav ul li:nth-last-child(1){
+        position: absolute;
+        top: 2.3em;
+        left: 2em;
+    }
+
+    .main-nav ul li:nth-last-child(2){
+        position: absolute;
+        top: 2.3em;
+        left: 9em;
+    }
+}
