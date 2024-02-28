@@ -4,26 +4,147 @@
     .site-header {
         padding: 1em 2em;
     }
+
+    .main-image .media {
+        display: none;
+    }
+
+    .banner {
+        flex-grow: 1;
+    }
 }
+
+
         
 /* Low resolution Tablets and iPads */
 @media (min-width: 481px) and (max-width: 767px) {
     .site-header {
         padding: 1em 3em;
     }
+
+    .main-image .media {
+        display: none;
+    }
+
+    .banner {
+        flex-grow: 1;
+    }
 }
         
 /* Tablets iPads (Portrait) */
 @media (min-width: 768px) and (max-width: 1024px){
+    .main-image .media {
+        display: none;
+    }
 
+    .banner {
+        flex-grow: 1;
+    }
 }
     
 /* Laptops and Desktops */
 @media (min-width: 1025px) and (max-width: 1280px){
+    .main-image .media {
+        border-radius: 15px;
+        width: 25em;
+    }
 
+    .main-image .media img {
+        transform: translateX(-25%);
+    }
 }
+
     
 /* Big boi Monitors */
 @media (min-width: 1281px) {
 
+}
+
+
+/* SECTIONS */
+
+/* main image robot Head */
+@media (min-width: 1281px) and (max-width: 1500px ) {
+    .main-image .media {
+        border-radius: 25px;
+        width: 35em;
+    }
+
+    .main-image .media img {
+        transform: translateX(-10%);
+    }
+
+}
+
+/* Section with CV creating suggestion */
+@media (max-width: 1400px) {
+    .site .cv {
+        text-align: center;
+        padding: 0;
+    }
+
+    .site .cv .media {
+        display: none;
+    }
+
+    .cv .wrapper {
+        width: 100%;
+    }
+
+    .cv .content {
+        flex-grow: 1;
+    }
+}
+
+/* Section with steps for succesfull CV */
+@media (max-width: 1250px) {
+    .site .steps {
+        display: none;
+    }
+}
+
+@media (max-width: 1360px) {
+    .about-us .card:nth-child(2) {
+        display: none;
+    }
+}
+
+@media (max-width: 1296px) {
+    .about-us .card:nth-child(3) {
+        display: none;
+    }
+
+    .about-us .media {
+        display: inline;
+    }
+
+    .about-us .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 930px) {
+    .content {
+        font-size: 0.7em;
+    }
+
+    .about-us .card {
+        height: 15em;
+    }
+
+}
+
+@media (max-width: 652px) {
+    .about-us .media {
+        display: none;
+    }
+
+    .about-us .content {
+        display: flex;
+        gap: 2em;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+    }
 }
