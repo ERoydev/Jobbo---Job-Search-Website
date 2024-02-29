@@ -24,6 +24,7 @@
 
 .nav-btn:hover {
     background-color: rgba(220, 220, 220, 0.308);
+    cursor: pointer;
 }
 
 .main-nav .extra {
@@ -35,12 +36,13 @@
 }
 
 #nav-toggle {
-        appearance: none;
-        pointer-events: none;
-    }
+    appearance: none;
+    pointer-events: none;
+    position: absolute;
+}
 
-.footer-links {
-    display: flex;
+.jobs-list {
+    padding-bottom: 2em;
 }
 
 @media (max-width: 1000px) {
@@ -56,10 +58,13 @@
     .main-nav {
         opacity: 0;
         position: fixed;
-        inset: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 15em;
         transition: opacity 0.3s ease-in;
         pointer-events: none;
-        background: #333333da;
+        background: #333333f5;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -125,7 +130,7 @@
     .main-nav ul {
         justify-content: center;
         align-items: center;
-        height: 70vh;
+        height: 80vh;
         position: relative;
         gap: 1em;
     }
@@ -140,5 +145,29 @@
         position: absolute;
         top: 2.3em;
         left: 9em;
+    }
+
+    .site .main-nav .links {
+        padding: 0.5em;
+    }
+
+    .site .main-nav .links:focus,
+    .site .main-nav .links:hover {
+        background-color: #ffffff0a;
+        border-radius: 15px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .site .main-nav {
+        display: flex!important;
+        
     }
 }

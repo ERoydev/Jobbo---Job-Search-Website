@@ -36,9 +36,10 @@
     color: #fff;
 }
 
-.site-footer .copyright p{
+.site-footer .copyright p {
     font-size: 0.8em;
     color: #757575d7;
+    padding: 1em;
 }
 
 .site-footer .terms-btn {

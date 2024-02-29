@@ -142,7 +142,7 @@ form h1 {
 
 .jobs-list .wrapper div {
     display: flex;
-    gap: 3em;
+    gap: 2em;
 }
 
 .jobs-list .wrapper {
@@ -179,4 +179,47 @@ form h1 {
 .jobs-list .place {
     color: #636363;
     font-weight: 500;
+}
+
+@media (max-width: 916px) {
+    .post-form-container .container {
+        width: 100%;
+    }
+
+    .jobs-list .wrapper .salary,
+    .jobs-list .wrapper .info{
+        font-size: 0.8em;
+    }
+
+    .title {
+        font-size: 0.8em;
+    }
+
+    .jobs-list .row {
+        gap: 1em;
+        padding: 1em;
+    }
+
+    .jobs-list img {
+        width: 5em;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .jobs-list img {
+        display: none;
+    }
+
+    .jobs-list .wrapper .salary {
+        padding-right: 0.3em;
+    }
+
+    .post-form-container .search-info {
+        flex-wrap: wrap;
+    }
+
+    .post-form-container {
+        padding: 0.2em;
+    }
 }
