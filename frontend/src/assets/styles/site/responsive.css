@@ -22,6 +22,9 @@
         font-size: 1.3em;
     }
 
+    .post-form-container {
+        padding-bottom: 2em;
+    }
 }
         
 /* Low resolution Tablets and iPads */

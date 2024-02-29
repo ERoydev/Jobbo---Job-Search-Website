@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
 }
 
 .authorization h3 {
@@ -56,6 +57,20 @@
     left: 600px;
 }
 
+#form1 input {
+    transition: all 0.3s ease-in;
+}
+
+#form1 input:focus,
+#form1 input:hover {
+    background: linear-gradient(to right, #ff105f, #ffad06);
+    cursor: pointer;
+}
+
+#form1 input:active {
+    background: linear-gradient(to right, #ff105f, #ffad06);
+}
+
 #form3 {
     left: 600px;
 }
@@ -82,7 +97,7 @@
 #progress {
     position: absolute;
     height: 100%;
-    width: 166px;
+    width: calc(100%/3);
     background: linear-gradient(to right, #ff105f, #ffad06);
     transition: 1s;
 }
@@ -99,3 +114,33 @@
     border-left: 20px solid #ffad06;
 }
 
+@media (max-width: 525px) {
+    .auth-container {
+        width: 90%;
+    }
+
+    .step-row {
+        width: 100%;
+    }
+
+    #form1,
+    #form2,
+    #form3 {
+        width: 100%;
+        padding: 1em;
+    }
+
+    .auth-container form {
+        left: 0;
+    }
+
+    .element {
+        left: 0;
+    }
+
+    #back1,
+    #back2 {
+       margin-bottom: 1em;
+    }
+
+}

@@ -93,3 +93,29 @@
 .post .btn-container svg {
     width: 130px;
 }
+
+.company-logo {
+    padding: 2em 0 2em 0;
+}
+
+@media (max-width: 748px) {
+    .post .btn-container {
+        display: block;
+    }
+}
+
+@media (max-width: 420px) {
+    .post .btn-container svg {
+        width: 100%;
+    }
+
+    .post .btn-container button {
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 448px) {
+    .company-logo {
+        flex-direction: column;
+    }
+}
