@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 export default function Header() {
     return (
     <header className="site-header">
         <div className="site-title">
             <p>
-            <a href="#">Jobbo</a>
+                <Link to="/">Jobbo</Link>
             </p>
         </div>
         <label htmlFor="nav-toggle" className="nav-btn">
@@ -27,14 +29,11 @@ export default function Header() {
                 <a href="#">About us</a>
             </li>
             <li>
-                <a href="#" className="auth-btn">
-                Log in
-                </a>
+                <Link to='/login' class="auth-btn">Log in</Link>
             </li>
             <li>
-                <a href="#" className="auth-btn">
-                Sign Up
-                </a>
+                <Link to="/signup" class="auth-btn">Sign Up</Link>
+
             </li>
             </ul>
         </nav>

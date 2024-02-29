@@ -1,16 +1,11 @@
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Main from "./components/Main/Main";
+import Home from "./components/Home"
+import Routing from "./components/Routing"
 
 function App() {
 
   return (
     <div className="site">
-      <Header />
-
-      <Main />
-
-      <Footer />
+      <Routing />
     </div>
   )
 }
