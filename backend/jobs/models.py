@@ -2,20 +2,20 @@ from django.db import models
 
 
 class JobsListed(models.Model):
-    JOB_TYPE_CHOICES = {
-        'Full time': 'Full time',
-        'Part time': 'Part time',
-        'Internship': 'Internship',
-        'Temporary': 'Temporary',
-        'For students': 'For students',
-        'Flexible': 'Flexible'
-    }
+    JOB_TYPE_CHOICES = (
+        ('Full_time', 'Full time'),
+        ('Part_time', 'Part time'),
+        ('Internship', 'Internship'),
+        ('Temporary', 'Temporary'),
+        ('For_students', 'For students'),
+        ('Flexible', 'Flexible')
+    )
 
-    JOB_LOCATION_CHOICES = {
-        'Remote only, anywhere': 'Remote only, anywhere',
-        'Hybrid': 'Hybrid',
-        'Office /on Spot/': 'Office /on Spot/',
-    }
+    JOB_LOCATION_CHOICES = (
+        ('Remote_only', 'Remote only'),
+        ('Hybrid', 'Hybrid'),
+        ('Office', 'Office /on Spot/'),
+    )
 
     company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
     job_title = models.CharField(max_length=255)
@@ -24,7 +24,7 @@ class JobsListed(models.Model):
 
     job_type = models.CharField(max_length=30,
                                 choices=JOB_TYPE_CHOICES,
-                                default='Full time')
+                                default='Full Time')
     
     job_employment_type = models.CharField(max_length=30,
                                     choices=JOB_LOCATION_CHOICES,

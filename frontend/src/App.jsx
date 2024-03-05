@@ -1,12 +1,15 @@
-import Home from "./components/Home"
+import Home from "./components/Home/Home"
 import Routing from "./components/Routing"
 
 function App() {
 
   return (
-    <div className="site">
-      <Routing />
-    </div>
+    <>
+      <input type="checkbox" id="nav-toggle"></input>
+      <div className="site">
+        <Routing />
+      </div>
+    </>
   )
 }
 
