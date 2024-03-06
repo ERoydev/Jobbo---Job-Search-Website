@@ -3,6 +3,14 @@ export default function PostFormModelChoose({
 }) {
     const onClickModelHandler = (e) => {
         e.preventDefault();
+        const models = document.querySelectorAll('.btn-container');
+        models.forEach(el => {
+            if (el.classList.contains('clicked')) {
+                el.classList.remove('clicked')
+            }
+
+        })
+        e.target.parentNode.classList.add('clicked')
         onClickModelChoose(e.target.name)
     }
 

@@ -13,8 +13,6 @@ export default function PostForm() {
         setTempModel(model);
     }
 
-    console.log(tempModel)
-
     return(
         <form action="#">
             <PostFormCompanyLogo />
@@ -23,7 +21,7 @@ export default function PostForm() {
 
             <PostFormTypeInfo />
 
-            {!tempModel && <PostFormModelChoose onClickModelChoose={onClickModelChoose} />}
+            <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
 
             {tempModel == 'model1' && <PostFormModel1 />}
             {tempModel == 'model2' && <PostFormModel2 />}

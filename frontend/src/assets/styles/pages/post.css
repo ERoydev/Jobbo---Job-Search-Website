@@ -113,3 +113,12 @@
         flex-direction: column;
     }
 }
+
+.choose-model .btn-container button {
+    cursor: pointer;
+}
+
+.site .post .clicked {
+    opacity: 0.4;
+    pointer-events: none;
+}
