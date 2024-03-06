@@ -6,7 +6,7 @@ export default function PostFormCompanyLogo() {
             src="https://bootdey.com/img/Content/avatar/avatar1.png"
             alt=""
             />
-            <input type="file" src="image.png" />
+            <input type="file" src="image.png" name="companyImage"/>
         </div>
     );
 }

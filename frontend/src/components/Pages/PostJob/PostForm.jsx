@@ -6,11 +6,29 @@ import PostFormTypeInfo from "./PostFormTypeInfo";
 
 import { useState } from 'react';
 
+const initialFormValues = {
+    category: 'Category',
+    jobType: 'Job Type',
+    employmentLocation: 'Employment Location',
+    country: '',
+    city: '',
+    salary: '',
+}
+
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
+    const [formValues, setFormValues] = useState(initialFormValues);
 
     const onClickModelChoose = (model) => {
+        // Created To Change between Models Template
         setTempModel(model);
+    }
+
+    const onChangeHandler = (e) => {
+        setFormValues(state => ({
+            ...state,
+            [e.target.name]: e.target.value,
+        }))
     }
 
     return(
@@ -19,13 +37,12 @@ export default function PostForm() {
 
             <input type="text" placeholder="Job Title" />
 
-            <PostFormTypeInfo />
+            <PostFormTypeInfo formValues={formValues} onChangeHandler={onChangeHandler}/>
 
             <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
 
             {tempModel == 'model1' && <PostFormModel1 />}
             {tempModel == 'model2' && <PostFormModel2 />}
-
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>

@@ -8,8 +8,8 @@ export default function PostFormModelChoose({
             if (el.classList.contains('clicked')) {
                 el.classList.remove('clicked')
             }
-
         })
+        
         e.target.parentNode.classList.add('clicked')
         onClickModelChoose(e.target.name)
     }
