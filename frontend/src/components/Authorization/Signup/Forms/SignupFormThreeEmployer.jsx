@@ -2,7 +2,7 @@ import { backTwo } from "../Steps/StepsIndicator";
 
 export default function SignupFormThreeEmployer ({
     formRefs,
-    onChangeHandler
+    onChangeHandler,
 }) {
     return (
         <form name="employee" id="form3" ref={(element) => { formRefs.current.form3 = element; }}>

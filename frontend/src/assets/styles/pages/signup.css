@@ -67,7 +67,7 @@
     cursor: pointer;
 }
 
-#form1 input:active {
+.form-input-clicked {
     background: linear-gradient(to right, #ff105f, #ffad06);
 }
 
