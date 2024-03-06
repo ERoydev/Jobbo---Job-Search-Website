@@ -20,7 +20,7 @@ export default function Header() {
                     <Link to="/searchJob">Search for a job</Link>
                 </li>
                 <li className="links">
-                    <Link to="/postJob"> Post a job</Link>
+                    <Link to="/postJob">Post a job</Link>
                 </li>
                 <li className="links extra">
                     <a href="#">Contact us</a>

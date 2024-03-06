@@ -4,8 +4,17 @@ import PostFormModelChoose from "./PostFormModels/PostFormModelChoose";
 import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
+import { useState } from 'react';
+
 export default function PostForm() {
-    const [tempModel, setTempModel] = useState();
+    const [tempModel, setTempModel] = useState(false);
+
+    const onClickModelChoose = (model) => {
+        setTempModel(model);
+    }
+
+    console.log(tempModel)
+
     return(
         <form action="#">
             <PostFormCompanyLogo />
@@ -14,12 +23,12 @@ export default function PostForm() {
 
             <PostFormTypeInfo />
 
-            <PostFormModelChoose />
+            {!tempModel && <PostFormModelChoose onClickModelChoose={onClickModelChoose} />}
 
-            <PostFormModel1 />
+            {tempModel == 'model1' && <PostFormModel1 />}
+            {tempModel == 'model2' && <PostFormModel2 />}
 
-            <PostFormModel2 />
-            
+
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>
 
