@@ -12,6 +12,7 @@ const initialFormValues = {
     employmentLocation: 'Employment Location',
     country: '',
     city: '',
+    street: '',
     salary: '',
     jobDescription: '',
     companyOverview: '',

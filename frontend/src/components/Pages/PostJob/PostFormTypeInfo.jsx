@@ -31,9 +31,11 @@ export default function PostFormTypeInfo({
                 </select>
             </div>
 
-            <div className="searchInfo">
+            <div className="search-info" >
                 <input type="text" placeholder="Country" name="country" value={formValues.country} onChange={onChangeHandler}/>
                 <input type="text" placeholder="City" name="city" value={formValues.city} onChange={onChangeHandler}/>
+                <input type="text" placeholder="Street" name="street" value={formValues.street} onChange={onChangeHandler}/>
+
                 <input type="text" placeholder="Salary (1500-1800)..." name="salary" value={formValues.salary} onChange={onChangeHandler}/>
             </div>
         </>

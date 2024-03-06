@@ -7,16 +7,27 @@ import BackButton from "../BackButton.jsx";
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 
+const initialFormValues = {
+    userType: '',
+
+}
+
 export default function Signup() {
-    const [forms, setForms] = useState([]);
     const formRefs = useRef({ container: null, form1: null, form2: null, form3: null, progress: null });
+    const [formValues, setFormValues] = useState(initialFormValues);
+    const [userType, setUserType] = useState('');
 
     const formSubmitHandler = (e) => {
         e.preventDefault();
+    }
 
-        console.log(formRefs.current.form1)
-        console.log(formRefs.current.form2)
-        console.log(formRefs.current.form3)
+    const onChangeHandler = (e) => {
+        e.preventDefault();
+
+        setFormValues(state => ({
+            ...state,
+            [e.target.name]: e.target.value,
+        }))
     }
 
     return (
@@ -25,13 +36,13 @@ export default function Signup() {
 
             <div className="auth-container" ref={(element) => {formRefs.current.container = element; }}>
 
-                <SignupFormOne formSubmitHandler={formSubmitHandler} formRefs={formRefs}/>
+                <SignupFormOne formRefs={formRefs} onChangeHandler={onChangeHandler} />
 
-                <SignupFormTwo formSubmitHandler={formSubmitHandler} formRefs={formRefs}/>
+                <SignupFormTwo formRefs={formRefs} onChangeHandler={onChangeHandler} />
 
-                <SignupFormThreeEmployee formSubmitHandler={formSubmitHandler} formRefs={formRefs} />
+                <SignupFormThreeEmployee formRefs={formRefs} onChangeHandler={onChangeHandler} />
 
-                <SignupSteps formSubmitHandler={formSubmitHandler} formRefs={formRefs}/>
+                <SignupSteps formRefs={formRefs}/>
 
             </div>
         </div>

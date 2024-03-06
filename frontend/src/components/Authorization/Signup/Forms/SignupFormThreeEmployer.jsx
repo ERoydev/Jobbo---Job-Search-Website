@@ -1,13 +1,13 @@
 import { backTwo } from "../Steps/StepsIndicator";
 
-export default function SignupFormThreeEmployee ({
+export default function SignupFormThreeEmployer ({
     formRefs,
     onChangeHandler
 }) {
     return (
         <form name="employee" id="form3" ref={(element) => { formRefs.current.form3 = element; }}>
             <h3>Personal Information</h3>
-            <input type="text" placeholder="First Name" />
+            <input type="text" placeholder="Company Name" />
             <input type="text" placeholder="Country" />
             <input type="text" placeholder="City" />
             <div className="btn-box">
