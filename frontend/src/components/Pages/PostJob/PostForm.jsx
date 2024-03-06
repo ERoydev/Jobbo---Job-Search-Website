@@ -36,8 +36,13 @@ export default function PostForm() {
         }))
     }
 
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log(formValues)
+    }
+
     return(
-        <form action="#">
+        <form action="#" onSubmit={formSubmitHandler}>
             <PostFormCompanyLogo />
 
             <input type="text" placeholder="Job Title" />

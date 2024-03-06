@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom'; 
 import Home from './Home/Home';
-import Signup from '../components/Authorization/Signup';
-import Login from '../components/Authorization/Login';
-import SearchJob from './Pages/SearchJob/SearchJob';
-import PostJob from './Pages/PostJob/PostJob';
+import Signup from '../components/Authorization/Signup/Signup.jsx';
+import Login from '../components/Authorization/Login/Login.jsx';
+import SearchJob from './Pages/SearchJob/SearchJob.jsx';
+import PostJob from './Pages/PostJob/PostJob.jsx';
 
 
 export default function Routing() {
