@@ -3,7 +3,6 @@ import { nextOne } from "../Steps/StepsIndicator";
 
 export default function SignupFormOne({
     formRefs,
-    onChangeHandler,
     userTypeClickHandler,
 }) {
     const [clicked, setClicked] = useState(false);

@@ -9,7 +9,9 @@ import { useEffect, useState } from "react";
 import { useRef } from "react";
 
 const initialFormValues = {
-
+    email: '',
+    password: '',
+    confirmPassword: '',
 }
 
 export default function Signup() {
@@ -40,7 +42,7 @@ export default function Signup() {
 
             <div className="auth-container" ref={(element) => {formRefs.current.container = element; }}>
 
-                <SignupFormOne formRefs={formRefs} onChangeHandler={onChangeHandler} userTypeClickHandler={userTypeClickHandler} />
+                <SignupFormOne formRefs={formRefs} userTypeClickHandler={userTypeClickHandler} />
 
                 <SignupFormTwo formRefs={formRefs} onChangeHandler={onChangeHandler} />
 

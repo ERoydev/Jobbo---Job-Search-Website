@@ -2,7 +2,7 @@ import { backOne, backTwo, nextTwo } from "../Steps/StepsIndicator";
 
 export default function SignupFormTwo({
     formRefs,
-    onChangeHandler
+    onChangeHandler,
 }) {
     return (
         <form id="form2" ref={(element) => { formRefs.current.form2 = element; }}>
@@ -12,13 +12,12 @@ export default function SignupFormTwo({
             <input type="text" placeholder="Confirm Password" />
             <div className="btn-box">
                 <button type="button" id="back1" onClick={(e) => backOne(e, formRefs)}>
-                Back
+                    Back
                 </button>
                 <button type="button" id="next2" onClick={(e) => nextTwo(e, formRefs)}>
-                Next
+                    Next
                 </button>
             </div>
         </form>
-
     );
 }
