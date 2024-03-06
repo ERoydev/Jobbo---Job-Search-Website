@@ -1,4 +1,7 @@
-export default function PostFormModel2() {
+export default function PostFormModel2({
+    formValues,
+    onChangeHandler,
+}) {
     return (
         <div className="model2">
             <div className="job-description">
@@ -9,11 +12,12 @@ export default function PostFormModel2() {
                 working with you.
             </p>
             <textarea
-                name="text_description"
+                name="jobDescription"
                 id="description"
                 cols={30}
                 rows={10}
-                defaultValue={""}
+                value={formValues.jobDescription}
+                onChange={onChangeHandler}
             />
             </div>
         </div>

@@ -13,6 +13,11 @@ const initialFormValues = {
     country: '',
     city: '',
     salary: '',
+    jobDescription: '',
+    companyOverview: '',
+    keyResponsibilities: '',
+    qualifications: '',
+    preferredSkills: '',
 }
 
 export default function PostForm() {
@@ -37,12 +42,12 @@ export default function PostForm() {
 
             <input type="text" placeholder="Job Title" />
 
-            <PostFormTypeInfo formValues={formValues} onChangeHandler={onChangeHandler}/>
+            <PostFormTypeInfo formValues={formValues} onChangeHandler={onChangeHandler} />
 
             <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
 
-            {tempModel == 'model1' && <PostFormModel1 />}
-            {tempModel == 'model2' && <PostFormModel2 />}
+            {tempModel == 'model1' && <PostFormModel1 formValues={formValues} onChangeHandler={onChangeHandler} />}
+            {tempModel == 'model2' && <PostFormModel2 formValues={formValues} onChangeHandler={onChangeHandler} />}
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>
