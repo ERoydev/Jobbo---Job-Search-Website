@@ -1,49 +1,56 @@
 
 // This is the logic for steps moving indicator in signup form
-export const stepsIndicator = (container) => {
-    console.log(container)
-    const form1 = container.getElementById("form1");
-    const form2 = container.getElementById("form2");
-    const form3 = container.getElementById("form3");
-    
-    const next1 = container.getElementById('next1');
-    const next2 = container.getElementById('next2');
-    const next3 = container.getElementById('next3');
-    
-    const back1 = container.getElementById('back1');
-    const back2 = container.getElementById('back2');
-    
-    const progress = container.getElementById('progress');
-    const INITIAL_PROGRESS_VALUE = container.clientWidth;
-    const box = container.querySelector('.auth-container');
-    const BOXWIDTH = box.clientWidth;
-}
+let form1;
+let form2;
+let form3;
 
-export const nextOne = (e) => {
+export const nextOne = (e, formRefs) => {
     e.preventDefault();
-    stepsIndicator(e.target.parentNode);
+
+    form1 = formRefs.current.form1;
+    form2 = formRefs.current.form2;
+    const container = formRefs.current.container;
+    const progress = formRefs.current.progress;
+
+    const BOXWIDTH = container.clientWidth;
+    const INITIAL_PROGRESS_VALUE = BOXWIDTH / 3;
 
     if (BOXWIDTH > 450) {
         form2.style.left = "40px";
     } else {
         form2.style.left = "0";
     }
+
     form1.style.left = "-600px";
     progress.style.width = `${INITIAL_PROGRESS_VALUE * 2}px`;
 }
 
-export const backOne = (e) => {
+export const backOne = (e, formRefs) => {
     e.preventDefault();
+    const container = formRefs.current.container;
+    const progress = formRefs.current.progress;
+
+    const BOXWIDTH = container.clientWidth;
+
     if (BOXWIDTH > 450) {
         form1.style.left = "40px";
     } else {
         form1.style.left = "0";
     }
+
     form2.style.left = "600px";
     progress.style.width = `${progress.clientWidth / 2}px`;
 }
 
-export const nextTwo = (e) => {
+export const nextTwo = (e, formRefs) => {
+    form3 = formRefs.current.form3;
+
+    const container = formRefs.current.container;
+    const progress = formRefs.current.progress;
+
+    const BOXWIDTH = container.clientWidth;
+    const INITIAL_PROGRESS_VALUE = BOXWIDTH / 3;
+
     if (BOXWIDTH > 450) {
         form3.style.left = "40px";
     } else {
@@ -54,7 +61,13 @@ export const nextTwo = (e) => {
     progress.style.width = `${progress.clientWidth + INITIAL_PROGRESS_VALUE}px`;
 }
 
-export const backTwo = (e) => {
+export const backTwo = (e, formRefs) => {
+    const container = formRefs.current.container;
+    const progress = formRefs.current.progress;
+
+    const BOXWIDTH = container.clientWidth;
+    const INITIAL_PROGRESS_VALUE = BOXWIDTH / 3;
+
     if (BOXWIDTH > 450) {
         form2.style.left = "40px";
     } else {
