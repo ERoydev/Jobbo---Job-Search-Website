@@ -1,0 +1,93 @@
+
+
+        <main class="site-main post-form-container post">
+            <div class="container">
+                <div class="search-title">
+                    <p class="heading-title">Find your new team.</p>
+                    <h1>Fill all the needed information for your <span class="clr-coral">job post.</span></h1>
+                </div>
+                <form action="#">
+                    <div class="company-logo">
+                        <img class="post-img" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <input type="file" src="image.png">
+                    </div>
+                    <input type="text" placeholder="Job Title">
+                    <div class="search-info">
+                        <select name="category">
+                            <option>Category</option>
+                            <option>Marketing</option>
+                        </select>
+
+                        <select name="job-type">
+                            <option>Job Type</option>
+                            <option value="all">All</option>
+                            <option value="full-time">Full time</option>
+                            <option value="part-time">Part time</option>
+                            <option value="internship">Internship</option>
+                            <option value="temporary">Temporary</option>
+                            <option value="for-students">For students</option>
+                            <option value="flexible">Flexible</option>
+                        </select>
+                    
+                        <select name="employment_location">
+                            <option>Employment location</option>
+                            <option value="remote">Remote only, anywhere</option>
+                            <option value="hybrid">Hybrid</option>
+                            <option value="office">Office</option>
+                        </select>
+                    </div>
+
+                    <div class="search-info">
+                        <input type="text" placeholder="Country">
+                        <input type="text" placeholder="City">
+                        <input type="text" placeholder="Salary">
+                    </div>
+
+                    <div class="choose-model">
+                        <!-- Use react useState Here to show models -->
+                        <div class="btn-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V299.6l-94.7 94.7c-8.2 8.2-14 18.5-16.8 29.7l-15 60.1c-2.3 9.4-1.8 19 1.4 27.8H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128zM549.8 235.7l14.4 14.4c15.6 15.6 15.6 40.9 0 56.6l-29.4 29.4-71-71 29.4-29.4c15.6-15.6 40.9-15.6 56.6 0zM311.9 417L441.1 287.8l71 71L382.9 487.9c-4.1 4.1-9.2 7-14.9 8.4l-60.1 15c-5.5 1.4-11.2-.2-15.2-4.2s-5.6-9.7-4.2-15.2l15-60.1c1.4-5.6 4.3-10.8 8.4-14.9z"/></svg>
+                            <button>Write your template</button>
+                        </div>
+
+                        <div class="btn-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0H224V128c0 17.7 14.3 32 32 32H384V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm384 64H256V0L384 128z"/></svg>
+                            <button>Use our template</button>
+                        </div>
+                    </div>
+                
+                    <div class="model1">
+                        <div class="job-description">
+                            <label for="description">Company Overview</label>
+                            <textarea name="text_company_overview" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                        
+                        <div class="job-description">
+                            <label for="description">Key Responsibilities</label>
+                            <textarea name="text_key_responsibilities" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                        
+                        <div class="job-description">
+                            <label for="description">Qualifications</label>
+                            <textarea name="text_qualifications" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                        
+                        <div class="job-description">
+                            <label for="description">Preferred skills</label>
+                            <textarea name="text_preferred_skills" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="model2">
+                        <div class="job-description">
+                            <label for="description">Job Description</label>
+                            <p class="info">Describe your company activities, requirements for the position, responsibilities, qualifications, required skills and benefits for working with you.</p>
+                            <textarea name="text_description" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+                    
+                    <input class="submit-btn" type="submit" value="submit">
+                </form>
+                
+            </div>
+        </main>

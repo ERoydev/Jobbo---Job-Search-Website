@@ -16,25 +16,25 @@ export default function Header() {
         </label>
         <nav className="main-nav">
             <ul>
-            <li className="links">
-                <a href="#">Search for a job</a>
-            </li>
-            <li className="links">
-                <a href="#">Post a job</a>
-            </li>
-            <li className="links extra">
-                <a href="#">Contact us</a>
-            </li>
-            <li className="links extra">
-                <a href="#">About us</a>
-            </li>
-            <li>
-                <Link to='/login' class="auth-btn">Log in</Link>
-            </li>
-            <li>
-                <Link to="/signup" class="auth-btn">Sign Up</Link>
+                <li className="links">
+                    <Link to="/searchJob">Search for a job</Link>
+                </li>
+                <li className="links">
+                    <Link to="/postJob"> Post a job</Link>
+                </li>
+                <li className="links extra">
+                    <a href="#">Contact us</a>
+                </li>
+                <li className="links extra">
+                    <a href="#">About us</a>
+                </li>
+                <li>
+                    <Link to='/login' className="auth-btn">Log in</Link>
+                </li>
+                <li>
+                    <Link to="/signup" className="auth-btn">Sign Up</Link>
 
-            </li>
+                </li>
             </ul>
         </nav>
     </header>
