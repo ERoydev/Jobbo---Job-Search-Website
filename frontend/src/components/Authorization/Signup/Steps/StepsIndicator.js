@@ -1,26 +1,28 @@
 
 // This is the logic for steps moving indicator in signup form
-export const stepsIndicator = () => {
-    const form1 = document.getElementById("form1");
-    const form2 = document.getElementById("form2");
-    const form3 = document.getElementById("form3");
+export const stepsIndicator = (container) => {
+    console.log(container)
+    const form1 = container.getElementById("form1");
+    const form2 = container.getElementById("form2");
+    const form3 = container.getElementById("form3");
     
-    const next1 = document.getElementById('next1');
-    const next2 = document.getElementById('next2');
-    const next3 = document.getElementById('next3');
+    const next1 = container.getElementById('next1');
+    const next2 = container.getElementById('next2');
+    const next3 = container.getElementById('next3');
     
-    const back1 = document.getElementById('back1');
-    const back2 = document.getElementById('back2');
+    const back1 = container.getElementById('back1');
+    const back2 = container.getElementById('back2');
     
-    const progress = document.getElementById('progress');
-    const INITIAL_PROGRESS_VALUE = progress.clientWidth;
-    const box = document.querySelector('.auth-container');
+    const progress = container.getElementById('progress');
+    const INITIAL_PROGRESS_VALUE = container.clientWidth;
+    const box = container.querySelector('.auth-container');
     const BOXWIDTH = box.clientWidth;
 }
 
 export const nextOne = (e) => {
     e.preventDefault();
-    console.log('clicked')
+    stepsIndicator(e.target.parentNode);
+
     if (BOXWIDTH > 450) {
         form2.style.left = "40px";
     } else {
