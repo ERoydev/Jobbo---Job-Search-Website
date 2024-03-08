@@ -25,7 +25,6 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
         return self._create_user(email, password, **extra_fields)
     
-
 class User(AbstractBaseUser):
     EMPLOYEE = 1
     EMPLOYER = 2
@@ -73,7 +72,6 @@ class User(AbstractBaseUser):
             user_role = "Employer"
             return user_role
     
-
 class UserProfile(models.Model):
   user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
   profile_picture = models.ImageField(upload_to='users/profile_pictures', blank=True, null=True)

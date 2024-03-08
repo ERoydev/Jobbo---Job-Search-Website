@@ -1,5 +1,5 @@
 from django.db import models
-
+from accounts.models import User
 
 class JobsListed(models.Model):
     JOB_TYPE_CHOICES = (
@@ -21,6 +21,7 @@ class JobsListed(models.Model):
     job_title = models.CharField(max_length=255)
     company_name = models.CharField(max_length=255)
     job_category = models.CharField(max_length=255)
+    ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     job_type = models.CharField(max_length=30,
                                 choices=JOB_TYPE_CHOICES,
