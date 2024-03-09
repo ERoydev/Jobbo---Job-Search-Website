@@ -5,8 +5,9 @@ import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
 import { useState } from 'react';
+import useForm from "../../../hooks/useForm";
 
-const initialFormValues = {
+const initialValues = {
     category: 'Category',
     jobType: 'Job Type',
     employmentLocation: 'Employment Location',
@@ -23,23 +24,16 @@ const initialFormValues = {
 
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
-    const [formValues, setFormValues] = useState(initialFormValues);
-
+    const { values, onChange } = useForm(initialValues);
+    
     const onClickModelChoose = (model) => {
         // Created To Change between Models Template
         setTempModel(model);
     }
 
-    const onChangeHandler = (e) => {
-        setFormValues(state => ({
-            ...state,
-            [e.target.name]: e.target.value,
-        }))
-    }
-
     const formSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(formValues)
+        console.log(values);
     }
 
     return(
@@ -48,15 +42,14 @@ export default function PostForm() {
 
             <input type="text" placeholder="Job Title" />
 
-            <PostFormTypeInfo formValues={formValues} onChangeHandler={onChangeHandler} />
+            <PostFormTypeInfo formValues={values} onChangeHandler={onChange} />
 
             <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
 
-            {tempModel == 'model1' && <PostFormModel1 formValues={formValues} onChangeHandler={onChangeHandler} />}
-            {tempModel == 'model2' && <PostFormModel2 formValues={formValues} onChangeHandler={onChangeHandler} />}
+            {tempModel == 'model1' && <PostFormModel1 formValues={values} onChangeHandler={onChange} />}
+            {tempModel == 'model2' && <PostFormModel2 formValues={values} onChangeHandler={onChange} />}
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>
-
     );
 }

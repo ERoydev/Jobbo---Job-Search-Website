@@ -2,8 +2,6 @@ export default function PostFormTypeInfo({
     formValues,
     onChangeHandler,
 }) {
-  
-
     return (
         <>
             <div className="search-info">
