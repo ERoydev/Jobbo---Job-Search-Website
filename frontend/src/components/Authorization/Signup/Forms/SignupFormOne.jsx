@@ -6,6 +6,10 @@ export default function SignupFormOne({
     userTypeClickHandler,
 }) {
     const [clicked, setClicked] = useState(false);
+    const [buttonText, setButtonText] = useState({
+        employee: 'Find job',
+        employer: 'Find employees',
+    })
 
     const selectInputHandler = (e) => {
         e.preventDefault();
@@ -27,8 +31,8 @@ export default function SignupFormOne({
     return (
         <form id="form1" ref={(element) => { formRefs.current.form1 = element; }}>
             <h3>What are you going to do ?</h3>
-            <input type="button" className="employee" value="Find job" onClick={selectInputHandler}/>
-            <input type="button" className="employer" value="Find employees" onClick={selectInputHandler}/>
+            <input type="button" className="employee" value={buttonText.employee} onClick={selectInputHandler} readOnly />
+            <input type="button" className="employer" value={buttonText.employer} onClick={selectInputHandler} readOnly />
             <div className="btn-box">
                 <button type="button" disabled={!clicked} id="next1" onClick={(e) => nextOne(e, formRefs)}>
                 Next
