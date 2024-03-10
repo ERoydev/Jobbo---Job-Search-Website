@@ -1,14 +1,35 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import AuthContext from './contexts/AuthContext';
+import * as AuthService from './services/AuthService.js';
+
 import Home from "./components/Home/Home"
 import Routing from "./components/Routing"
-import AuthContext from './contexts/AuthContext';
+
 
 function App() {
+  const navigate = useNavigate();
   const [auth, setAuth] = useState([]);
 
-  const values = {
+  const registerSubmitHandler = async (values) => {
+    const result = AuthService.register(values.email, values.password);
+
+    if (values.password !== values.confirmPassword) {
+      throw new Error('Password do not match')
+    } else {
+      setAuth(result);
+      navigate('/');
+    }
+  }
+
+  const loginSubmitHandler = async (values) => {
 
   }
+
+  const values = {
+    registerSubmitHandler,
+  } 
 
   return (
     <>

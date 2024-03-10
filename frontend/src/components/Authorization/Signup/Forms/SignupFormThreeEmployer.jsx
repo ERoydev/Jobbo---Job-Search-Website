@@ -4,9 +4,10 @@ export default function SignupFormThreeEmployer ({
     formValue,
     formRefs,
     onChangeHandler,
+    formSubmitHandler
 }) {
     return (
-        <form name="employee" id="form3" ref={(element) => { formRefs.current.form3 = element; }}>
+        <form name="employee" id="form3" onSubmit={formSubmitHandler} ref={(element) => { formRefs.current.form3 = element; }}>
             <h3>Personal Information</h3>
             <input type="text" placeholder="Company Name" name="companyName" value={formValue.companyName} onChange={onChangeHandler}/>
             <input type="text" placeholder="Country" name="country" value={formValue.country} onChange={onChangeHandler}/>
@@ -15,7 +16,7 @@ export default function SignupFormThreeEmployer ({
                 <button type="button" id="back2" onClick={(e) => backTwo(e, formRefs)}>
                     Back
                 </button>
-                <button type="submit" id="next3" onSubmit={formSubmitHandler}>
+                <button type="submit" id="next3">
                     Register
                 </button>
             </div>

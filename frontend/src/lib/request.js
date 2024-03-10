@@ -4,7 +4,7 @@ export const buildOptions = (data) => {
     if (data) {
         options.body = JSON.stringify(data);
         options.headers = {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
         };
     }
 
@@ -13,12 +13,10 @@ export const buildOptions = (data) => {
     return options;
 }
 
-
-
-export const request = async (method, url, data) => {
+export const request = async (methodParam, url, data) => {
     const response = await fetch(`${url}`, { 
+        method: `${methodParam}`,
         ...buildOptions(data),
-        method,
     });
 
     if (response.status === 204) {

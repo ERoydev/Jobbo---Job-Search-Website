@@ -5,9 +5,10 @@ import SignupFormThreeEmployer from "./Forms/SignupFormThreeEmployer.jsx";
 import SignupSteps from "./Steps/SignupSteps.jsx";
 
 import BackButton from "../BackButton.jsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import useForm from "../../../hooks/useForm.js";
+import AuthContext from "../../../contexts/AuthContext.js";
 
 const initialFormValues = {
     email: '',
@@ -23,6 +24,7 @@ export default function Signup() {
     const formRefs = useRef({ container: null, form1: null, form2: null, form3: null, progress: null });
     const {values, onChange} = useForm(initialFormValues);
     const [userType, setUserType] = useState('');
+    const { registerSubmitHandler } = useContext(AuthContext).values;
 
     const userTypeClickHandler = (result) => {
         setUserType(result);
@@ -31,7 +33,7 @@ export default function Signup() {
     const formSubmitHandler = (e) => {
         e.preventDefault();
         
-        console.log(values)
+        registerSubmitHandler(values)
     }
 
     return (
