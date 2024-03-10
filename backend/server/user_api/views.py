@@ -31,6 +31,7 @@ class UserLogin(APIView):
         if not email or not password:
             return Response({'error': 'Both email and password are required'}, status=HTTP_400_BAD_REQUEST)
 
+        # CHECK EMAIL, CHECK PASSWORD
         try:
             user = User.objects.get(email=email)
         except User.DoesNotExist:

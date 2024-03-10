@@ -14,12 +14,17 @@ export const register = async (email, password) => {
 }
 
 export const login = async (email, password) => {
-    const data = {
-        email,
-        password
+
+    try {
+        const data = {
+            email,
+            password
+        }
+        
+        const result = await request.post(`${baseUrl}/login/`, data)
+        return result;
+
+    } catch (err) {
+        return
     }
-
-    const result = await request.post(`${baseUrl}/login/`, data)
-
-    return result;
 }

@@ -10,16 +10,16 @@ const initialValues = {
 
 export default function Login() {
     const { loginSubmitHandler } = useContext(AuthContext).values;
-    const { values, onChange } = useForm(initialValues);
+    const { values, onChange, onSubmit } = useForm(loginSubmitHandler, initialValues);
 
     return (
         <div className="authorization">
             <BackButton />
             <div className="login-container">
-                <form onSubmit={loginSubmitHandler}>
+                <form onSubmit={onSubmit}>
                     <h3>Login</h3>
-                    <input type="text" placeholder="Email" name="email" value={values.email} onChange={onChange} />
-                    <input type="text" placeholder="Password" name="password" value={values.password} onChange={onChange} />
+                    <input type="email" placeholder="Email" name="email" value={values.email} onChange={onChange} />
+                    <input type="password" placeholder="Password" name="password" value={values.password} onChange={onChange} />
                     <div className="btn-box">
                         <button type="submit">Log in</button>
                     </div>

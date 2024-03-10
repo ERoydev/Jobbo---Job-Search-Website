@@ -6,32 +6,53 @@ import * as AuthService from './services/AuthService.js';
 
 import Home from "./components/Home/Home"
 import Routing from "./components/Routing"
+import Path from './Paths.js';
 
 
 function App() {
   const navigate = useNavigate();
-  const [auth, setAuth] = useState([]);
+  const [auth, setAuth] = useState(() => {
+    // When refreshed token stays my temporary solution is this
+    sessionStorage.removeItem('accessToken');
+    return {};
+  });
 
+  console.log(auth)
   const registerSubmitHandler = async (values) => {
-    const result = AuthService.register(values.email, values.password);
+    const result = await AuthService.register(values.email, values.password);
 
     if (values.password !== values.confirmPassword) {
       throw new Error('Password do not match')
     } else {
       setAuth(result);
-      navigate('/');
+      sessionStorage.setItem('accessToken', result.token)
+      navigate(Path.Home);
     }
   }
 
   const loginSubmitHandler = async (values) => {
-    const result = AuthService.login(values.email, values.password);
+    const result = await AuthService.login(values.email, values.password);
+    
+    if (!result.token) {
+      throw new Error('Email or password dont exists!')
+    } else {
+      setAuth(result);
+      sessionStorage.setItem('accessToken', result.token)
+      navigate(Path.Home);
+    }
+  }
 
-
+  const logoutHandler = () => {
+    setAuth({});
+    localStorage.removeItem('accessToken');
   }
 
   const values = {
     registerSubmitHandler,
     loginSubmitHandler,
+    logoutHandler,
+    email: auth.email,
+    isAuthenticated: !!auth.token,
   } 
 
   return (

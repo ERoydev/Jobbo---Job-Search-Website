@@ -8,7 +8,14 @@ export const buildOptions = (data) => {
         };
     }
 
-    // const token = localStorage.getItem('accessToken');
+    const token = sessionStorage.getItem('accessToken');
+    // If old headers stays i just add my new token 
+    if (token) {
+        options.headers = {
+            ...options.headers,
+            'X-Authorization': token
+        }
+    }
 
     return options;
 }

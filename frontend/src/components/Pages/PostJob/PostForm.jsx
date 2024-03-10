@@ -24,20 +24,21 @@ const initialValues = {
 
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
-    const { values, onChange } = useForm(initialValues);
+    // TODO ADD ONSUBMIT
+    const formSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log(values);
+    }
+    const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
     
     const onClickModelChoose = (model) => {
         // Created To Change between Models Template
         setTempModel(model);
     }
 
-    const formSubmitHandler = (e) => {
-        e.preventDefault();
-        console.log(values);
-    }
 
     return(
-        <form action="#" onSubmit={formSubmitHandler}>
+        <form action="#" onSubmit={onSubmit}>
             <PostFormCompanyLogo />
 
             <input type="text" placeholder="Job Title" />

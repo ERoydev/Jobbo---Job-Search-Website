@@ -22,18 +22,12 @@ const initialFormValues = {
 
 export default function Signup() {
     const formRefs = useRef({ container: null, form1: null, form2: null, form3: null, progress: null });
-    const {values, onChange} = useForm(initialFormValues);
-    const [userType, setUserType] = useState('');
     const { registerSubmitHandler } = useContext(AuthContext).values;
+    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, initialFormValues);
+    const [userType, setUserType] = useState('');
 
     const userTypeClickHandler = (result) => {
         setUserType(result);
-    }
-
-    const formSubmitHandler = (e) => {
-        e.preventDefault();
-        
-        registerSubmitHandler(values)
     }
 
     return (
@@ -46,8 +40,8 @@ export default function Signup() {
 
                 <SignupFormTwo formRefs={formRefs} formValue={values} onChangeHandler={onChange} />
 
-                {userType === "Employee" && <SignupFormThreeEmployee formSubmitHandler={formSubmitHandler} formValue={values} formRefs={formRefs} onChangeHandler={onChange} />}
-                {userType === "Employer" && <SignupFormThreeEmployer formSubmitHandler={formSubmitHandler} formValue={values} formRefs={formRefs} onChangeHandler={onChange} />}
+                {userType === "Employee" && <SignupFormThreeEmployee formSubmitHandler={onSubmit} formValue={values} formRefs={formRefs} onChangeHandler={onChange} />}
+                {userType === "Employer" && <SignupFormThreeEmployer formSubmitHandler={onSubmit} formValue={values} formRefs={formRefs} onChangeHandler={onChange} />}
 
                 <SignupSteps formRefs={formRefs}/>
 
