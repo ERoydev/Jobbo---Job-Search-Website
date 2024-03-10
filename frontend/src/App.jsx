@@ -17,7 +17,6 @@ function App() {
     return {};
   });
 
-  console.log(auth)
   const registerSubmitHandler = async (values) => {
     const result = await AuthService.register(values.email, values.password);
 
@@ -44,7 +43,7 @@ function App() {
 
   const logoutHandler = () => {
     setAuth({});
-    localStorage.removeItem('accessToken');
+    sessionStorage.removeItem('accessToken');
   }
 
   const values = {

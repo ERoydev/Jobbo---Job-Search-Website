@@ -6,6 +6,8 @@ from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
 from .serializers import UserSerializer  # Replace with your serializer
 from .models import User
+from rest_framework.authentication import TokenAuthentication
+
 
 class UserRegister(APIView):
     permission_classes = [AllowAny]  # Allow anyone to register
@@ -51,10 +53,14 @@ class UserLogin(APIView):
     
 
 class UserLogout(APIView):
-    permission_classes = [IsAuthenticated]  # Only authenticated users can logout
+    permission_classes = [AllowAny]
+    authentication_classes = [TokenAuthentication]  # Add token authentication
 
     def post(self, request):
-        user = request.user  # Access user from request object
-        token = Token.objects.get_or_create(user=user)  # Get token for the user
-        token.delete()
+        user = request.user
+
+        # Delete token for token-based authentication
+        if isinstance(user, Token):  # Check if user is a token
+            user.delete()
+
         return Response(status=HTTP_204_NO_CONTENT)

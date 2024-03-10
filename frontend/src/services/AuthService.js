@@ -28,3 +28,5 @@ export const login = async (email, password) => {
         return
     }
 }
+
+export const logout = async () => request.post(`${baseUrl}/logout/`)

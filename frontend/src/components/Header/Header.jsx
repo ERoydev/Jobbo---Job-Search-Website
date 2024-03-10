@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/AuthContext";
+import Path from '../../Paths.js';
 
 export default function Header() {
     const {isAuthenticated, email} = useContext(AuthContext).values;
@@ -22,10 +23,10 @@ export default function Header() {
         <nav className="main-nav">
             <ul>
                 <li className="links">
-                    <Link to="/searchJob">Search for a job</Link>
+                    <Link to={Path.SearchJob}>Search for a job</Link>
                 </li>
                 <li className="links">
-                    <Link to="/postJob">Post a job</Link>
+                    <Link to={Path.PostJob}>Post a job</Link>
                 </li>
                 <li className="links extra">
                     <a href="#">Contact us</a>
@@ -36,17 +37,17 @@ export default function Header() {
 
                 {isAuthenticated && (
                     <li>
-                        <Link to='/logout' className="auth-btn">Logout</Link>
+                        <Link to={Path.Logout} className="auth-btn">Logout</Link>
                     </li>
                 )}
 
                 {!isAuthenticated && (
                     <>
                         <li>
-                            <Link to='/login' className="auth-btn">Log in</Link>
+                            <Link to={Path.Login} className="auth-btn">Log in</Link>
                         </li>
                         <li>
-                            <Link to="/signup" className="auth-btn">Sign Up</Link>
+                            <Link to={Path.SignUp} className="auth-btn">Sign Up</Link>
 
                         </li>
                     </>
