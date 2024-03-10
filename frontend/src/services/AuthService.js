@@ -8,16 +8,18 @@ export const register = async (email, password) => {
         password
     }
 
-    const response = await fetch(`${baseUrl}/register/`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    })
-    // const result = await request.post(`${baseUrl}/register`, data)
+    const result = await request.post(`${baseUrl}/register/`, data)
 
-    const result = await response.json()
+    return result;
+}
+
+export const login = async (email, password) => {
+    const data = {
+        email,
+        password
+    }
+
+    const result = await request.post(`${baseUrl}/login/`, data)
 
     return result;
 }

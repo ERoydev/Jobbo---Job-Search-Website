@@ -24,11 +24,14 @@ function App() {
   }
 
   const loginSubmitHandler = async (values) => {
+    const result = AuthService.login(values.email, values.password);
+
 
   }
 
   const values = {
     registerSubmitHandler,
+    loginSubmitHandler,
   } 
 
   return (
