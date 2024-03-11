@@ -1,0 +1,141 @@
+.userprofile {
+    display: flex;
+    background-color: #fff;
+}
+
+aside {
+    float: left;
+    border-right: 1px solid #cacaca57;
+    width: 15%;
+    padding: 2em 0;
+}
+
+.userprofile section {
+    width: 100%;
+}
+
+.userprofile .information {
+    background-color: rgba(72, 176, 236, 0.068);
+    width: 100%;
+}
+
+.userprofile .information .container {
+    padding: 1em;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+
+.userprofile .information img{
+    width: 100px;
+    height: auto;
+    aspect-ratio: 1/1;
+}
+
+.userprofile .information .media {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 0.2em 0 rgba(0, 0, 0, 0.3);
+}
+
+.userprofile .card-info {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.userprofile .form-field {
+    padding: 2em 0.5em;
+}
+
+.userprofile .form-field form div {
+    display: flex;
+    gap: 2em;
+}
+
+.userprofile .form-field form input { 
+    flex-grow: 1;   
+    background-color: #fff;
+    border: 1px solid #cacaca9c;
+}
+
+.userprofile .information .card .view-profile a {
+    padding: 0;
+    border: 0;
+    font-size: 0.85em;
+    color: rgba(73, 73, 73, 0.582);
+}
+
+.userprofile .information .card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5em;
+    align-items: center;
+}
+
+.userprofile .user-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    padding-bottom: 1.5em;
+}
+
+.userprofile p {
+    padding: 0;
+}
+
+.userprofile .card .title {
+    color: #f36;
+    font-weight: 600;
+    padding-bottom: 0.5em;
+}
+
+.userprofile .card .info {
+    color: #8f8e8e;
+    font-size: 0.85em;
+}
+
+.userprofile section header {
+    border-bottom: 1px solid #cacaca57;
+    padding: 1em 2em;
+}
+
+
+.profile-settings ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-settings ul {
+    padding: 0;
+}
+
+.profile-settings li {
+    list-style: none;
+    padding: 0.5em 1em;
+}
+
+
+.profile-settings li:hover {
+    background-color: rgba(65, 177, 211, 0.329);
+    width: 100%;
+}
+
+.profile-settings li svg {
+    width: 25px;
+}
+
+.profile-settings a {
+    color: black;
+}
+
+.userprofile section .card {
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #cacaca57;
+
+}
+

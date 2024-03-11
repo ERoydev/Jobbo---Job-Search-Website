@@ -60,6 +60,19 @@ a:hover {
     transition: color 0.3s ease-in;
 }
 
+.delete-btn {
+    background-color: #f36;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    border-color: #f36;
+}
+
+.delete-btn:focus,
+.delete-btn:hover {
+    color: #fff;
+    background-color: rgb(238, 13, 69);
+}
+
 .myaccount-btn {
     margin-right: 1em;
 }
