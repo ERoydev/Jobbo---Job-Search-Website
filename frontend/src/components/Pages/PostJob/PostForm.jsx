@@ -1,11 +1,12 @@
+import { useState } from 'react';
+import useForm from "../../../hooks/useForm";
+
 import PostFormModel1 from "./PostFormModels/PostFormModel1";
 import PostFormModel2 from "./PostFormModels/PostFormModel2";
 import PostFormModelChoose from "./PostFormModels/PostFormModelChoose";
 import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
-import { useState } from 'react';
-import useForm from "../../../hooks/useForm";
 
 const initialValues = {
     category: 'Category',

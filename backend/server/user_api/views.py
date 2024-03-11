@@ -17,9 +17,10 @@ class UserRegister(APIView):
 
         if serializer.is_valid():
             user = serializer.save()
+            userId = user.get_id()
 
             token = Token.objects.create(user=user)  # Create auth token
-            return Response({'token': token.key}, status=HTTP_201_CREATED)
+            return Response({'token': token.key, 'email': str(user), '_id': userId}, status=HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
@@ -30,12 +31,14 @@ class UserLogin(APIView):
         email = request.data.get('email')
         password = request.data.get('password')
 
+
         if not email or not password:
             return Response({'error': 'Both email and password are required'}, status=HTTP_400_BAD_REQUEST)
 
         # CHECK EMAIL, CHECK PASSWORD
         try:
             user = User.objects.get(email=email)
+            userId = user.get_id()
         except User.DoesNotExist:
             return Response({'error': 'Invalid credentials'}, status=HTTP_401_UNAUTHORIZED)
 
@@ -49,7 +52,7 @@ class UserLogin(APIView):
             pass # No existing token
 
         token = Token.objects.create(user=user)
-        return Response({'token': token.key})
+        return Response({'token': token.key, 'email': email, '_id': userId})
 
 class UserLogout(APIView):
     permission_classes = [AllowAny]

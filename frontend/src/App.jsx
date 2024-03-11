@@ -18,7 +18,7 @@ function App() {
   });
 
   const registerSubmitHandler = async (values) => {
-    const result = await AuthService.register(values.email, values.password);
+    const result = await AuthService.register(values);
 
     if (values.password !== values.confirmPassword) {
       throw new Error('Password do not match')
@@ -53,6 +53,8 @@ function App() {
     email: auth.email,
     isAuthenticated: !!auth.token,
   } 
+
+  console.log(auth)
 
   return (
     <>

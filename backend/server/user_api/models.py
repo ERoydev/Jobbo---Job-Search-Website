@@ -54,6 +54,9 @@ class User(AbstractBaseUser):
     def __str__(self):
         return self.email
     
+    def get_id(self):
+        return self.pk
+    
     def get_role(self):
         if self.role == 1:
             user_role = "Employee"
