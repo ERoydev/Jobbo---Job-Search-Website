@@ -5,6 +5,7 @@ const Path = {
     SignUp: '/signup',
     Login: '/login',
     Logout: '/logout',
+    UserProfile: '/profile'
 }
 
 

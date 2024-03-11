@@ -50,7 +50,6 @@ class UserLogin(APIView):
 
         token = Token.objects.create(user=user)
         return Response({'token': token.key})
-    
 
 class UserLogout(APIView):
     permission_classes = [AllowAny]
