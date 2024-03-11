@@ -1,5 +1,12 @@
+import Footer from "../../Footer/Footer";
+import Header from "../../Header/Header";
+
 export default function UserProfile() {
     return (
-        <h1>Hello</h1>
+        <>
+            <Header />
+            <h1>Hello</h1>
+            <Footer />
+        </>
     );
 }

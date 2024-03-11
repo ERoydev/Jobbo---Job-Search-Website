@@ -25,8 +25,7 @@ const initialValues = {
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
     // TODO ADD ONSUBMIT
-    const formSubmitHandler = (e) => {
-        e.preventDefault();
+    const formSubmitHandler = () => {;
         console.log(values);
     }
     const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
