@@ -4,8 +4,8 @@ import AuthContext from "../../contexts/AuthContext";
 import Path from '../../Paths.js';
 
 export default function Header() {
-    const {isAuthenticated, email} = useContext(AuthContext).values;
     const navigate = useNavigate();
+    const {isAuthenticated} = useContext(AuthContext);
 
 
     return (

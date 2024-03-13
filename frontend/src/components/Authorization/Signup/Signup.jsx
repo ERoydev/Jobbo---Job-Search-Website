@@ -8,7 +8,7 @@ import BackButton from "../BackButton.jsx";
 import { useContext, useEffect, useState } from "react";
 import { useRef } from "react";
 import useForm from "../../../hooks/useForm.js";
-import AuthContext from "../../../contexts/AuthContext.js";
+import AuthContext from "../../../contexts/AuthContext";
 
 const initialFormValues = {
     email: '',
@@ -22,7 +22,7 @@ const initialFormValues = {
 
 export default function Signup() {
     const formRefs = useRef({ container: null, form1: null, form2: null, form3: null, progress: null });
-    const { registerSubmitHandler } = useContext(AuthContext).values;
+    const { registerSubmitHandler } = useContext(AuthContext);
     const {values, onChange, onSubmit} = useForm(registerSubmitHandler, initialFormValues);
     const [userType, setUserType] = useState('');
 

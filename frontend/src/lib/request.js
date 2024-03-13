@@ -8,7 +8,7 @@ export const buildOptions = (data) => {
         };
     }
 
-    const token = sessionStorage.getItem('accessToken');
+    const token = localStorage.getItem('accessToken');
     // If old headers stays i just add my new token 
     if (token) {
         options.headers = {
