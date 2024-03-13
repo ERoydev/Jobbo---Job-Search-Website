@@ -12,7 +12,7 @@ export const AuthProvider = ({
     children,
 }) => {
     const navigate = useNavigate()
-    const [auth, setAuth] = usePersistedState('accessToken', {});
+    const [auth, setAuth] = usePersistedState('auth', {});
 
     const registerSubmitHandler = async (values) => {
         const result = await AuthService.register(values);
@@ -49,7 +49,10 @@ export const AuthProvider = ({
         logoutHandler,
         email: auth.email,
         isAuthenticated: !!auth.accessToken,
+        userId: auth._id,
     } 
+
+    console.log(auth)
 
     return (
         <AuthContext.Provider value={values} >
