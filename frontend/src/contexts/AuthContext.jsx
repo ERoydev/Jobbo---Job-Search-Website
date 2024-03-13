@@ -21,7 +21,7 @@ export const AuthProvider = ({
             throw new Error('Password do not match')
         } else {
             setAuth(result);
-            localStorage.setItem('accessToken', result.token)
+            localStorage.setItem('accessToken', result.accessToken)
             navigate(Path.Home);
         }
     }
@@ -29,11 +29,11 @@ export const AuthProvider = ({
     const loginSubmitHandler = async (values) => {
         const result = await AuthService.login(values.email, values.password);
         
-        if (!result.token) {
+        if (!result.accessToken) {
             throw new Error('Email or password dont exists!')
         } else {
             setAuth(result);
-            localStorage.setItem('accessToken', result.token)
+            localStorage.setItem('accessToken', result.accessToken)
             navigate(Path.Home);
         }
     }
@@ -48,7 +48,7 @@ export const AuthProvider = ({
         loginSubmitHandler,
         logoutHandler,
         email: auth.email,
-        isAuthenticated: !!auth.token,
+        isAuthenticated: !!auth.accessToken,
     } 
 
     return (

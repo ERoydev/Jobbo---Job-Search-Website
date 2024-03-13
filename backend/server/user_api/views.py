@@ -20,7 +20,7 @@ class UserRegister(APIView):
             userId = user.get_id()
 
             token = Token.objects.create(user=user)  # Create auth token
-            return Response({'token': token.key, 'email': str(user), '_id': userId}, status=HTTP_201_CREATED)
+            return Response({'accessToken': token.key, 'email': str(user), '_id': userId}, status=HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
@@ -52,7 +52,8 @@ class UserLogin(APIView):
             pass # No existing token
 
         token = Token.objects.create(user=user)
-        return Response({'token': token.key, 'email': email, '_id': userId})
+        # It was token
+        return Response({'accessToken': token.key, 'email': email, '_id': userId})
 
 class UserLogout(APIView):
     permission_classes = [AllowAny]

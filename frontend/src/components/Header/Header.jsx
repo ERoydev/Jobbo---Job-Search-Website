@@ -7,7 +7,6 @@ export default function Header() {
     const navigate = useNavigate();
     const {isAuthenticated} = useContext(AuthContext);
 
-
     return (
         <header className="site-header">
             <div className="site-title">

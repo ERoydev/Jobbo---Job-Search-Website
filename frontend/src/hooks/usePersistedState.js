@@ -4,9 +4,9 @@ import { json } from "react-router-dom";
 export default function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(() => {
         const persistedState = localStorage.getItem(key);
-        
+
         if (persistedState) {
-            return JSON.parse(persistedState)
+            return {'accessToken': persistedState}
         }
         
         return defaultValue
