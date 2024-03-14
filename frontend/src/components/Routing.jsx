@@ -13,6 +13,7 @@ import UserProfile from './Pages/UserProfile/UserProfile.jsx';
 import Notifications from './Pages/UserProfile/Pages/Notifications.jsx';
 import AccountSettings from './Pages/UserProfile/Pages/AccountSettings.jsx';
 import Applicants from './Pages/UserProfile/EmployerProfile/Applicants.jsx';
+import JobsPosted from './Pages/UserProfile/EmployerProfile/JobsPosted.jsx';
 
 
 export default function Routing() {
@@ -28,6 +29,7 @@ export default function Routing() {
                 <Route path={Path.UserNotifications} element={<Notifications />} />
                 <Route path={Path.UserSettings} element={<AccountSettings />} />
                 <Route path={Path.EmployerApplicants} element={<Applicants />} />
+                <Route path={Path.EmployerJobsPosted} element={<JobsPosted />} />
             </Route>
         </Routes>
     );
