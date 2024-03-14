@@ -10,6 +10,9 @@ import PostJob from './Pages/PostJob/PostJob.jsx';
 import Logout from './Authorization/Logout/Logout.jsx';
 import UserProfile from './Pages/UserProfile/UserProfile.jsx';
 
+import Notifications from './Pages/UserProfile/Pages/Notifications.jsx';
+import AccountSettings from './Pages/UserProfile/Pages/AccountSettings.jsx'; '.'
+
 
 export default function Routing() {
     return (
@@ -20,8 +23,10 @@ export default function Routing() {
             <Route path={Path.SearchJob} element={<SearchJob />} />
             <Route path={Path.PostJob} element={<PostJob /> } />
             <Route path={Path.Logout} element={<Logout />} />
-            <Route path={Path.UserProfile} element={<UserProfile />} />
-            <Route path={Path.UserProfileNotification} element={<Notification />} />
+            <Route path={Path.UserProfile} element={<UserProfile />}>
+                <Route path={Path.UserNotifications} element={<Notifications />} />
+                <Route path={Path.UserSettings} element={<AccountSettings />} />
+            </Route>
         </Routes>
     );
 }

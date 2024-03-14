@@ -6,7 +6,8 @@ const Path = {
     Login: '/login',
     Logout: '/logout',
     UserProfile: '/profile',
-    UserProfileNotification: '',
+    UserSettings: '/profile/settings',
+    UserNotifications: '/profile/notifications'
 }
 
 
