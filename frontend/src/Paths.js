@@ -7,7 +7,8 @@ const Path = {
     Logout: '/logout',
     UserProfile: '/profile',
     UserSettings: '/profile/settings',
-    UserNotifications: '/profile/notifications'
+    UserNotifications: '/profile/notifications',
+    EmployerApplicants: '/profile/applicants',
 }
 
 

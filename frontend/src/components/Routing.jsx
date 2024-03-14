@@ -11,7 +11,8 @@ import Logout from './Authorization/Logout/Logout.jsx';
 import UserProfile from './Pages/UserProfile/UserProfile.jsx';
 
 import Notifications from './Pages/UserProfile/Pages/Notifications.jsx';
-import AccountSettings from './Pages/UserProfile/Pages/AccountSettings.jsx'; '.'
+import AccountSettings from './Pages/UserProfile/Pages/AccountSettings.jsx';
+import Applicants from './Pages/UserProfile/EmployerProfile/Applicants.jsx';
 
 
 export default function Routing() {
@@ -26,6 +27,7 @@ export default function Routing() {
             <Route path={Path.UserProfile} element={<UserProfile />}>
                 <Route path={Path.UserNotifications} element={<Notifications />} />
                 <Route path={Path.UserSettings} element={<AccountSettings />} />
+                <Route path={Path.EmployerApplicants} element={<Applicants />} />
             </Route>
         </Routes>
     );
