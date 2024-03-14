@@ -4,6 +4,7 @@ import { nextOne } from "../Steps/StepsIndicator";
 export default function SignupFormOne({
     formRefs,
     userTypeClickHandler,
+    onClickChange,
 }) {
     const [clicked, setClicked] = useState(false);
     const [buttonText, setButtonText] = useState({
@@ -13,6 +14,7 @@ export default function SignupFormOne({
 
     const selectInputHandler = (e) => {
         e.preventDefault();
+        onClickChange(e);
         if (e.target.value === "Find job") { 
             e.target.classList.add('form-input-clicked')
             e.target.parentNode.querySelector('.employer').classList.remove('form-input-clicked');

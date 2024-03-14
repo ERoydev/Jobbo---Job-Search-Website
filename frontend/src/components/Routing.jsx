@@ -21,6 +21,7 @@ export default function Routing() {
             <Route path={Path.PostJob} element={<PostJob /> } />
             <Route path={Path.Logout} element={<Logout />} />
             <Route path={Path.UserProfile} element={<UserProfile />} />
+            <Route path={Path.UserProfileNotification} element={<Notification />} />
         </Routes>
     );
 }

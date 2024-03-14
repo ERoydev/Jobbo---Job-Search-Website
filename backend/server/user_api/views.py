@@ -20,7 +20,7 @@ class UserRegister(APIView):
             userId = user.get_id()
 
             token = Token.objects.create(user=user)  # Create auth token
-            return Response({'accessToken': token.key, 'email': str(user), '_id': userId}, status=HTTP_201_CREATED)
+            return Response({'accessToken': token.key, 'email': str(user), '_id': userId, 'role': user.role}, status=HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
 
@@ -53,7 +53,7 @@ class UserLogin(APIView):
 
         token = Token.objects.create(user=user)
         # It was token
-        return Response({'accessToken': token.key, 'email': email, '_id': userId})
+        return Response({'accessToken': token.key, 'email': email, '_id': userId, 'role': user.role})
 
 class UserLogout(APIView):
     permission_classes = [AllowAny]

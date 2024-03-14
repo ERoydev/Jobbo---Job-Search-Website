@@ -20,15 +20,4 @@
     left: 1em;
     top: 1em;
     fill: #fff;
-    cursor: pointer;
-}
-
-.back-btn:focus,
-.back-btn:hover {
-    fill: var(--clr-btn-bgrd);
-    transition: all 0.3s ease-in;
-}
-
-.back-btn:active {
-    fill: #684511;
 }

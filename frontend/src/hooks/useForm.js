@@ -13,11 +13,21 @@ export default function useForm(submitHandler, initialValues) {
     const onSubmit = (e) => {
         e.preventDefault();
         submitHandler(values);
-    }   
+    }
+    
+    const onClickChange = (e) => {
+        e.preventDefault();
+        const typeOfUser = e.target.classList[0];
+        setValues(state => ({
+            ...state,
+            role: typeOfUser
+        }))
+    }
 
     return {
         values,
         onChange,
-        onSubmit
+        onSubmit,
+        onClickChange,
     }
 }

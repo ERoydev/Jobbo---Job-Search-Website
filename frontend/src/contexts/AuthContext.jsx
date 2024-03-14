@@ -43,6 +43,7 @@ export const AuthProvider = ({
         localStorage.removeItem('accessToken');
     }
 
+
     const values = {
         registerSubmitHandler,
         loginSubmitHandler,
@@ -50,9 +51,8 @@ export const AuthProvider = ({
         email: auth.email,
         isAuthenticated: !!auth.accessToken,
         userId: auth._id,
+        role: auth.role,
     } 
-
-    console.log(auth)
 
     return (
         <AuthContext.Provider value={values} >

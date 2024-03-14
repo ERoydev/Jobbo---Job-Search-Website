@@ -9,7 +9,7 @@ export default function SignupFormThreeEmployer ({
     return (
         <form name="employee" id="form3" onSubmit={formSubmitHandler} ref={(element) => { formRefs.current.form3 = element; }}>
             <h3>Personal Information</h3>
-            <input type="text" placeholder="Company Name" name="companyName" value={formValue.companyName} onChange={onChangeHandler}/>
+            <input type="text" placeholder="Company Name" name="universal_name" value={formValue.universal_name} onChange={onChangeHandler}/>
             <input type="text" placeholder="Country" name="country" value={formValue.country} onChange={onChangeHandler}/>
             <input type="text" placeholder="City" name="city" value={formValue.city} onChange={onChangeHandler}/>
             <div className="btn-box">

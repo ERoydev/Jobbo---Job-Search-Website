@@ -60,6 +60,13 @@ a:hover {
     transition: color 0.3s ease-in;
 }
 
+.userprofile-btn {
+    color: black;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    border: 1px solid #a3a3a38c;
+}
+
 .delete-btn {
     background-color: #f36;
     padding: 0.5em 1em;
@@ -73,6 +80,8 @@ a:hover {
     background-color: rgb(238, 13, 69);
 }
 
-.myaccount-btn {
-    margin-right: 1em;
+.userprofile .remove-fav-btn:focus,
+.userprofile .remove-fav-btn:hover{
+    fill: rgb(98, 14, 233);
+    cursor: pointer;
 }

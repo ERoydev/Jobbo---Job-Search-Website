@@ -21,3 +21,5 @@
 @import url(pages/login.css);
 @import url(site/responsive.css);
 @import url(pages/userprofile.css);
+@import url(pages/userProfile/userprofileSettings.css);
+@import url(pages/userProfile/userprofileParagraphs.css);

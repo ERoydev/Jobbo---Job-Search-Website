@@ -24,17 +24,13 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class User(AbstractBaseUser):
-    EMPLOYEE = 1
-    EMPLOYER = 2
-
-    ROLE_CHOICE = (
-        (EMPLOYEE, "Employee"),
-        (EMPLOYER, "Employer"),
-    )
 
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=12, blank=True)
-    role = models.PositiveSmallIntegerField(choices=ROLE_CHOICE, blank=True, null=True)
+    role = models.CharField(max_length=20, null=True, blank=True)
+    country = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length= 100, blank=True)
+    universal_name = models.CharField(max_length=100, blank=True)
 
     data_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
@@ -56,12 +52,3 @@ class User(AbstractBaseUser):
     
     def get_id(self):
         return self.pk
-    
-    def get_role(self):
-        if self.role == 1:
-            user_role = "Employee"
-
-        elif self.role == 2:
-            user_role = "Employer"
-
-        return user_role

@@ -5,7 +5,11 @@ const baseUrl = 'http://127.0.0.1:8000/users';
 export const register = async (values) => {
     const data = {
         email: values.email,
-        password: values.password
+        password: values.password,
+        country: values.country,
+        city: values.city,
+        role: values.role,
+        universal_name: values.universal_name,
     }
 
     const result = await request.post(`${baseUrl}/register/`, data)

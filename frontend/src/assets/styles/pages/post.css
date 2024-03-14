@@ -66,6 +66,12 @@
     padding: 0.5em 1em;
 }
 
+.model1,
+.model2 {
+    display: none
+}
+
+
 .post .btn-container {
     background-color: #ececec;
     border-radius: 0.5em;
@@ -112,13 +118,4 @@
     .company-logo {
         flex-direction: column;
     }
-}
-
-.choose-model .btn-container button {
-    cursor: pointer;
-}
-
-.site .post .clicked {
-    opacity: 0.4;
-    pointer-events: none;
 }

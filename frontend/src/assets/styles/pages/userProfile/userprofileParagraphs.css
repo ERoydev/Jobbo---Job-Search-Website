@@ -1,0 +1,14 @@
+
+.userprofile .fullAddress {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.userprofile .jobTitle {
+    justify-self: end;
+}
+
+.userprofile .appliedDate {
+    font-size: 0.8em;
+    color: gray;
+}

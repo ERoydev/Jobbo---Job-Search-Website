@@ -6,7 +6,7 @@
 aside {
     float: left;
     border-right: 1px solid #cacaca57;
-    width: 15%;
+    width: 18%;
     padding: 2em 0;
 }
 
@@ -14,9 +14,15 @@ aside {
     width: 100%;
 }
 
+.userprofile section header h1 {
+    padding-bottom: 0.4em;
+    font-size: 2.5em;
+}
+
 .userprofile .information {
     background-color: rgba(72, 176, 236, 0.068);
     width: 100%;
+    min-height: 100vh;
 }
 
 .userprofile .information .container {
@@ -45,6 +51,7 @@ aside {
     display: flex;
     align-items: center;
     gap: 1em;
+    padding: 0.5em;
 }
 
 .userprofile .form-field {
@@ -76,6 +83,11 @@ aside {
     align-items: center;
 }
 
+.userprofile .information .deactivate {
+    margin-bottom: 2em;
+}
+
+
 .userprofile .user-buttons {
     display: flex;
     justify-content: flex-end;
@@ -103,10 +115,22 @@ aside {
     padding: 1em 2em;
 }
 
-
 .profile-settings ul {
     display: flex;
     flex-direction: column;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.logout-btn {
+    position: absolute;
+    color: black;
+    bottom: 0; left: 0;
 }
 
 .profile-settings ul {
@@ -118,14 +142,36 @@ aside {
     padding: 0.5em 1em;
 }
 
-
+.profile-settings li:focus,
 .profile-settings li:hover {
-    background-color: rgba(65, 177, 211, 0.329);
+    background-color: rgba(127, 202, 224, 0.13);
     width: 100%;
+    cursor: pointer;
+    fill: rgb(99, 65, 192);
+
+    a {
+        color: rgb(99, 65, 192);
+        transition: all 0.3s ease-in;
+    }
+    transition: all 0.3s ease-in;
+}
+
+.profile-settings ul {
+    padding: 1.5em 0;
+}
+
+.profile-settings ul:first-child {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.116);
 }
 
 .profile-settings li svg {
-    width: 25px;
+    width: 19px;
+}
+
+.profile-settings li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
 }
 
 .profile-settings a {
@@ -136,6 +182,65 @@ aside {
     background-color: #fff;
     border-radius: 15px;
     border: 1px solid #cacaca57;
-
 }
 
+.profile-settings a {
+    font-size: 0.98em;
+}
+
+
+.userprofile .jobTitle {
+    justify-self: end;
+}
+
+.userprofile .postedDate,
+.userprofile .appliedNumber,
+.userprofile .city,
+.userprofile .phoneNumber {
+    font-size: 0.8em;
+    color: gray;
+}
+
+
+.userprofile .message-box {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 10px;
+    border: 1px solid rgba(128, 128, 128, 0.24);
+}
+
+.userprofile .message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.userprofile .message-container .msg {
+    max-width: 90%;
+}
+
+.userprofile .close-msg {
+    padding: 1em;
+}
+/* .userprofile .message-box */
+
+.userprofile .message-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userprofile .message-box svg {
+    width: 1em;
+}
+
+.userprofile .card {
+    position: relative;
+}
+
+.userprofile .remove-fav-btn {
+    position: absolute;
+    right: 0.5em; top: 0.5em;
+    width: 1.5em;
+    fill: rgb(92, 92, 92);
+}

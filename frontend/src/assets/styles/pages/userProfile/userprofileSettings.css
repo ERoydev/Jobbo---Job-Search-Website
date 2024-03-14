@@ -1,0 +1,68 @@
+/* @media (min-width: ) and (max-width: 1344px) {
+
+} */
+
+
+@media (max-width: 1000px) {
+    aside {
+        display: none;
+    }
+}
+
+@media (max-width: 1344px) {
+    .userprofile .form-field form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .userprofile .form-field form div {
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 1500px) {
+    .userprofile .information .container {
+        max-width: 90%;
+    }
+
+    .profile-settings a {
+        font-size: 0.8em;
+
+    }
+}
+
+@media (max-width: 700px) {
+    .userprofile .information .media {
+        width: 50px;
+        height: 50px;
+    }
+
+    .userprofile .information img {
+        width: 50px;
+    }
+
+    .userprofile .information {
+        min-height: 0;
+    }
+
+    .userprofile .applicants {
+        min-height: 80vh;
+    }
+}
+    
+
+
+@media (max-width: 445px) {
+    a, p {
+        font-size: 0.7em;
+    }
+
+    .userprofile .card .info,
+    .userprofile .card .title {
+        font-size: 0.5em;
+    }
+
+    
+}

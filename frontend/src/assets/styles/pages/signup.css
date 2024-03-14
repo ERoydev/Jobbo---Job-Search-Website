@@ -67,6 +67,10 @@
     cursor: pointer;
 }
 
+#form1 input:active {
+    background: linear-gradient(to right, #ff105f, #ffad06);
+}
+
 .form-input-clicked {
     background: linear-gradient(to right, #ff105f, #ffad06);
 }
@@ -114,6 +118,7 @@
     border-left: 20px solid #ffad06;
 }
 
+
 @media (max-width: 525px) {
     .auth-container {
         width: 90%;
@@ -143,8 +148,4 @@
        margin-bottom: 1em;
     }
 
-}
-
-.auth-container button:disabled {
-    opacity: 0.5;
 }

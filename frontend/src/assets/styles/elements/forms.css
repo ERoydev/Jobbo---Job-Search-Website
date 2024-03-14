@@ -31,3 +31,9 @@ form select {
     font-weight: 300;
     color: #444444;
 }
+
+.close-msg:focus,
+.close-msg:hover {
+    fill: rgb(17, 100, 168);
+    cursor: pointer;
+}

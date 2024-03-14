@@ -14,16 +14,16 @@ const initialFormValues = {
     email: '',
     password: '',
     confirmPassword: '',
-    fullName: '',
     country: '',
     city: '',
-    companyName: '',
+    role: '',
+    universal_name: '',
 }
 
 export default function Signup() {
     const formRefs = useRef({ container: null, form1: null, form2: null, form3: null, progress: null });
     const { registerSubmitHandler } = useContext(AuthContext);
-    const {values, onChange, onSubmit} = useForm(registerSubmitHandler, initialFormValues);
+    const {values, onChange, onSubmit, onClickChange} = useForm(registerSubmitHandler, initialFormValues);
     const [userType, setUserType] = useState('');
 
     const userTypeClickHandler = (result) => {
@@ -36,7 +36,7 @@ export default function Signup() {
 
             <div className="auth-container" ref={(element) => {formRefs.current.container = element; }}>
 
-                <SignupFormOne formRefs={formRefs} userTypeClickHandler={userTypeClickHandler} />
+                <SignupFormOne formRefs={formRefs} userTypeClickHandler={userTypeClickHandler} onClickChange={onClickChange} />
 
                 <SignupFormTwo formRefs={formRefs} formValue={values} onChangeHandler={onChange} />
 
