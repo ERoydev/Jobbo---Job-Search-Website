@@ -1,27 +1,38 @@
-import { useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
+
 import useForm from "../../../../hooks/useForm"
+import * as UserService from '../../../../services/UserService.js'
+import AuthContext from '../../../../contexts/AuthContext.jsx'
+
 
 const initialValues = {
-  firstName: '',
-  lastName: '',
   email: '',
-  phoneNumber: '',
-  address: '',
+  role: '',
   country: '',
   city: '',
-
+  phone_number: '',
+  universal_name: '',
+  street: ''
 }
 
-
 export default function AccountSettings() {
-  const submitHandler = () => {
-
-  }
-  const { values, onChange, onSubmit } = useForm(submitHandler, initialValues)
+  const [userInformation, setUserInformation] = useState(initialValues);
+  const { userId } = useContext(AuthContext)
 
   useEffect(() => {
-    
-  }, [])
+    UserService.getUser(userId)
+      .then(result => {
+        setUserInformation(result)
+      })
+    }, [])
+
+  
+  const onChange = (e) => {
+    setUserInformation(state => ({
+      ...state,
+      [e.target.name]: e.target.value
+    }))
+  }
 
   return (
 
@@ -53,23 +64,22 @@ export default function AccountSettings() {
           <div className="form-field">
             <form action="#">
               <div>
-                <input type="text" name="firstName" placeholder="First name" value={values.firstName} onChange={onChange}/>
-                <input type="text" name="lastName" placeholder="Last name" value={values.lastName} onChange={onChange}/>
+                <input type="text" name="universal_name" placeholder="Company name" value={userInformation.universal_name} onChange={onChange}/>
               </div>
               <div>
-                <input type="email" name="email" placeholder="Email" value={values.email} onChange={onChange} />
+                <input type="email" name="email" placeholder="Email" value={userInformation.email} onChange={onChange} />
                 <input
                   type="text"
-                  name="phoneNumber"
+                  name="phone_number"
                   placeholder="Phone number"
-                  value={values.phoneNumber}
+                  value={userInformation.phoneNumber}
                   onChange={onChange}
                 />
               </div>
-              <input type="text" name="address" placeholder="Address" value={values.address} onChange={onChange} />
+              <input type="text" name="street" placeholder="Street" value={userInformation.street} onChange={onChange} />
               <div>
-                <input type="text" name="country" placeholder="Country" value={values.country} onChange={onChange} />
-                <input type="text" name="city" placeholder="City" value={values.city} onChange={onChange} />
+                <input type="text" name="country" placeholder="Country" value={userInformation.country} onChange={onChange} />
+                <input type="text" name="city" placeholder="City" value={userInformation.city} onChange={onChange} />
               </div>
             </form>
           </div>

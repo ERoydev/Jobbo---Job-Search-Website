@@ -1,6 +1,10 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.db import models
 
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+
 # Create your models here.
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -24,18 +28,20 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 class User(AbstractBaseUser):
-
     email = models.EmailField(unique=True)
-    phone_number = models.CharField(max_length=12, blank=True)
     role = models.CharField(max_length=20, null=True, blank=True)
-    country = models.CharField(max_length=100, blank=True)
-    city = models.CharField(max_length= 100, blank=True)
+
+    phone_number = models.CharField(max_length=15, blank=True)
     universal_name = models.CharField(max_length=100, blank=True)
+    country = models.CharField(max_length=100, blank=True)
+    city = models.CharField(max_length= 100, blank=True)    
+    street = models.CharField(max_length=100, blank=True)
 
     data_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+
 
     is_admin = (models.BooleanField(default=False))
     is_active = models.BooleanField(default=True)

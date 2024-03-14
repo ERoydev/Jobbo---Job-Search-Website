@@ -15,15 +15,16 @@ export const AuthProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const registerSubmitHandler = async (values) => {
-        const result = await AuthService.register(values);
+        
+        // const result = await AuthService.register(values);
 
-        if (values.password !== values.confirmPassword) {
-            throw new Error('Password do not match')
-        } else {
-            setAuth(result);
-            localStorage.setItem('accessToken', result.accessToken)
-            navigate(Path.Home);
-        }
+        // if (values.password !== values.confirmPassword) {
+        //     throw new Error('Password do not match')
+        // } else {
+        //     setAuth(result);
+        //     localStorage.setItem('accessToken', result.accessToken)
+        //     navigate(Path.Home);
+        // }
     }
 
     const loginSubmitHandler = async (values) => {
@@ -43,7 +44,6 @@ export const AuthProvider = ({
         localStorage.removeItem('accessToken');
     }
 
-    console.log(auth)
     const values = {
         registerSubmitHandler,
         loginSubmitHandler,
