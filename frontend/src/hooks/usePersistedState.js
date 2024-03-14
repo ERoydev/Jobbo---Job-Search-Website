@@ -5,8 +5,9 @@ export default function usePersistedState(key, defaultValue) {
     const [state, setState] = useState(() => {
         const persistedState = localStorage.getItem(key);
 
+
         if (persistedState) {
-            return {'accessToken': persistedState}
+            return JSON.parse(persistedState)
         }
         
         return defaultValue

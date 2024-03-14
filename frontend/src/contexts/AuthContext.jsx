@@ -43,6 +43,7 @@ export const AuthProvider = ({
         localStorage.removeItem('accessToken');
     }
 
+    console.log(auth)
     const values = {
         registerSubmitHandler,
         loginSubmitHandler,

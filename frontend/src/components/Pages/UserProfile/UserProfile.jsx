@@ -20,6 +20,9 @@ export default function UserProfile() {
         setShowAccountSettings(false);
     }
 
+
+    console.log(role)
+
     return (
         <>
             <Header />
