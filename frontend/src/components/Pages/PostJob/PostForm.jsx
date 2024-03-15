@@ -7,6 +7,8 @@ import PostFormModelChoose from "./PostFormModels/PostFormModelChoose";
 import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
+import * as jobsService from "../../../services/JobsService";
+
 
 const initialValues = {
     category: 'Category',
@@ -25,9 +27,10 @@ const initialValues = {
 
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
+
     // TODO ADD ONSUBMIT
     const formSubmitHandler = () => {;
-        console.log(values);
+        jobsService.postJob(values)
     }
     const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
     
@@ -35,7 +38,6 @@ export default function PostForm() {
         // Created To Change between Models Template
         setTempModel(model);
     }
-
 
     return(
         <form action="#" onSubmit={onSubmit}>

@@ -1,6 +1,7 @@
 export default function PostFormModelChoose({
-    onClickModelChoose
+    onClickModelChoose,
 }) {
+    
     const onClickModelHandler = (e) => {
         e.preventDefault();
         const models = document.querySelectorAll('.btn-container');

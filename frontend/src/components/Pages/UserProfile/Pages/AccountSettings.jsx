@@ -12,22 +12,18 @@ const initialValues = {
   phone_number: '',
   universal_name: '',
   street: '',
-  profile_picture: '',
 }
 
-const backendUrl = 'http://127.0.0.1:8000';
 
 export default function AccountSettings() {
   const [userInformation, setUserInformation] = useState(initialValues);
   const { userId } = useContext(AuthContext)
 
-  const [profilePictureUrl, setProfilePictureUrl] = useState(null);
 
   useEffect(() => {
     UserService.getUser(userId)
       .then(result => {
         setUserInformation(result)
-        // setProfilePictureUrl(`${backendUrl}${result.profile_picture}`)
       })
     }, [])
 
@@ -47,13 +43,6 @@ export default function AccountSettings() {
     setUserInformation(result);
   }
 
-  const handleImage = (e) => {
-    setUserInformation(state => ({
-      ...state,
-      [e.target.name]: e.target.files[0]
-    }))
-  }
-
   return (
 
     <section>
@@ -66,7 +55,7 @@ export default function AccountSettings() {
           <div className="card">
             <div className="card-info">
               <div className="media">
-                <img src={profilePictureUrl} alt="" />
+                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" />
               </div>
               <div>
                 <p>Emil Roydev</p>
@@ -77,7 +66,7 @@ export default function AccountSettings() {
             </div>
 
             <div>
-              <input type="file" name="profile_picture" id="file" className="inputfile" onChange={handleImage}/>
+              <input type="file" name="profile_picture" id="file" className="inputfile"/>
               <label htmlFor="file" className="auth-btn">Upload</label>
             </div>
           </div>

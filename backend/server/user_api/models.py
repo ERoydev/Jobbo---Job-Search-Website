@@ -31,7 +31,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser):
     email = models.EmailField(unique=True)
     role = models.CharField(max_length=20, null=True, blank=True)
-    profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
+    # profile_picture = models.ImageField(upload_to='profile_pictures/', null=True, blank=True)
 
     phone_number = models.CharField(max_length=15, blank=True)
     universal_name = models.CharField(max_length=100, blank=True)

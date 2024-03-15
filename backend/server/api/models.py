@@ -1,34 +1,16 @@
 from django.db import models
+from user_api.models import User
 
 class JobPost(models.Model):
-    JOB_TYPE_CHOICES = (
-        ('Full_time', 'Full time'),
-        ('Part_time', 'Part time'),
-        ('Internship', 'Internship'),
-        ('Temporary', 'Temporary'),
-        ('For_students', 'For students'),
-        ('Flexible', 'Flexible')
-    )
 
-    JOB_LOCATION_CHOICES = (
-        ('Remote_only', 'Remote only'),
-        ('Hybrid', 'Hybrid'),
-        ('Office', 'Office /on Spot/'),
-    )
-
-    company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
+    # company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
     job_title = models.CharField(max_length=255)
     company_name = models.CharField(max_length=255)
     job_category = models.CharField(max_length=255)
-    # ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
-    job_type = models.CharField(max_length=30,
-                                choices=JOB_TYPE_CHOICES,
-                                default='Full Time')
-    
-    job_employment_type = models.CharField(max_length=30,
-                                    choices=JOB_LOCATION_CHOICES,
-                                    default='Office')
+    job_type = models.CharField(max_length=30)
+    job_employment_type = models.CharField(max_length=30)
     
     job_country = models.CharField(max_length=255)
     job_city = models.CharField(max_length=255)
