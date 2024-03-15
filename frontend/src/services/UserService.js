@@ -8,3 +8,9 @@ export const getUser = async (userId) => {
 
     return result;
 }
+
+export const saveUser = async (values, userId) => {
+    const result = await request.post(`${baseUrl}/${userId}/`, values)
+
+    return result;
+}

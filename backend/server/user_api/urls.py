@@ -5,5 +5,5 @@ urlpatterns = [
     path("register/", views.UserRegister.as_view(), name="register"),
     path("login/", views.UserLogin.as_view(), name="login"),
     path("logout/", views.UserLogout.as_view(), name="logout"),
-    path("<int:pk>/", views.GetUser.as_view(), name='getUser'),
+    path("<int:pk>/", views.SaveGetUser.as_view(), name='SaveGetUser'),
 ]

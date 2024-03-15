@@ -34,6 +34,13 @@ export default function AccountSettings() {
     }))
   }
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const result = await UserService.saveUser(userInformation, userId)
+    setUserInformaton(state => ({...state, ...result}))
+    
+  }
+
   return (
 
     <section>
@@ -62,7 +69,7 @@ export default function AccountSettings() {
             </div>
           </div>
           <div className="form-field">
-            <form action="#">
+            <form action="#" onSubmit={submitHandler}>
               <div>
                 <input type="text" name="universal_name" placeholder="Company name" value={userInformation.universal_name} onChange={onChange}/>
               </div>
@@ -72,7 +79,7 @@ export default function AccountSettings() {
                   type="text"
                   name="phone_number"
                   placeholder="Phone number"
-                  value={userInformation.phoneNumber}
+                  value={userInformation.phone_number}
                   onChange={onChange}
                 />
               </div>
@@ -83,14 +90,13 @@ export default function AccountSettings() {
               </div>
             </form>
           </div>
+
           <div className="user-buttons">
-            <a href="#" className="userprofile-btn">
-              Cancel
-            </a>
-            <a href="#" className="auth-btn">
+            <a href="#" className="auth-btn" onClick={submitHandler}>
               Save
             </a>
           </div>
+
           <div className="card deactivate">
             <div>
               <p className="title">Deactivate account</p>

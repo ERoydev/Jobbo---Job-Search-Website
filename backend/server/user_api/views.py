@@ -1,12 +1,14 @@
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_201_CREATED, HTTP_204_NO_CONTENT, HTTP_404_NOT_FOUND
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_401_UNAUTHORIZED, HTTP_201_CREATED, HTTP_204_NO_CONTENT, HTTP_404_NOT_FOUND, HTTP_403_FORBIDDEN
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
-from .serializers import UserSerializer  # Replace with your serializer
+
 from .models import User
 from rest_framework.authentication import TokenAuthentication
+from .serializers import UserSerializer 
+from .serializers import UserUpdateSerializer
 
 
 class UserRegister(APIView):
@@ -69,12 +71,25 @@ class UserLogout(APIView):
         return Response(status=HTTP_204_NO_CONTENT)
     
 
-class GetUser(APIView):
+class SaveGetUser(APIView):
     def get(self, request, pk):
         try:
             user = User.objects.get(pk=pk)
             serializer = UserSerializer(user)
             return Response(serializer.data)
+        except User.DoesNotExist:
+            return Response({'error': 'Invalid credentials'}, status=HTTP_404_NOT_FOUND)
+        
+    def post(self, request, pk):
+        try:
+            user = User.objects.get(pk=pk)
+
+            serializer = UserUpdateSerializer(user, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response(serializer.errors, status=HTTP_400_BAD_REQUEST)
+
         except User.DoesNotExist:
             return Response({'error': 'Invalid credentials'}, status=HTTP_404_NOT_FOUND)
         
