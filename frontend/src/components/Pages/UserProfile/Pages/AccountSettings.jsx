@@ -4,7 +4,6 @@ import useForm from "../../../../hooks/useForm"
 import * as UserService from '../../../../services/UserService.js'
 import AuthContext from '../../../../contexts/AuthContext.jsx'
 
-
 const initialValues = {
   email: '',
   role: '',
@@ -12,17 +11,23 @@ const initialValues = {
   city: '',
   phone_number: '',
   universal_name: '',
-  street: ''
+  street: '',
+  profile_picture: '',
 }
+
+const backendUrl = 'http://127.0.0.1:8000';
 
 export default function AccountSettings() {
   const [userInformation, setUserInformation] = useState(initialValues);
   const { userId } = useContext(AuthContext)
 
+  const [profilePictureUrl, setProfilePictureUrl] = useState(null);
+
   useEffect(() => {
     UserService.getUser(userId)
       .then(result => {
         setUserInformation(result)
+        // setProfilePictureUrl(`${backendUrl}${result.profile_picture}`)
       })
     }, [])
 
@@ -34,11 +39,19 @@ export default function AccountSettings() {
     }))
   }
 
+  // TODO Structure it better
   const submitHandler = async (e) => {
     e.preventDefault();
+  
     const result = await UserService.saveUser(userInformation, userId)
-    setUserInformaton(state => ({...state, ...result}))
-    
+    setUserInformation(result);
+  }
+
+  const handleImage = (e) => {
+    setUserInformation(state => ({
+      ...state,
+      [e.target.name]: e.target.files[0]
+    }))
   }
 
   return (
@@ -53,7 +66,7 @@ export default function AccountSettings() {
           <div className="card">
             <div className="card-info">
               <div className="media">
-                <img src="images/img2.jpg" alt="" />
+                <img src={profilePictureUrl} alt="" />
               </div>
               <div>
                 <p>Emil Roydev</p>
@@ -62,12 +75,13 @@ export default function AccountSettings() {
                 </p>
               </div>
             </div>
+
             <div>
-              <a href="#" className="auth-btn">
-                Upload
-              </a>
+              <input type="file" name="profile_picture" id="file" className="inputfile" onChange={handleImage}/>
+              <label htmlFor="file" className="auth-btn">Upload</label>
             </div>
           </div>
+
           <div className="form-field">
             <form action="#" onSubmit={submitHandler}>
               <div>

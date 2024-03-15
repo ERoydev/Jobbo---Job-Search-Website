@@ -37,10 +37,15 @@ export default function Header() {
                     </li>
 
                     {isAuthenticated && (
-                        <li>
-                            <Link to={Path.UserProfile} className="auth-btn myaccount-btn">My Account</Link>
-                            <Link to={Path.Logout} className="auth-btn">Logout</Link>
-                        </li>
+                        <>
+                            <li>
+                                <Link to={Path.UserProfile} className="auth-btn myaccount-btn">My Account</Link>
+                            </li>
+
+                            <li>
+                                <Link to={Path.Logout} className="auth-btn">Logout</Link>
+                            </li>
+                        </>
                     )}
 
                     {!isAuthenticated && (

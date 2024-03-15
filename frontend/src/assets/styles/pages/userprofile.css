@@ -198,9 +198,10 @@ aside {
 .userprofile .appliedNumber,
 .userprofile .city,
 .userprofile .phoneNumber {
-    font-size: 0.8em;
+    font-size: 0.65em;
     color: gray;
 }
+
 
 
 .userprofile .message-box {

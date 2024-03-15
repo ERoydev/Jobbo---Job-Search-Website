@@ -19,12 +19,14 @@ export default function Applicants() {
                     </div>
                     <div>
                         <p>Emil Roydev</p>
+                        <p className="fullAddress">
+                            Bulgaria, Ruse
+                        </p>
                         <p className="phoneNumber">087 343 1923</p>
                     </div>
                     </div>
                     <div>
                     <p className="jobTitle">Regulator</p>
-                    <p className="city">Ruse</p>
                     </div>
                 </div>
                 </div>
