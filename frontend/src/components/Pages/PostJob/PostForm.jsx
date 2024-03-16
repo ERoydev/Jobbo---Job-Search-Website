@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import useForm from "../../../hooks/useForm";
 
 import PostFormModel1 from "./PostFormModels/PostFormModel1";
@@ -8,6 +8,7 @@ import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
 import * as jobsService from "../../../services/JobsService";
+import AuthContext from '../../../contexts/AuthContext';
 
 
 const initialValues = {
@@ -27,11 +28,15 @@ const initialValues = {
 
 export default function PostForm() {
     const [tempModel, setTempModel] = useState(false);
+    const { userId } = useContext(AuthContext);
 
     // TODO ADD ONSUBMIT
-    const formSubmitHandler = () => {;
-        jobsService.postJob(values)
+    const formSubmitHandler = async () => {;
+        const result = await jobsService.postJob(values, userId)
+
+        console.log(result)
     }
+    
     const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
     
     const onClickModelChoose = (model) => {
