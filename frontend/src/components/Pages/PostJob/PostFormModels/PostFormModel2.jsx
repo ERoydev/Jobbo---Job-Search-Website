@@ -12,11 +12,11 @@ export default function PostFormModel2({
                     working with you.
                 </p>
                 <textarea
-                    name="jobDescription"
+                    name="job_description"
                     id="description"
                     cols={30}
                     rows={10}
-                    value={formValues.jobDescription}
+                    value={formValues.job_description}
                     onChange={onChangeHandler}
                 />
             </div>

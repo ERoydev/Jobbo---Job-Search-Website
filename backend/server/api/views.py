@@ -9,14 +9,18 @@ class JobPostListCreate(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
 
-    def get(self, request):
-        all_jobs = JobPost.objects.all()
-        return Response(all_jobs, status=status.HTTP_200_OK)
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
     
     def post(self, request):
-        information = request.data
-        print(information)
-        return Response('finally')
+        print(request.data)
+        serializer = JobPostSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     # def delete(self, request, *args, **kwargs):
     #     JobPost.objects.all().delete()

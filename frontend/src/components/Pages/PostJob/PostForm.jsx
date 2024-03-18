@@ -12,19 +12,19 @@ import AuthContext from '../../../contexts/AuthContext';
 
 
 const initialValues = {
-    category: 'Category',
     job_title: '',
-    jobType: 'Job Type',
-    employmentLocation: 'Employment Location',
-    country: '',
-    city: '',
-    street: '',
-    salary: '',
-    jobDescription: '',
-    companyOverview: '',
-    keyResponsibilities: '',
+    job_category: 'Category',
+    job_type: 'Job Type',
+    job_employment_type: 'Employment Location',
+    job_country: '',
+    job_city: '',
+    job_street: '',
+    job_salary: '',
+    company_overview: '',
+    key_responsibilities: '',
     qualifications: '',
-    preferredSkills: '',
+    preferred_skills: '',
+    job_description: '',
 }
 
 export default function PostForm() {
@@ -49,7 +49,7 @@ export default function PostForm() {
         <form action="#" onSubmit={onSubmit}>
             <PostFormCompanyLogo />
 
-            <input type="text" placeholder="Job Title" value={values.job_title} onChange={onChange} />
+            <input type="text" placeholder="Job Title" name="job_title" value={values.job_title} onChange={onChange} />
 
             <PostFormTypeInfo formValues={values} onChangeHandler={onChange} />
 

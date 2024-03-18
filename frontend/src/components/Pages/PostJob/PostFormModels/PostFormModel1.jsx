@@ -10,11 +10,11 @@ export default function PostFormModel1({
                         Introduce your company, business plans, activities or provide a concise overview of when the company was founded and any significant milestones you've achieved.
                     </p>
                     <textarea
-                        name="companyOverview"
+                        name="company_overview"
                         id="description"
                         cols={30}
                         rows={10}
-                        value={formValues.companyOverview}
+                        value={formValues.company_overview}
                         onChange={onChangeHandler}
                     />
                 </div>
@@ -25,11 +25,11 @@ export default function PostFormModel1({
                         Describe the most important duties and tasks associated with a particular role or position. The skills that you want from the next employee.
                     </p>
                     <textarea
-                        name="keyResponsibilities"
+                        name="key_responsibilities"
                         id="description"
                         cols={30}
                         rows={10}
-                        value={formValues.keyResponsibilities}
+                        value={formValues.key_responsibilities}
                         onChange={onChangeHandler}
                     />
                 </div>
@@ -53,11 +53,11 @@ export default function PostFormModel1({
                     <label htmlFor="description">Preferred skills</label>
                     <p className="info">Indicate desirable qualities, knowledge, or experience that would be a plus for a role or position, but aren't necessarily essential qualifications. </p>
                     <textarea
-                        name="preferredSkills"
+                        name="preferred_skills"
                         id="description"
                         cols={30}
                         rows={10}
-                        value={formValues.preferredSkills}
+                        value={formValues.preferred_skills}
                         onChange={onChangeHandler}
                     />
                 </div>
@@ -70,11 +70,11 @@ export default function PostFormModel1({
                         working with you.
                     </p>
                     <textarea
-                        name="jobDescription"
+                        name="job_description"
                         id="description"
                         cols={30}
                         rows={10}
-                        value={formValues.jobDescription}
+                        value={formValues.job_description}
                         onChange={onChangeHandler}
                     />
                 </div>

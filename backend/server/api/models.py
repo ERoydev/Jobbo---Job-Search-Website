@@ -2,14 +2,13 @@ from django.db import models
 from user_api.models import User
 
 class JobPost(models.Model):
-
     # company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
+    # ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
     job_title = models.CharField(max_length=255)
-    ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
+    job_category = models.CharField(max_length=255)
     job_type = models.CharField(max_length=30)
     job_employment_type = models.CharField(max_length=30)
-    job_category = models.CharField(max_length=255)
     
     job_country = models.CharField(max_length=255)
     job_city = models.CharField(max_length=255)
@@ -27,6 +26,6 @@ class JobPost(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.company_name} - {self.job_title} - {self.created_at}'
+        return f'{self.job_title} - {self.created_at}'
 
 
