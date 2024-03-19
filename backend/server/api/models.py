@@ -3,7 +3,7 @@ from user_api.models import User
 
 class JobPost(models.Model):
     # company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
-    # ownerId = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    ownerId = models.CharField(max_length=150, default='none')
     job_title = models.CharField(max_length=255)
 
     job_category = models.CharField(max_length=255)

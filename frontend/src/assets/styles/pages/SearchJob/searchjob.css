@@ -1,0 +1,27 @@
+.SearchJobs .card svg {
+    width: 100px;
+}
+
+.SearchJobs .card-info {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.SearchJobs p {
+    padding-bottom: 0.3em;
+}
+
+.SearchJobs .card {
+    background-color: gray;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+
+.SearchJobs .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}

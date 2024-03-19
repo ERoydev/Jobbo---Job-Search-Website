@@ -14,10 +14,15 @@ class JobPostListCreate(generics.ListCreateAPIView):
     serializer_class = JobPostSerializer
 
     def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+        queryset = self.get_queryset()
+        if queryset.exists():
+            return self.list(request, *args, **kwargs)
+        else:
+            return Response("No items found", status=404)  
+
+
     
     def post(self, request):
-        print('---MYUSER-----', self.request.user)
         serializer = JobPostSerializer(data=request.data)
 
         if serializer.is_valid():

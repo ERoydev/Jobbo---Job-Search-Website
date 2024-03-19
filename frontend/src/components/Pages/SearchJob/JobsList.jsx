@@ -9,9 +9,11 @@ export default function JobsList() {
             .then(res => res.json())
             .then(setJobs)
             .catch(err => console.log(err))
-    })
+    }, [])
 
     return (
-        jobs.map(job => <JobsListItem key={job.id} {...job}/>)
+        <div className="SearchJobs">
+            {jobs.map(job => <JobsListItem key={job.id} {...job}/>)}
+        </div>
     );
 }
