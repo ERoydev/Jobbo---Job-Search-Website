@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as UserService from '../../../services/UserService';
+import formatDate from "../../../utils/convertDate";
 
 export default function JobsListItem({
     ownerId,
@@ -14,7 +15,8 @@ export default function JobsListItem({
     key_responsibilities,
     qualifications,
     preferred_skills,
-    job_description
+    job_description,
+    created_at,
 }) {
 
     const [ownerInfo, setOwnerInfo] = useState({});
@@ -24,7 +26,6 @@ export default function JobsListItem({
             .then(setOwnerInfo)
     }, [])
 
-    console.log(ownerInfo)
     return (
         <div className="card">
             <div className="card-info">
@@ -38,13 +39,13 @@ export default function JobsListItem({
                     <p className="fullAddress">
                     {ownerInfo.country}, {ownerInfo.city}, {ownerInfo.street}
                     </p>
-                    <p className="postedDate">Posted on: 01.02.2023</p>
+                    <p className="postedDate">Posted on: {formatDate(created_at)}</p>
                 </div>
 
             </div>
 
             <div>
-                <p className="jobTitle">Regulator</p>
+                <p className="jobTitle">{job_title}</p>
             </div>
         </div>
  
