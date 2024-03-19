@@ -26,3 +26,14 @@
     align-items: center;
     gap: 1em;
 }
+
+.SearchJobs .fullAddress,
+.SearchJobs .postedDate {
+    font-size: 0.8em;
+    color: rgb(112, 112, 112);
+}
+
+.SearchJobs .card:hover {
+    background-color: rgb(226, 226, 226);
+    cursor: pointer;
+}
