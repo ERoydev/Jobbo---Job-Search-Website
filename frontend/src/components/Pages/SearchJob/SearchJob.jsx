@@ -1,5 +1,6 @@
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
+import JobsList from "./JobsList";
 import SearchForm from "./SearchForm";
 
 export default function SearchJob() {
@@ -9,6 +10,7 @@ export default function SearchJob() {
             <main className="site-main post-form-container">
                 <div className="container">
                     <SearchForm />
+                    <JobsList />
                 </div>
             </main>
             <Footer />

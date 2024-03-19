@@ -4,6 +4,10 @@ from rest_framework.response import Response
 from .models import JobPost
 from .serializers import JobPostSerializer
 from rest_framework.views import APIView
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import AllowAny
+
 
 class JobPostListCreate(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
@@ -13,7 +17,7 @@ class JobPostListCreate(generics.ListCreateAPIView):
         return self.list(request, *args, **kwargs)
     
     def post(self, request):
-        print(request.data)
+        print('---MYUSER-----', self.request.user)
         serializer = JobPostSerializer(data=request.data)
 
         if serializer.is_valid():
