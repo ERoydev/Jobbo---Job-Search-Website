@@ -1,4 +1,14 @@
-export default function JobsPostedItem() {
+import formatDate from "../../../../utils/convertDate";
+
+export default function JobsPostedItem({
+    job_title,
+    job_country,
+    job_city,
+    created_at,
+    universal_name,
+    street
+    
+}) {
     return(
         <div className="card">
             <div className="card-info">
@@ -11,16 +21,16 @@ export default function JobsPostedItem() {
                 </div>
 
                 <div>
-                    <p>LIDL</p>
+                    <p>{universal_name}</p>
                     <p className="fullAddress">
-                    Bulgaria, Ruse, ul.Tsarigradsko shose 23
+                        {job_country}, {job_city}, {street}
                     </p>
-                    <p className="postedDate">Posted on: 01.02.2023</p>
+                    <p className="postedDate">Posted on: {formatDate(created_at)}</p>
                 </div>
             </div>
 
             <div>
-                <p className="jobTitle">Regulator</p>
+                <p className="jobTitle">{job_title}</p>
                 <p className="appliedNumber">Applied: 24</p>
             </div>
         </div>

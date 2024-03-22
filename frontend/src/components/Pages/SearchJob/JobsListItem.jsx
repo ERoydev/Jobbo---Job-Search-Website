@@ -46,6 +46,7 @@ export default function JobsListItem({
 
             <div>
                 <p className="jobTitle">{job_title}</p>
+                <p className="jobType">{job_type}</p>
             </div>
         </div>
  

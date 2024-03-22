@@ -202,6 +202,10 @@ aside {
     color: gray;
 }
 
+.userprofile .appliedNumber {
+    text-align: end;
+}
+
 
 
 .userprofile .message-box {
@@ -238,6 +242,7 @@ aside {
 
 .userprofile .card {
     position: relative;
+    margin-bottom: 1em;
 }
 
 .userprofile .remove-fav-btn {

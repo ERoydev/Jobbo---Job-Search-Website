@@ -33,7 +33,7 @@ export const request = async (methodParam, url, data) => {
     const result = await response.json();
 
     if (!response.ok) {
-        throw result;
+        return response
     }
 
     return result;

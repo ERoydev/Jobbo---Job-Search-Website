@@ -9,6 +9,8 @@ import PostFormTypeInfo from "./PostFormTypeInfo";
 
 import * as jobsService from "../../../services/JobsService";
 import AuthContext from '../../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import Path from '../../../Paths';
 
 
 const initialValues = {
@@ -28,6 +30,7 @@ const initialValues = {
 }
 
 export default function PostForm() {
+    const navigate = useNavigate();
     const [tempModel, setTempModel] = useState(false);
     const { userId } = useContext(AuthContext);
 
@@ -35,7 +38,12 @@ export default function PostForm() {
     const formSubmitHandler = async () => {;
         const result = await jobsService.postJob(values, userId)
 
-        console.log(result)
+        if (result.status) {
+            console.log(result.statusText)
+        } else {
+            navigate(Path.Home);
+        }
+
     }
     
     const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);

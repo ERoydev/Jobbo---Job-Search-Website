@@ -7,7 +7,20 @@ export default function PostFormTypeInfo({
             <div className="search-info">
                 <select name="job_category" value={formValues.job_category} onChange={onChangeHandler}>
                     <option>Category</option>
-                    <option>Marketing</option>
+                    <option>Computer and IT</option>
+                    <option>Business and Finance</option>
+                    <option>Education and Training</option>
+                    <option>Engineering</option>
+                    <option>Healthcare</option>
+                    <option>Law</option>
+                    <option>Human Resources</option>
+                    <option>Marketing and Sales</option>
+                    <option>Media and Communications</option>
+                    <option>Science</option>
+                    <option>Trades and Services</option>
+                    <option>Arts, Audio/Video Technology, and Communication</option>
+                    <option>Hospitality and Tourism</option>
+                    <option>Government</option>
                 </select>
 
                 <select name="job_type" value={formValues.job_type} onChange={onChangeHandler}>

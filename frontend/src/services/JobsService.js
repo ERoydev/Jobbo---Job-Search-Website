@@ -7,3 +7,10 @@ export const postJob = async (values, userId) => {
 
     return result;
 }   
+
+// TODO Add filter on backend
+export const getAllJobs = async (userId) => {
+    const result = await request.get(`${baseUrl}`)
+
+    return Object.values(result).filter(job => job.ownerId == userId);
+}

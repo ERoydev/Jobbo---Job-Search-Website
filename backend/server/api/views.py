@@ -7,11 +7,12 @@ from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
-
+from django_filters.rest_framework import DjangoFilterBackend
 
 class JobPostListCreate(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
+
 
     def get(self, request, *args, **kwargs):
         queryset = self.get_queryset()
@@ -20,8 +21,6 @@ class JobPostListCreate(generics.ListCreateAPIView):
         else:
             return Response("No items found", status=404)  
 
-
-    
     def post(self, request):
         serializer = JobPostSerializer(data=request.data)
 
@@ -31,25 +30,27 @@ class JobPostListCreate(generics.ListCreateAPIView):
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    # def delete(self, request, *args, **kwargs):
-    #     JobPost.objects.all().delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
 
 class JobPostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
     lookup_field = "pk"
 
-class JobPostList(APIView):
-    def get(self, request, format=None):
-        title = request.query_params.get("title", "")
 
-        if title:
-            job_post = JobPost.objects.filter(title_icontains=title)
+class ApplyToJobView(APIView):
+    permission_classes = [AllowAny]  # Optional: Authentication
 
-        else:
-            job_post = JobPost.objects.all()
+    def post(self, request, job_post_id):
+        try:
+            job_post = JobPost.objects.get(pk=job_post_id)
+            user = request.user  
 
-        serializer = JobPostSerializer(job_post, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
+            # For M2M relationship:
+            job_post.applicants.add(user)
+
+            job_post.save()
+            return Response({"message": "Successfully applied to job"})
+        except JobPost.DoesNotExist:
+            return Response({"error": "Job post not found"}, status=404)
+        except Exception as e:
+            return Response({"error": "An error occurred"}, status=500)

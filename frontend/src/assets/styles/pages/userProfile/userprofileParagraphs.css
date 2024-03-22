@@ -8,7 +8,12 @@
     justify-self: end;
 }
 
+.jobType,
 .userprofile .appliedDate {
     font-size: 0.7em;
     color: gray;
+}
+
+.jobType {
+    text-align: end;
 }
