@@ -1,3 +1,5 @@
+import MyEditor from "./RichTextEditor";
+
 export default function PostFormModel1({
     formValues,
     onChangeHandler,
@@ -9,14 +11,15 @@ export default function PostFormModel1({
                     <p className="info">
                         Introduce your company, business plans, activities or provide a concise overview of when the company was founded and any significant milestones you've achieved.
                     </p>
-                    <textarea
+                    <MyEditor />
+                    {/* <textarea
                         name="company_overview"
                         id="description"
                         cols={30}
                         rows={10}
                         value={formValues.company_overview}
                         onChange={onChangeHandler}
-                    />
+                    /> */}
                 </div>
 
                 <div className="job-description">

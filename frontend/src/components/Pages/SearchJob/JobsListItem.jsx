@@ -18,6 +18,7 @@ export default function JobsListItem({
         showDetailsHandler(props)
     }
 
+    console.log(props)
     return (
         <div className="card" onClick={jobPostDetailsHandler}>
             <div className="card-info">

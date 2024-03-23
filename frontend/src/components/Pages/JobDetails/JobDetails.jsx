@@ -13,7 +13,7 @@ export default function JobDetails({
                     <div className="details">
                         <div className="job-info">
                             <h2>{props.job_title}</h2>
-                            <p>{props.job_description}</p>
+                            <p>{props.company_overview}</p>
                         </div>
 
                         <div className="employer-info">
