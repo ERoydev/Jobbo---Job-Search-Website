@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import JobsListItem from "./JobsListItem";
 
 
-export default function JobsList() {
+export default function JobsList({
+    detailsHandler,
+}) {
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
@@ -14,9 +16,13 @@ export default function JobsList() {
             .catch(err => console.log(err))
     }, [])
 
+    const showDetailsHandler = (props) => {
+        detailsHandler(props);
+    }
+
     return (
         <div className="SearchJobs">
-            {jobs.map(job => <JobsListItem key={job.id} {...job}/>)}
+            {jobs.map(job => <JobsListItem key={job.id} props={job} showDetailsHandler={showDetailsHandler}/>)}
         </div>
     );
 }

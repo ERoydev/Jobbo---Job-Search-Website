@@ -2,8 +2,6 @@ import { useContext, useState } from 'react';
 import useForm from "../../../hooks/useForm";
 
 import PostFormModel1 from "./PostFormModels/PostFormModel1";
-import PostFormModel2 from "./PostFormModels/PostFormModel2";
-import PostFormModelChoose from "./PostFormModels/PostFormModelChoose";
 import PostFormCompanyLogo from "./PostFormCompanyLogo";
 import PostFormTypeInfo from "./PostFormTypeInfo";
 
@@ -30,7 +28,6 @@ const initialValues = {
 
 export default function PostForm() {
     const navigate = useNavigate();
-    const [tempModel, setTempModel] = useState(false);
     const { userId } = useContext(AuthContext);
     const [errors, setErrors] = useState('');
 
@@ -48,10 +45,6 @@ export default function PostForm() {
     
     const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
     
-    const onClickModelChoose = (model) => {
-        // Created To Change between Models Template
-        setTempModel(model);
-    }
 
     const setErrorHandler = (element) => {
         if (element.length > 1) {
@@ -71,10 +64,7 @@ export default function PostForm() {
 
             {errors && <p className='formError'>{errors}</p>}
 
-            <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
-
-            {tempModel == 'model1' && <PostFormModel1 formValues={values} onChangeHandler={onChange} />}
-            {tempModel == 'model2' && <PostFormModel2 formValues={values} onChangeHandler={onChange} />}
+            <PostFormModel1 formValues={values} onChangeHandler={onChange} />
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>

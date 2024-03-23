@@ -3,31 +3,19 @@ import * as UserService from '../../../services/UserService';
 import formatDate from "../../../utils/convertDate";
 
 export default function JobsListItem({
-    ownerId,
-    job_title,
-    job_category,
-    job_type,
-    job_employment_type,
-    job_country,
-    job_city,
-    job_salary,
-    company_overview,
-    key_responsibilities,
-    qualifications,
-    preferred_skills,
-    job_description,
-    created_at,
+    props,
+    showDetailsHandler,
 }) {
 
     const [ownerInfo, setOwnerInfo] = useState({});
 
     useEffect(() => {
-        UserService.getUser(ownerId)
+        UserService.getUser(props.ownerId)
             .then(setOwnerInfo)
     }, [])
 
     const jobPostDetailsHandler = (e) => {
-        console.log("open")
+        showDetailsHandler(props)
     }
 
     return (
@@ -43,15 +31,15 @@ export default function JobsListItem({
                     <p className="fullAddress">
                     {ownerInfo.country}, {ownerInfo.city}, {ownerInfo.street}
                     </p>
-                    <p className="postedDate">Posted on: {formatDate(created_at)}</p>
+                    <p className="postedDate">Posted on: {formatDate(props.created_at)}</p>
                 </div>
 
             </div>
 
             <div>
-                <p className="jobTitle">{job_title}</p>
-                <p className="jobType">{job_type}</p>
-                <p className="salary">Salary: {job_salary}</p>
+                <p className="jobTitle">{props.job_title}</p>
+                <p className="jobType">{props.job_type}</p>
+                <p className="salary">Salary: {props.job_salary}</p>
             </div>
         </div>
  
