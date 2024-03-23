@@ -12,7 +12,6 @@ import AuthContext from '../../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Path from '../../../Paths';
 
-
 const initialValues = {
     job_title: '',
     job_category: 'Category',
@@ -33,9 +32,11 @@ export default function PostForm() {
     const navigate = useNavigate();
     const [tempModel, setTempModel] = useState(false);
     const { userId } = useContext(AuthContext);
+    const [errors, setErrors] = useState('');
 
     // TODO ADD ONSUBMIT
-    const formSubmitHandler = async () => {;
+    const formSubmitHandler = async () => {
+        console.log(values)
         const result = await jobsService.postJob(values, userId)
 
         if (result.status) {
@@ -53,13 +54,23 @@ export default function PostForm() {
         setTempModel(model);
     }
 
+    const setErrorHandler = (element) => {
+        if (element.length > 1) {
+            setErrors(state => 'Fill all the fields.')
+        } else {
+            setErrors('')
+        }
+    }
+
     return(
         <form action="#" onSubmit={onSubmit}>
             <PostFormCompanyLogo />
 
-            <input type="text" placeholder="Job Title" name="job_title" value={values.job_title} onChange={onChange} />
+            <input type="text" placeholder="Job Title" name="job_title" value={values.job_title} onChange={onChange}/>
 
-            <PostFormTypeInfo formValues={values} onChangeHandler={onChange} />
+            <PostFormTypeInfo formValues={values} onChangeHandler={onChange} setErrorHandler={setErrorHandler} />
+
+            {errors && <p className='formError'>{errors}</p>}
 
             <PostFormModelChoose onClickModelChoose={onClickModelChoose} />
 
