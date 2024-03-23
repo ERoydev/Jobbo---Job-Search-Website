@@ -36,11 +36,10 @@ export default function PostForm() {
 
     // TODO ADD ONSUBMIT
     const formSubmitHandler = async () => {
-        console.log(values)
         const result = await jobsService.postJob(values, userId)
 
         if (result.status) {
-            console.log(result.statusText)
+            setErrorHandler('Fill all the fields.')
         } else {
             navigate(Path.Home);
         }

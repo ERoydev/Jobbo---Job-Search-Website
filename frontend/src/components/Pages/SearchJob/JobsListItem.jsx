@@ -26,8 +26,12 @@ export default function JobsListItem({
             .then(setOwnerInfo)
     }, [])
 
+    const jobPostDetailsHandler = (e) => {
+        console.log("open")
+    }
+
     return (
-        <div className="card">
+        <div className="card" onClick={jobPostDetailsHandler}>
             <div className="card-info">
                 <div className="media">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -47,6 +51,7 @@ export default function JobsListItem({
             <div>
                 <p className="jobTitle">{job_title}</p>
                 <p className="jobType">{job_type}</p>
+                <p className="salary">Salary: {job_salary}</p>
             </div>
         </div>
  
