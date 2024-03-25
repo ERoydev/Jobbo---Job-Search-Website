@@ -3,13 +3,12 @@ import "../../../init";
 import {getCurrentContent} from 'draft-js';
 export default function PostFormModel1({
     formValues,
-    onChangeHandler,
+    onChangeDraft,
 }) {
 
-    const onChangeClickHandler = (state) => {
+    const onChangeClickHandler = (state, fieldName) => {
         const content = state.editorState.getCurrentContent().getPlainText()
-        
-        
+        onChangeDraft(fieldName, content)
     }
 
     return (

@@ -44,7 +44,7 @@ export default function PostForm() {
 
     }
     
-    const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
+    const { values, onChange, onSubmit, onChangeDraft } = useForm(formSubmitHandler, initialValues);
     
 
     const setErrorHandler = (element) => {
@@ -65,7 +65,7 @@ export default function PostForm() {
 
             {errors && <p className='formError'>{errors}</p>}
 
-            <PostFormModel1 formValues={values} onChangeHandler={onChange} />
+            <PostFormModel1 formValues={values} onChangeDraft={onChangeDraft} />
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>

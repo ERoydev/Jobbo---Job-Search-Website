@@ -96,11 +96,10 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
                   handleKeyCommand={this.handleKeyCommand}
                   keyBindingFn={this.mapKeyToEditorCommand}
                   onChange={this.onChange}
-                  name={this.name}
                   placeholder="Tell a story..."
                   ref="editor"
                   spellCheck={true}
-                  onBlur={() => this.onChangeHandler(this.state)}
+                  onBlur={() => this.onChangeHandler(this.state, this.name)}
                 />
               </div>
             </div>
