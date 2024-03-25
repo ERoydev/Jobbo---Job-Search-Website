@@ -1,16 +1,21 @@
+import '../../../init';
 import React from 'react';
-import "../../../init";
-import {Editor, EditorState, getDefaultKeyBinding, RichUtils } from 'draft-js';
-import '../../../../assets/styles/RichText.css';
+import {Editor, EditorState, getDefaultKeyBinding, RichUtils, getCurrentContent} from 'draft-js';
+import '../../../../assets/styles/pages/RichTextEditor.css';
 import '../../../../../node_modules/draft-js/dist/Draft.css';
 
- class RichTextEditor extends React.Component {
+
+ class RichTextForm extends React.Component {
         constructor(props) {
           super(props);
           this.state = {editorState: EditorState.createEmpty()};
 
           this.focus = () => this.refs.editor.focus();
           this.onChange = (editorState) => this.setState({editorState});
+
+          this.name = props.name
+          this.value = props.value
+          this.onChangeHandler = props.onChangeHandler
 
           this.handleKeyCommand = this._handleKeyCommand.bind(this);
           this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
@@ -83,7 +88,7 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
                 editorState={editorState}
                 onToggle={this.toggleInlineStyle}
               />
-              <div className={className} onClick={this.focus}>
+              <div className={className} onClick={this.focus} >
                 <Editor
                   blockStyleFn={getBlockStyle}
                   customStyleMap={styleMap}
@@ -91,9 +96,11 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
                   handleKeyCommand={this.handleKeyCommand}
                   keyBindingFn={this.mapKeyToEditorCommand}
                   onChange={this.onChange}
+                  name={this.name}
                   placeholder="Tell a story..."
                   ref="editor"
                   spellCheck={true}
+                  onBlur={() => this.onChangeHandler(this.state)}
                 />
               </div>
             </div>
@@ -202,4 +209,4 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
         );
       };
 
-export default RichTextEditor;
+export default RichTextForm;
