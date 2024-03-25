@@ -1,5 +1,5 @@
 import '../../../init';
-import React from 'react';
+import React, {createRef} from 'react';
 import {Editor, EditorState, getDefaultKeyBinding, RichUtils, getCurrentContent} from 'draft-js';
 import '../../../../assets/styles/pages/RichTextEditor.css';
 import '../../../../../node_modules/draft-js/dist/Draft.css';
@@ -9,8 +9,13 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
         constructor(props) {
           super(props);
           this.state = {editorState: EditorState.createEmpty()};
-
-          this.focus = () => this.refs.editor.focus();
+          
+          this.editorRef = React.createRef();
+          this.focus = () => {
+            if(this.editorRef.current) {
+              this.editorRef.current.focus()
+            }
+          }
           this.onChange = (editorState) => this.setState({editorState});
 
           this.name = props.name
@@ -90,6 +95,7 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
               />
               <div className={className} onClick={this.focus} >
                 <Editor
+                  ref={this.editorRef}
                   blockStyleFn={getBlockStyle}
                   customStyleMap={styleMap}
                   editorState={editorState}
@@ -97,7 +103,7 @@ import '../../../../../node_modules/draft-js/dist/Draft.css';
                   keyBindingFn={this.mapKeyToEditorCommand}
                   onChange={this.onChange}
                   placeholder="Tell a story..."
-                  ref="editor"
+                  // ref="editor"
                   spellCheck={true}
                   onBlur={() => this.onChangeHandler(this.state, this.name)}
                 />
