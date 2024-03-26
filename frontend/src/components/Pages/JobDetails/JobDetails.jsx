@@ -9,7 +9,7 @@ export default function JobDetails({
     return(
         <>
             <main className="site-main post-form-container">
-                <div className="container">
+                <div className="container details-container">
                     <h2>{props.job_title}</h2>
                     <div className="job-details">
                         {props.job_description.length > 0 && (
@@ -18,6 +18,8 @@ export default function JobDetails({
                         </div>
                         )}
                     </div>
+
+                    <button className="auth-btn apply-btn">Apply now</button>
                 </div>
             </main>
         </>
