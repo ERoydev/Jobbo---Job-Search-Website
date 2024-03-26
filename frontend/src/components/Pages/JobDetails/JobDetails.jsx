@@ -14,7 +14,6 @@ export default function JobDetails({
                     <div className="job-details">
                         {props.job_description.length > 0 && (
                         <div>
-                            <h4>Job Description</h4>
                             <JobDescription jobDescription={props.job_description} />
                         </div>
                         )}

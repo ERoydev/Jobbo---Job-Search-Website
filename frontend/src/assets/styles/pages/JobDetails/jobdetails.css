@@ -13,3 +13,7 @@
 .job-details h4 {
     padding-bottom: 0.4em;
 }
+
+.job-description-content {
+  white-space: pre-wrap;
+}
