@@ -1,5 +1,5 @@
 .job-details {
-    padding: 2em;
+    padding: 2em 0;
 }
 
 .job-details p {
@@ -18,10 +18,29 @@
   white-space: pre-wrap;
 }
 
+/*  */
+
+
+
 .details-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 3em;
+}
 
+.details-job_description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.job-info-container {
+    padding: 1em;
+    border: 1px solid rgba(206, 206, 206, 0.603);
+    border-radius: 10px;
+    align-self: flex-start;
+}
+
+.job-details-container svg {
+    width: 20px;
 }
