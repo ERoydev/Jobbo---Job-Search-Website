@@ -14,7 +14,6 @@ class JobPost(models.Model):
     job_country = models.CharField(max_length=255)
     job_city = models.CharField(max_length=255)
     job_street = models.CharField(max_length=255, default='none')
-
     job_salary = models.CharField(max_length=255)
 
     job_description = models.TextField(blank=True, null=True, default='none')
