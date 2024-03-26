@@ -12,34 +12,6 @@ export default function JobDetails({
                 <div className="container">
                     <h2>{props.job_title}</h2>
                     <div className="job-details">
-
-                        {props.company_overview.length > 0 && (
-                            <div className="company_overview">
-                                <h4>Company Overview</h4>
-                                <p>{props.company_overview}</p>
-                            </div>
-                        )}
-
-                        {props.key_responsibilities.length > 0 && (
-                            <div className="key_responsibilities">
-                                <h4>Key Responsibilities</h4>
-                                <p>{props.key_responsibilities}</p>
-                            </div>
-                        )}
-                        
-                        {props.qualifications.length > 0 && (
-                            <div className="qualifications">
-                                <h4>Qualifications</h4>
-                                <p>{props.qualifications}</p>
-                            </div>
-                        )}
-
-                        {props.preferred_skills.length > 0 && ( 
-                            <div className="preferred_skills">
-                                <h4>Preferred Skills</h4>
-                                <p>{props.preferred_skills}</p>
-                            </div>
-                        )}
                         
                         {props.job_description.length > 0 && (
                             <div className="job-description">
