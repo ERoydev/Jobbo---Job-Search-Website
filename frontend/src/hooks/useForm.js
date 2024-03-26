@@ -10,13 +10,6 @@ export default function useForm(submitHandler, initialValues) {
         }))
     }
 
-    const onChangeDraft = (name, value) => {
-        setValues(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    }
-
     const onSubmit = (e) => {
         e.preventDefault();
         submitHandler(values);
@@ -36,6 +29,5 @@ export default function useForm(submitHandler, initialValues) {
         onChange,
         onSubmit,
         onClickChange,
-        onChangeDraft,
     }
 }

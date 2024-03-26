@@ -17,10 +17,6 @@ class JobPost(models.Model):
 
     job_salary = models.CharField(max_length=255)
 
-    company_overview = models.TextField(blank=True, null=True, default='none')
-    key_responsibilities = models.TextField(blank=True, null=True, default='none')
-    qualifications = models.TextField(blank=True, null=True, default='none')
-    preferred_skills = models.TextField(blank=True, null=True, default='none')
     job_description = models.TextField(blank=True, null=True, default='none')
 
     created_at = models.DateTimeField(auto_now_add=True)

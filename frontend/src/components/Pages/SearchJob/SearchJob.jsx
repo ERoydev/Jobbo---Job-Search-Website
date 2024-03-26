@@ -18,16 +18,15 @@ export default function SearchJob() {
     return (
         <>
             <Header />
-
-            {showDetails && <JobDetails props={detailInfo}/>}
-            {!showDetails && (
-                <main className="site-main post-form-container">
-                    <div className="container">
-                        <SearchForm />
-                        <JobsList detailsHandler={detailsHandler}/>
-                    </div>
-                </main>
-            )}
+                {showDetails && <JobDetails props={detailInfo}/>}
+                {!showDetails && (
+                    <main className="site-main post-form-container">
+                        <div className="container">
+                            <SearchForm />
+                            <JobsList detailsHandler={detailsHandler}/>
+                        </div>
+                    </main>
+                )}
             <Footer />
         </>
     );

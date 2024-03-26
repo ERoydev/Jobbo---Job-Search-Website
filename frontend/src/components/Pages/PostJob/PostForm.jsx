@@ -19,10 +19,6 @@ const initialValues = {
     job_city: '',
     job_street: '',
     job_salary: '',
-    company_overview: '',
-    key_responsibilities: '',
-    qualifications: '',
-    preferred_skills: '',
     job_description: '',
 }
 
@@ -33,18 +29,17 @@ export default function PostForm() {
 
     // TODO ADD ONSUBMIT
     const formSubmitHandler = async () => {
-        console.log(values);
-        // const result = await jobsService.postJob(values, userId)
+        const result = await jobsService.postJob(values, userId)
 
-        // if (result.status) {
-        //     setErrorHandler('Fill all the fields.')
-        // } else {
-        //     navigate(Path.Home);
-        // }
+        if (result.status) {
+            setErrorHandler('Fill all the fields.')
+        } else {
+            navigate(Path.Home);
+        }
 
     }
     
-    const { values, onChange, onSubmit, onChangeDraft } = useForm(formSubmitHandler, initialValues);
+    const { values, onChange, onSubmit } = useForm(formSubmitHandler, initialValues);
     
 
     const setErrorHandler = (element) => {
@@ -65,7 +60,7 @@ export default function PostForm() {
 
             {errors && <p className='formError'>{errors}</p>}
 
-            <PostFormModel1 formValues={values} onChangeDraft={onChangeDraft} />
+            <PostFormModel1 formValues={values} onChange={onChange} />
 
             <input className="submit-btn" type="submit" value="Post a Job" />
         </form>

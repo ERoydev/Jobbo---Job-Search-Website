@@ -1,0 +1,15 @@
+.job-details {
+    padding: 2em;
+}
+
+.job-details p {
+    margin-left: 10px;
+}
+
+.job-details div {
+    padding-bottom: 1.5em;
+}
+
+.job-details h4 {
+    padding-bottom: 0.4em;
+}

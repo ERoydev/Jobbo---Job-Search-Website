@@ -16,13 +16,15 @@ export default function JobsList({
             .catch(err => console.log(err))
     }, [])
 
+
     const showDetailsHandler = (props) => {
         detailsHandler(props);
     }
 
     return (
         <div className="SearchJobs">
-            {jobs.map(job => <JobsListItem key={job.id} props={job} showDetailsHandler={showDetailsHandler}/>)}
+            
+            {jobs.length > 0 ? jobs.map(job => <JobsListItem key={job.id} props={job} showDetailsHandler={showDetailsHandler}/>) : (<p>There are no Job to apply for, yet.</p>)}
         </div>
     );
 }
