@@ -21,7 +21,6 @@
 /*  */
 
 
-
 .details-container {
     display: flex;
     gap: 3em;
@@ -34,13 +33,32 @@
 }
 
 
-.job-info-container {
+.job-info-container p {
+    display: flex;
+    gap: 0.4em;
+    align-items: center;
+}
+
+.job-info-item {
     padding: 1em;
     border: 1px solid rgba(206, 206, 206, 0.603);
     border-radius: 10px;
     align-self: flex-start;
+    margin-bottom: 1em;
 }
 
 .job-details-container svg {
     width: 20px;
 }
+
+.job-details-container {
+    padding: 5em 0;
+}
+
+.jobs_info svg,
+.jobs_info {
+    color: rgb(53, 53, 53);
+    fill: rgb(65, 65, 65);
+;
+}
+
