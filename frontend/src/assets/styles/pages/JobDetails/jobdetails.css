@@ -14,6 +14,7 @@
     padding-bottom: 0.4em;
 }
 
+
 .job-description-content {
   white-space: pre-wrap;
 }
@@ -24,12 +25,17 @@
 .details-container {
     display: flex;
     gap: 3em;
+    justify-content: space-between;
 }
 
 .details-job_description {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 750px;
+}
+.job-info-container {
+    max-width: 350px;
 }
 
 
@@ -57,8 +63,40 @@
 
 .jobs_info svg,
 .jobs_info {
-    color: rgb(53, 53, 53);
-    fill: rgb(65, 65, 65);
+    color: rgb(75, 75, 75);
+    fill: rgb(77, 77, 77);
 ;
 }
 
+@media (max-width: 1640px) {
+    .details-container {
+        flex-direction: column;
+    }
+
+    .job-info-container {
+        order: 1;
+    }
+
+    .details-job_description {
+        order: 2;
+    }
+
+    .job-info-container {
+        max-width: 100%;
+    }
+}
+
+.btn-container {
+    display: flex;
+    gap: 1em;
+}
+
+.fav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.2em
+}
+
+.fav-btn svg {
+    fill: rgb(124, 3, 3);
+}
