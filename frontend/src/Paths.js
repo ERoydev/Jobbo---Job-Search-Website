@@ -11,6 +11,8 @@ const Path = {
     EmployerApplicants: '/profile/applicants',
     EmployerJobsPosted: '/profile/jobsPosted',
     EmployeeJobsApplied: '/profile/jobsApplied',
+    EmployeeFavourites: '/profile/favourites',
+    EmployeeDocuments: '/profile/documents',
     JobDetails: '/searchJob/jobDetails'
 }
 
