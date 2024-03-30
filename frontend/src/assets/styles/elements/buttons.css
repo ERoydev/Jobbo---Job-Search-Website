@@ -109,3 +109,8 @@ a:hover {
 .inputfile + label * {
 	pointer-events: none;
 }
+
+.back-btn:hover {
+    cursor: pointer;
+    fill: rgb(221, 221, 221);
+}

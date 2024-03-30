@@ -2,7 +2,6 @@ import { useContext, useState, useEffect } from "react";
 
 import AuthContext from "../../../contexts/AuthContext.jsx";
 
-
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import EmployeeBar from "./Sidebars/EmployeeBar.jsx";

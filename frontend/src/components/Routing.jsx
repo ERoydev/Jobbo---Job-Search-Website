@@ -14,6 +14,7 @@ import Notifications from './Pages/UserProfile/Pages/Notifications.jsx';
 import AccountSettings from './Pages/UserProfile/Pages/AccountSettings.jsx';
 import Applicants from './Pages/UserProfile/EmployerProfile/Applicants.jsx';
 import JobsPosted from './Pages/UserProfile/EmployerProfile/JobsPosted.jsx';
+import JobDetails from './Pages/JobDetails/JobDetails.jsx';
 
 
 export default function Routing() {
@@ -31,6 +32,7 @@ export default function Routing() {
                 <Route path={Path.EmployerApplicants} element={<Applicants />} />
                 <Route path={Path.EmployerJobsPosted} element={<JobsPosted />} />
             </Route>
+            <Route path={`${Path.JobDetails}/:id`} element={<JobDetails />} />
         </Routes>
     );
 }

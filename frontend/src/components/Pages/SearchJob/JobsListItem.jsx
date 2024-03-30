@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import * as UserService from '../../../services/UserService';
 import formatDate from "../../../utils/convertDate";
+import { Link } from "react-router-dom";
+import Path from "../../../Paths";
 
 export default function JobsListItem({
     props,
-    showDetailsHandler,
 }) {
 
     const [ownerInfo, setOwnerInfo] = useState({});
@@ -14,12 +15,8 @@ export default function JobsListItem({
             .then(setOwnerInfo)
     }, [])
 
-    const jobPostDetailsHandler = (e) => {
-        showDetailsHandler(props)
-    }
-
     return (
-        <div className="card" onClick={jobPostDetailsHandler}>
+        <Link to={`${Path.JobDetails}/${props.id}`} className="card" >
             <div className="card-info">
                 <div className="media">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -41,7 +38,7 @@ export default function JobsListItem({
                 <p className="jobType">{props.job_type}</p>
                 <p className="salary">Salary: {props.job_salary}</p>
             </div>
-        </div>
+        </Link>
  
     );
 }

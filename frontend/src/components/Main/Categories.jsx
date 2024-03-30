@@ -18,7 +18,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Education</p>
+                    <p className="job-title">Business and Finance</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>
@@ -38,7 +38,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Developers</p>
+                    <p className="job-title">Computer and IT</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>
@@ -58,7 +58,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Engineer</p>
+                    <p className="job-title">Engineering</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>
@@ -78,7 +78,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Marketing</p>
+                    <p className="job-title">Marketing and Sales</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>
@@ -98,7 +98,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Design</p>
+                    <p className="job-title">Human Resources</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>
@@ -115,7 +115,7 @@ export default function Categories() {
                 </div>
                 <div className="content">
                 <div>
-                    <p className="job-title">Machine Learning</p>
+                    <p className="job-title">Media and Communications</p>
                     <p className="job-time">Full-Time</p>
                 </div>
                 <div>

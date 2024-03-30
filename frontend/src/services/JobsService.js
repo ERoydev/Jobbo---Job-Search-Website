@@ -14,3 +14,9 @@ export const getAllJobs = async (userId) => {
 
     return Object.values(result).filter(job => job.ownerId == userId);
 }
+
+export const getOneJob = async (jobId) => {
+    const result = await request.get(`${baseUrl}${jobId}`)
+
+    return result;
+}

@@ -9,7 +9,8 @@ const Path = {
     UserSettings: '/profile/settings',
     UserNotifications: '/profile/notifications',
     EmployerApplicants: '/profile/applicants',
-    EmployerJobsPosted: 'profile/jobsPosted'
+    EmployerJobsPosted: 'profile/jobsPosted',
+    JobDetails: '/searchJob/jobDetails'
 }
 
 

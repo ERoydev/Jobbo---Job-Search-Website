@@ -79,6 +79,7 @@
 
     .details-job_description {
         order: 2;
+        max-width: 100%;
     }
 
     .job-info-container {
