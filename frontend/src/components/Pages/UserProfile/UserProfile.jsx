@@ -26,7 +26,7 @@ export default function UserProfile() {
         <>
             <Header />
             <div className="userprofile">
-                { role === 'employee' && <EmployeeBar /> }
+                { role === 'employee' && <EmployeeBar onComponentChangeHandler={onComponentChangeHandler} /> }
                 { role === 'employer' && <EmployerBar onComponentChangeHandler={onComponentChangeHandler} /> }
 
                 {showAccountSettings && <AccountSettings />}

@@ -43,3 +43,8 @@
     background-color: rgb(226, 226, 226);
     cursor: pointer;
 }
+
+.SearchJobs .jobTitle,
+.SearchJobs .card-info {
+    color: black;
+}

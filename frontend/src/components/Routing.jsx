@@ -16,6 +16,7 @@ import Applicants from './Pages/UserProfile/EmployerProfile/Applicants.jsx';
 import JobsPosted from './Pages/UserProfile/EmployerProfile/JobsPosted.jsx';
 import JobDetails from './Pages/JobDetails/JobDetails.jsx';
 
+import EmployeeJobsApplied from './Pages/UserProfile/EmployeeProfile/EmployeeJobsApplied.jsx';
 
 export default function Routing() {
     return (
@@ -31,6 +32,7 @@ export default function Routing() {
                 <Route path={Path.UserSettings} element={<AccountSettings />} />
                 <Route path={Path.EmployerApplicants} element={<Applicants />} />
                 <Route path={Path.EmployerJobsPosted} element={<JobsPosted />} />
+                <Route path={Path.EmployeeJobsApplied} element={<EmployeeJobsApplied />} />
             </Route>
             <Route path={`${Path.JobDetails}/:id`} element={<JobDetails />} />
         </Routes>
