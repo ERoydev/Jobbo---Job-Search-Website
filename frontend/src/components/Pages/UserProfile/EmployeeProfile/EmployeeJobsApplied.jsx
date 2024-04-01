@@ -28,12 +28,11 @@ export default function EmployeeJobsApplied() {
        }) 
     }, jobsApplied)
 
-
-    console.log(jobList)
     return(
         <div className="appliedJobs">
             <div className="SearchJobs">
                 {jobList && jobList.map((job) => <JobsListItem key={job.id} props={job}/>)}
+                {!jobList && <h1>You have not applied to any jobs.</h1>}
             </div>
         </div>
     );

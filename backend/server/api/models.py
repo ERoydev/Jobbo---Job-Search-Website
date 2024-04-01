@@ -29,3 +29,10 @@ class JobApplication(models.Model):
     job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(auto_now_add=True)  # Optional: Timestamp
     # ... other application-specific fields
+
+class JobFavourite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'job_post')
