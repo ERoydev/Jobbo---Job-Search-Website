@@ -8,14 +8,11 @@ const initialValue = {
     location: 'Location',
 }
 
-export default function SearchForm() {
-    // TODO ADD ONSUBMIT
-    const onSubmitHandler = (e) => {
-        e.preventDefault();
-        console.log(values)
-    }
+export default function SearchForm({
+    SearchFromSearchHanlder,
+}) {
 
-    const { values, onChange, onSubmit } = useForm(onSubmitHandler, initialValue)
+    const { values, onChange, onSubmit } = useForm(SearchFromSearchHanlder, initialValue)
 
     
     return (
@@ -39,7 +36,20 @@ export default function SearchForm() {
                 <div className="search-info">
                     <select name="category" value={values.category} onChange={onChange}>
                         <option>Category</option>
-                        <option>Marketing</option>
+                        <option>Computer and IT</option>
+                        <option>Business and Finance</option>
+                        <option>Education and Training</option>
+                        <option>Engineering</option>
+                        <option>Healthcare</option>
+                        <option>Law</option>
+                        <option>Human Resources</option>
+                        <option>Marketing and Sales</option>
+                        <option>Media and Communications</option>
+                        <option>Science</option>
+                        <option>Trades and Services</option>
+                        <option>Arts, Audio/Video Technology, and Communication</option>
+                        <option>Hospitality and Tourism</option>
+                        <option>Government</option>
                     </select>
 
                     <select name="jobType" value={values.jobType} onChange={onChange}>

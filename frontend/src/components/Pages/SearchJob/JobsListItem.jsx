@@ -7,9 +7,7 @@ import Path from "../../../Paths";
 export default function JobsListItem({
     props,
 }) {
-
     const [ownerInfo, setOwnerInfo] = useState({});
-
     useEffect(() => {
         UserService.getUser(props.ownerId)
             .then(setOwnerInfo)

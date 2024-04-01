@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import Path from "../../Paths";
+
+
 export default function Footer() {
     return (
         <footer className="site-footer">
@@ -34,10 +38,10 @@ export default function Footer() {
                     <p className="title">Navigation</p>
                     <ul>
                         <li>
-                        <a href="#">Search for a job</a>
+                        <Link to={Path.SearchJob}>Search for a job</Link>
                         </li>
                         <li>
-                        <a href="#">Post a job</a>
+                        <Link to={Path.PostJob}>Post a job</Link>
                         </li>
                         <li>
                         <a href="#">Categories</a>

@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import Path from '../../Paths';
+
 import img1 from '../../assets/images/img1.jpg';
 import img2 from '../../assets/images/img2.jpg';
 import img3 from '../../assets/images/img3.jpg';
@@ -12,6 +15,7 @@ export default function Categories() {
             Popular <span className="clr-coral">Jobs</span> Categories
             </h1>
             <div className="wrapper">
+
             <div className="card">
                 <div className="media">
                 <img src={img1} alt="" />
@@ -23,9 +27,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -43,9 +47,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -63,9 +67,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -83,9 +87,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -103,9 +107,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -120,17 +124,17 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <a href="#" className="apply-job">
+                    <Link to={Path.SearchJob} className="apply-job">
                     Apply now
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>
             </div>
             <p>
-            <a href="#" className="categories-btn">
+            <Link to={Path.SearchJob} className="categories-btn">
                 Categories
-            </a>
+            </Link>
             </p>
         </section>
     );

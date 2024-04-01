@@ -4,6 +4,7 @@ import JobsListItem from "./JobsListItem";
 
 export default function JobsList({
     detailsHandler,
+    searchCriteria,
 }) {
     const [jobs, setJobs] = useState([]);
 
@@ -16,6 +17,7 @@ export default function JobsList({
             .catch(err => console.log(err))
     }, [])
 
+    console.log(searchCriteria)
     return (
              
         <div className="SearchJobs">
