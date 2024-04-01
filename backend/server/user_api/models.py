@@ -60,3 +60,6 @@ class User(AbstractBaseUser):
     
     def get_id(self):
         return self.pk
+    
+    def get_role(self):
+        return self.role

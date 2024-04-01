@@ -46,6 +46,9 @@ class ApplyToJobView(APIView):
             job_post = JobPost.objects.get(pk=pk)
             user = User.objects.get(pk=id)
 
+            if user.get_role() == 'employer':
+                return Response({"error": "Employer cannot apply to jobs."})
+            
             # For M2M relationship:
             job_post.applicants.add(user)
 

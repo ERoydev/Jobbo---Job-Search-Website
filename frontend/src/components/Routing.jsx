@@ -17,7 +17,6 @@ import JobsPosted from './Pages/UserProfile/EmployerProfile/JobsPosted.jsx';
 import JobDetails from './Pages/JobDetails/JobDetails.jsx';
 
 import EmployeeJobsApplied from './Pages/UserProfile/EmployeeProfile/EmployeeJobsApplied.jsx';
-import Favourites from './Pages/UserProfile/EmployeeProfile/Favourites.jsx';
 import MyDocuments from './Pages/UserProfile/EmployeeProfile/MyDocuments.jsx';
 
 export default function Routing() {
@@ -35,7 +34,6 @@ export default function Routing() {
                 <Route path={Path.EmployerApplicants} element={<Applicants />} />
                 <Route path={Path.EmployerJobsPosted} element={<JobsPosted />} />
                 <Route path={Path.EmployeeJobsApplied} element={<EmployeeJobsApplied />} />
-                <Route path={Path.EmployeeFavourites} element={<Favourites />} />
                 <Route path={Path.EmployeeDocuments} element={<MyDocuments />} />
             </Route>
             <Route path={`${Path.JobDetails}/:id`} element={<JobDetails />} />
