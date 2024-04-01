@@ -6,3 +6,7 @@
 .appliedJobs .SearchJobs {
     max-width: 100%;
 }
+
+.jobPostedItem {
+    color: black;
+}
