@@ -22,7 +22,9 @@ export const getOneJob = async (jobId) => {
 }
 
 export const getAppliedJobs = async (userId) => {
-    const result = await request.get()
+    const result = await request.get(`${baseUrl}getjobs/${userId}/`)
+
+    return result;
 }
 
 export const applyJob = async (jobId, ownerId) => {

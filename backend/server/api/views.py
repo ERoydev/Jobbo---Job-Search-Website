@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import JobPost
+from .models import JobPost, JobApplication
 from user_api.models import User
-from .serializers import JobPostSerializer
+from .serializers import JobPostSerializer, JobAppliedUserSerializer
 
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
@@ -55,6 +55,12 @@ class ApplyToJobView(APIView):
             return Response({"error": "Job post not found"}, status=404)
         except Exception as e:
             return Response({"error": "An error occurred"}, status=500)
-    
-    def get(self, request):
-        pass
+        
+    def get(self, request, pk):
+        try:
+            applied_jobs = JobApplication.objects.filter(user_id=pk)        
+        except JobApplication.DoesNotExist:
+            return Response({'error': 'User with that ID has not applied to any jobs'}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = JobAppliedUserSerializer(applied_jobs, many=True)
+        return Response(serializer.data)
