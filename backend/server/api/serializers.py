@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import JobPost
+from .models import JobPost, JobApplication
 
 
 class JobPostSerializer(serializers.ModelSerializer):
@@ -22,7 +22,17 @@ class JobPostSerializer(serializers.ModelSerializer):
             "created_at"
         ]
 
+    # To save the exact way user typed the text
     def to_representation(self, instance):
         representation = super().to_representation(instance)
         representation['job_description'] = representation['job_description'].replace('- ', '-\n ')  # Adjust formatting as needed
         return representation
+    
+
+
+class JobAppliedUserSerializer(serializers.ModelSerializer):
+    job_post = JobPostSerializer()  
+
+    class Meta:
+        model = JobApplication
+        fields= ["applied_at", "job_post_id", "user_id"]

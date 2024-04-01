@@ -20,3 +20,13 @@ export const getOneJob = async (jobId) => {
 
     return result;
 }
+
+export const getAppliedJobs = async (userId) => {
+    const result = await request.get()
+}
+
+export const applyJob = async (jobId, ownerId) => {
+    const result = await request.post(`${baseUrl}apply/${jobId}/${ownerId}/`)
+
+    console.log(result)
+}

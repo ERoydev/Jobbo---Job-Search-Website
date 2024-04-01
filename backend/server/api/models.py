@@ -24,7 +24,6 @@ class JobPost(models.Model):
     def __str__(self):
         return f'{self.job_title} - {self.created_at}'
 
-
 class JobApplication(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE)
