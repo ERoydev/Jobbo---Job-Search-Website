@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import JobsListItem from "./JobsListItem";
+import Pagination from "./Pagination";
 
 const baseUrl = 'http://127.0.0.1:8000/api';
 
@@ -8,6 +9,8 @@ export default function JobsList({
     searchCriteria,
 }) {
     const [jobs, setJobs] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postPerPage, setPostPerPage] = useState(5);
     
     useEffect(() => {
         const url = new URL('/jobposts/', baseUrl)
@@ -45,11 +48,15 @@ export default function JobsList({
         fetchJobs(); 
     }, [searchCriteria])
 
+    const lastPostIndex = currentPage * postPerPage;
+    const firstPostIndex = lastPostIndex - postPerPage;
+    const currentPosts = jobs.slice(firstPostIndex, lastPostIndex);
 
     return (
              
         <div className="SearchJobs">
-            {jobs.length > 0 ? jobs.map(job => <JobsListItem key={job.id} props={job} />) : (<p className="noJobsMessage">There are no jobs to apply for.</p>)}
+            {currentPosts.length > 0 ? currentPosts.map(job => <JobsListItem key={job.id} props={job} />) : (<p className="noJobsMessage">There are no jobs to apply for.</p>)}
+            <Pagination totalPosts={jobs.length} postPerPage={postPerPage} setCurrentPage={setCurrentPage} currentPage={currentPage}/>
         </div>
     );
 }

@@ -13,6 +13,7 @@
 
 @import url(components/navigations.css);
 @import url(components/errors.css);
+@import url(components/pagination.css);
 
 @import url(elements/buttons.css);
 @import url(base/variables.css);

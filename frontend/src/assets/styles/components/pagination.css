@@ -1,0 +1,28 @@
+
+.pagination-btn-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5em 0 1em 0;
+    gap: 1em;
+}
+
+.pagination-btn-container button {
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    background: #ececec;
+    color: #242424;
+    /* border-color: transparent; */
+    border: 1px solid #818181;
+}
+
+.pagination-btn-container button.active {
+    font-weight: 600;
+    background: #E5A84D;
+    border-radius: 6px;
+}

@@ -146,7 +146,7 @@ export default function Categories({
             </div>
             </div>
             <p>
-            <a href="#" className="categories-btn" onClick={buttonClickHandler}>
+            <a href="#" className="categories-btn">
                 Categories
             </a>
             </p>
