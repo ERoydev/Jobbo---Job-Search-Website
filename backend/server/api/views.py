@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 
-from django.db.models import Q 
+from django.db.models import Q
 
 class JobPostListCreate(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
@@ -26,15 +26,17 @@ class JobPostListCreate(generics.ListCreateAPIView):
         job_type = self.request.query_params.get('job_type')
         job_location = self.request.query_params.get('job_location')
 
-
         if search_term:
-            filters |= Q(job_title=search_term)
+            filters |= Q(job_title__icontains=search_term) | Q(job_description__icontains=search_term)
+            filters |= Q(job_title__startswith=search_term) | Q(job_description__startswith=search_term)
         if job_category:
             filters &= Q(job_category=job_category)
         if job_type:
             filters &= Q(job_type=job_type)
         if job_location:
             filters &= Q(job_location=job_location)
+
+        print('-------------', filters)
 
         queryset = queryset.filter(filters)  
         return queryset
