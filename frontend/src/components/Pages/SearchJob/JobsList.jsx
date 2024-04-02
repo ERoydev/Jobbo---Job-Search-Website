@@ -50,7 +50,13 @@ export default function JobsList({
 
     const lastPostIndex = currentPage * postPerPage;
     const firstPostIndex = lastPostIndex - postPerPage;
-    const currentPosts = jobs.slice(firstPostIndex, lastPostIndex);
+    let currentPosts;
+
+    if (jobs.length > 0) {
+        currentPosts = jobs.slice(firstPostIndex, lastPostIndex);
+    } else {
+        currentPosts = ''
+    }
 
     return (
              
