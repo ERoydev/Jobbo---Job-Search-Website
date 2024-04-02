@@ -9,7 +9,7 @@ import SearchCriteriaContext, { SearchCriteriaProvider} from "../../../contexts/
 
 
 export default function SearchJob() {
-    const { searchCriteria, SearchFormSearchHandler} = useContext(SearchCriteriaContext);
+    const { searchCriteria, SearchFormSearchHandler } = useContext(SearchCriteriaContext);
 
     return (
         <>

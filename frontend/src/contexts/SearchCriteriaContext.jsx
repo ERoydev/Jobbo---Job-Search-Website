@@ -13,6 +13,9 @@ export const SearchCriteriaProvider = ({
         setSearchCriteria(data)
     }
 
+    const setOneCriteria = (criteria) => {
+        setSearchCriteria()
+    }
 
     const values = {
         SearchFormSearchHandler,
@@ -24,7 +27,6 @@ export const SearchCriteriaProvider = ({
             {children}
         </SearchCriteriaContext.Provider>
     );
-
 }
 
 export default SearchCriteriaContext;

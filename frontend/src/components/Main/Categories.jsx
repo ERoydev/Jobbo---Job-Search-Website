@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Path from '../../Paths';
 
 import img1 from '../../assets/images/img1.jpg';
@@ -8,13 +8,18 @@ import img4 from '../../assets/images/img4.jpg';
 import img5 from '../../assets/images/img5.jpg';
 import img6 from '../../assets/images/img6.jpg';
 
-export default function Categories() {
+export default function Categories({
+    SearchFormSearchHandler,
+}) {
+    const navigate = useNavigate();
 
     const buttonClickHandler = (e) => {
         e.preventDefault();
 
         const jobTitle = e.target.parentNode.parentNode.querySelector(".job-title").textContent
-        console.log(jobTitle)
+        const data = {category: jobTitle}
+        SearchFormSearchHandler(data)
+        navigate(Path.SearchJob)
     }
     return (
         <section className="categories">
