@@ -12,7 +12,6 @@ export default function Main () {
         <main className="site-main">
             <HeadBanner />
 
-
             <Steps />
 
             <Categories />

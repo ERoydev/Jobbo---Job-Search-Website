@@ -49,7 +49,7 @@ export default function JobsList({
     return (
              
         <div className="SearchJobs">
-            {jobs.length > 0 ? jobs.map(job => <JobsListItem key={job.id} props={job} />) : (<p>There are no Job to apply for, yet.</p>)}
+            {jobs.length > 0 ? jobs.map(job => <JobsListItem key={job.id} props={job} />) : (<p className="noJobsMessage">There are no jobs to apply for.</p>)}
         </div>
     );
 }

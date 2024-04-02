@@ -1,15 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Footer from "../../Footer/Footer";
 import Header from "../../Header/Header";
 import JobsList from "./JobsList";
 import SearchForm from "./SearchForm";
 
-export default function SearchJob() {
-    const [searchCriteria, setSearchCriteria] = useState({});
+import SearchCriteriaContext, { SearchCriteriaProvider} from "../../../contexts/SearchCriteriaContext";
 
-    const SearchFromSearchHanlder = (values) => {
-        setSearchCriteria(values)
-    }
+
+
+export default function SearchJob() {
+    const { searchCriteria, SearchFormSearchHandler} = useContext(SearchCriteriaContext);
 
     return (
         <>
@@ -17,7 +17,7 @@ export default function SearchJob() {
    
                 <main className="site-main post-form-container">
                     <div className="container">
-                        <SearchForm SearchFromSearchHanlder={SearchFromSearchHanlder}/>
+                        <SearchForm SearchFormSearchHandler={SearchFormSearchHandler}/>
 
                         {searchCriteria ? <JobsList searchCriteria={searchCriteria} /> : <JobsList searchCriteria={null} />}
                     </div>

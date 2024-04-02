@@ -9,10 +9,10 @@ const initialValue = {
 }
 
 export default function SearchForm({
-    SearchFromSearchHanlder,
+    SearchFormSearchHandler,
 }) {
 
-    const { values, onChange, onSubmit } = useForm(SearchFromSearchHanlder, initialValue)
+    const { values, onChange, onSubmit } = useForm(SearchFormSearchHandler, initialValue)
 
     
     return (

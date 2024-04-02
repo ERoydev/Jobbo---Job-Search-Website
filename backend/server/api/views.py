@@ -33,10 +33,9 @@ class JobPostListCreate(generics.ListCreateAPIView):
             filters &= Q(job_category=job_category)
         if job_type:
             filters &= Q(job_type=job_type)
+
         if job_location:
             filters &= Q(job_location=job_location)
-
-        print('-------------', filters)
 
         queryset = queryset.filter(filters)  
         return queryset

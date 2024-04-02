@@ -2,3 +2,10 @@
     color: red;
     font-size: 1em;
 }
+
+.noJobsMessage {
+    font-size: 1.5em;
+    text-align: center;
+    background-color: rgb(231, 231, 231);
+    border-radius: 10px;
+}

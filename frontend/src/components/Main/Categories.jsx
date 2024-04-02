@@ -9,6 +9,13 @@ import img5 from '../../assets/images/img5.jpg';
 import img6 from '../../assets/images/img6.jpg';
 
 export default function Categories() {
+
+    const buttonClickHandler = (e) => {
+        e.preventDefault();
+
+        const jobTitle = e.target.parentNode.parentNode.querySelector(".job-title").textContent
+        console.log(jobTitle)
+    }
     return (
         <section className="categories">
             <h1>
@@ -18,19 +25,21 @@ export default function Categories() {
 
             <div className="card">
                 <div className="media">
-                <img src={img1} alt="" />
+                    <img src={img1} alt="" />
                 </div>
+                
                 <div className="content">
-                <div>
-                    <p className="job-title">Business and Finance</p>
-                    <p className="job-time">Full-Time</p>
-                </div>
-                <div>
-                    <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
-                    Apply now
-                    </Link>
-                </div>
+                    <div>
+                        <p className="job-title">Business and Finance</p>
+                        <p className="job-time">Full-Time</p>
+                    </div>
+
+                    <div>
+                        <p className="job-count">120+ Jobs</p>
+                        <a href='#' className="apply-job" onClick={buttonClickHandler}>
+                        Apply now
+                        </a>
+                    </div>
                 </div>
             </div>
             <div className="card">
@@ -47,9 +56,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
+                    <a href="#" className="apply-job" onClick={buttonClickHandler}>
                     Apply now
-                    </Link>
+                    </a>
                 </div>
                 </div>
             </div>
@@ -67,9 +76,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
+                    <a href="#" className="apply-job" onClick={buttonClickHandler}>
                     Apply now
-                    </Link>
+                    </a>
                 </div>
                 </div>
             </div>
@@ -87,9 +96,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
+                    <a href="#" className="apply-job" onClick={buttonClickHandler}>
                     Apply now
-                    </Link>
+                    </a>
                 </div>
                 </div>
             </div>
@@ -107,9 +116,9 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
+                    <a href="#" className="apply-job" onClick={buttonClickHandler}>
                     Apply now
-                    </Link>
+                    </a>
                 </div>
                 </div>
             </div>
@@ -124,17 +133,17 @@ export default function Categories() {
                 </div>
                 <div>
                     <p className="job-count">120+ Jobs</p>
-                    <Link to={Path.SearchJob} className="apply-job">
+                    <a href="#" className="apply-job" onClick={buttonClickHandler}>
                     Apply now
-                    </Link>
+                    </a>
                 </div>
                 </div>
             </div>
             </div>
             <p>
-            <Link to={Path.SearchJob} className="categories-btn">
+            <a href="#" className="categories-btn" onClick={buttonClickHandler}>
                 Categories
-            </Link>
+            </a>
             </p>
         </section>
     );
