@@ -36,9 +36,6 @@ class JobPostListCreate(generics.ListCreateAPIView):
         if job_location:
             filters &= Q(job_location=job_location)
 
-        if not queryset.exists():
-            return queryset
-
         queryset = queryset.filter(filters)  
         return queryset
 
@@ -50,7 +47,7 @@ class JobPostListCreate(generics.ListCreateAPIView):
         if queryset.exists():
             return self.list(request, *args, **kwargs)
         else:
-            return Response({}, status=404)  
+            return Response({'Not founded': 'There is no job with this search criteria!'})  
 
     def post(self, request):
         serializer = JobPostSerializer(data=request.data)
