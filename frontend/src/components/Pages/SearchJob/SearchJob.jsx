@@ -11,7 +11,6 @@ export default function SearchJob() {
         setSearchCriteria(values)
     }
 
-
     return (
         <>
             <Header />
@@ -20,8 +19,7 @@ export default function SearchJob() {
                     <div className="container">
                         <SearchForm SearchFromSearchHanlder={SearchFromSearchHanlder}/>
 
-                        {searchCriteria && <JobsList searchCriteria={searchCriteria} />}
-                        {!searchCriteria && <JobsList searchCriteria={{}} />}
+                        {searchCriteria ? <JobsList searchCriteria={searchCriteria} /> : <JobsList searchCriteria={null} />}
                     </div>
                 </main>
              

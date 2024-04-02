@@ -11,12 +11,42 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 
+from django.db.models import Q 
+
 class JobPostListCreate(generics.ListCreateAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        filters = Q()  
+
+        search_term = self.request.query_params.get('search')
+        job_category = self.request.query_params.get('job_category')
+        job_type = self.request.query_params.get('job_type')
+        job_location = self.request.query_params.get('job_location')
+
+
+        if search_term:
+            filters |= Q(job_title=search_term)
+        if job_category:
+            filters &= Q(job_category=job_category)
+        if job_type:
+            filters &= Q(job_type=job_type)
+        if job_location:
+            filters &= Q(job_location=job_location)
+
+        if not queryset.exists():
+            return queryset
+
+        queryset = queryset.filter(filters)  
+        return queryset
+
     def get(self, request, *args, **kwargs):
         queryset = self.get_queryset()
+
+        print(request.path)
+
         if queryset.exists():
             return self.list(request, *args, **kwargs)
         else:
@@ -32,10 +62,11 @@ class JobPostListCreate(generics.ListCreateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-class JobPostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+class GetJobWithUserID(generics.RetrieveUpdateDestroyAPIView):
     queryset = JobPost.objects.all()
     serializer_class = JobPostSerializer
     lookup_field = "pk"
+    
 
 
 class ApplyToJobView(APIView):
