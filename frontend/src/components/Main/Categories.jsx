@@ -21,6 +21,7 @@ export default function Categories({
         SearchFormSearchHandler(data)
         navigate(Path.SearchJob)
     }
+
     return (
         <section className="categories">
             <h1>
@@ -146,9 +147,9 @@ export default function Categories({
             </div>
             </div>
             <p>
-            <a href="#" className="categories-btn">
+            <Link to={Path.CategoriesPage} className="categories-btn">
                 Categories
-            </a>
+            </Link>
             </p>
         </section>
     );

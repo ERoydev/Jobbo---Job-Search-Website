@@ -6,6 +6,8 @@ const Path = {
     Login: '/login',
     Logout: '/logout',
     UserProfile: '/profile',
+    CategoriesPage: '/categories',
+    // End of main pages
     UserSettings: '/profile/settings',
     UserNotifications: '/profile/notifications',
     EmployerApplicants: '/profile/applicants',
@@ -13,7 +15,7 @@ const Path = {
     EmployeeJobsApplied: '/profile/jobsApplied',
     EmployeeFavourites: '/profile/favourites',
     EmployeeDocuments: '/profile/documents',
-    JobDetails: '/searchJob/jobDetails'
+    JobDetails: '/searchJob/jobDetails',
 }
 
 

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import JobPost, JobApplication
+from .models import JobPost, JobApplication, Categories
 
 
 class JobPostSerializer(serializers.ModelSerializer):
@@ -31,7 +31,12 @@ class JobPostSerializer(serializers.ModelSerializer):
 
 
 class JobAppliedUserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = JobApplication
         fields= ["applied_at", "job_post_id"]
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Categories
+        fields = ["id", "name"]

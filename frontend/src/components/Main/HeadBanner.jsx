@@ -1,7 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import robotHead from '../../assets/images/robot-head.jpg';
+import Path from '../../Paths';
 
+export default function HeadBanner({
+    SearchFormSearchHandler
+}) {
+    const navigate = useNavigate();
 
-export default function HeadBanner() {
+    const searchClickHandler = (e) => {
+        e.preventDefault();
+        const inputField = e.target.parentNode[0].value;
+        
+        const data = {search: inputField}
+        SearchFormSearchHandler(data)
+        navigate(Path.SearchJob)
+    }
     return (
         <section className="head-banner">
             <div className="container">
@@ -18,7 +31,7 @@ export default function HeadBanner() {
                     <div className="wrapper">
                         <form action="#">
                             <input type="text" placeholder="Search..." />
-                            <a className="submit-btn" type="submit" href="#">
+                            <a className="submit-btn" type="submit" href="#" onClick={searchClickHandler}>
                             Find
                             </a>
                         </form>

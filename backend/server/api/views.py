@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import JobPost, JobApplication
+from .models import JobPost, JobApplication, Categories
 from user_api.models import User
-from .serializers import JobPostSerializer, JobAppliedUserSerializer
+from .serializers import JobPostSerializer, JobAppliedUserSerializer, CategorySerializer
 
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
@@ -42,8 +42,6 @@ class JobPostListCreate(generics.ListCreateAPIView):
 
     def get(self, request, *args, **kwargs):
         queryset = self.get_queryset()
-
-        print(request.path)
 
         if queryset.exists():
             return self.list(request, *args, **kwargs)
@@ -95,4 +93,13 @@ class ApplyToJobView(APIView):
             return Response({'error': 'User with that ID has not applied to any jobs'}, status=status.HTTP_404_NOT_FOUND)
 
         serializer = JobAppliedUserSerializer(applied_jobs, many=True)
+        return Response(serializer.data)
+    
+
+class GetCategories(APIView):
+
+    def get(self, request):
+        categories = Categories.objects.all()
+
+        serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)

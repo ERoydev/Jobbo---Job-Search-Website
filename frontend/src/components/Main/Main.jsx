@@ -14,7 +14,7 @@ export default function Main () {
 
     return (
         <main className="site-main">
-            <HeadBanner />
+            <HeadBanner SearchFormSearchHandler={SearchFormSearchHandler} />
 
             <Steps />
 

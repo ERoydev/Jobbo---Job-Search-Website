@@ -18,8 +18,8 @@ import JobDetails from './Pages/JobDetails/JobDetails.jsx';
 
 import EmployeeJobsApplied from './Pages/UserProfile/EmployeeProfile/EmployeeJobsApplied.jsx';
 import MyDocuments from './Pages/UserProfile/EmployeeProfile/MyDocuments.jsx';
-import SearchCriteriaContext, {SearchCriteriaProvider} from '../contexts/SearchCriteriaContext.jsx';
-
+import CategoriesPage from './Pages/CategoriesPage/CategoriesPage.jsx';
+import { SearchCriteriaProvider } from '../contexts/SearchCriteriaContext.jsx';
 
 export default function Routing() {
     return (
@@ -31,7 +31,8 @@ export default function Routing() {
                 <Route path={Path.Login} element={<Login />} />
                 <Route path={Path.PostJob} element={<PostJob /> } />
                 <Route path={Path.Logout} element={<Logout />} />
-                <Route path={Path.UserProfile} element={<UserProfile />}>
+                <Route path={Path.CategoriesPage} element={<CategoriesPage />} />
+                <Route path={Path.UserProfile} element={<UserProfile />} >
                     <Route path={Path.UserNotifications} element={<Notifications />} />
                     <Route path={Path.UserSettings} element={<AccountSettings />} />
                     <Route path={Path.EmployerApplicants} element={<Applicants />} />
