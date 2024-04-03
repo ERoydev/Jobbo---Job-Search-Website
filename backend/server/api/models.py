@@ -32,4 +32,4 @@ class JobApplication(models.Model):
 
 class Categories(models.Model):
     name = models.CharField(max_length=200)
-
+    job_count = models.IntegerField(default=0)

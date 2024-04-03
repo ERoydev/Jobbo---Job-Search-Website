@@ -39,4 +39,4 @@ class JobAppliedUserSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
-        fields = ["id", "name"]
+        fields = ["id", "name", "job_count"]

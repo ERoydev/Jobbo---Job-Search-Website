@@ -64,7 +64,6 @@ class GetJobWithUserID(generics.RetrieveUpdateDestroyAPIView):
     lookup_field = "pk"
     
 
-
 class ApplyToJobView(APIView):
     permission_classes = [AllowAny]  # Optional: Authentication
 
@@ -97,7 +96,6 @@ class ApplyToJobView(APIView):
     
 
 class GetCategories(APIView):
-
     def get(self, request):
         categories = Categories.objects.all()
 

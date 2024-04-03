@@ -29,6 +29,4 @@ export const getAppliedJobs = async (userId) => {
 
 export const applyJob = async (jobId, ownerId) => {
     const result = await request.post(`${baseUrl}apply/${jobId}/${ownerId}/`)
-
-    console.log(result)
 }
