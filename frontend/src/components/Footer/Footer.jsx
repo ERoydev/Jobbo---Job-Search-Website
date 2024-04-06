@@ -44,10 +44,10 @@ export default function Footer() {
                         <Link to={Path.PostJob}>Post a job</Link>
                         </li>
                         <li>
-                        <a href="#">Categories</a>
+                        <Link to={Path.CategoriesPage}>Categories</Link>
                         </li>
                         <li>
-                        <a href="#">Featured jobs</a>
+                        <Link to={Path.SearchJob}>Featured jobs</Link>
                         </li>
                     </ul>
                     </li>

@@ -5,9 +5,12 @@ import Header from "../../Header/Header";
 import CategoryItem from "../../Main/CategoryItem";
 import * as CategoryService from "../../../services/CategoryService";
 import { images } from "../../../utils/images";
+import { useNavigate } from "react-router-dom";
 
 export default function CategoriesPage() {
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
+    
 
     useEffect(() => {
         CategoryService.getAllCategories()
