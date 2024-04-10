@@ -24,7 +24,6 @@ export default function JobsPosted() {
             .then(setOwnerInfo)
     }, [])
 
-    console.log(ownerInfo)
     return (
     <section>
         <header>

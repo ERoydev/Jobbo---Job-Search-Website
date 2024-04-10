@@ -20,12 +20,18 @@ export default function JobDetails() {
             .then(setJobInfo)
     }, [])
 
-
-    const applyClickHandler = (e) => {
+    const applyClickHandler = async (e) => {
         e.preventDefault();
 
-        JobsService.applyJob(id, userId);
-        NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
+        const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
+
+        if (applied.length > 0) {
+            console.log('You have already applied')
+        } else {
+            // Apply and Create Notification
+            JobsService.applyJob(id, userId);
+            NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
+        }
     }
 
 

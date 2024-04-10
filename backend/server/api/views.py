@@ -94,6 +94,22 @@ class ApplyToJobView(APIView):
         serializer = JobAppliedUserSerializer(applied_jobs, many=True)
         return Response(serializer.data)
     
+class GetJobApplicationsById(APIView):
+    
+    def get(self, request, postId, userId):
+        try:
+            job_applied = JobApplication.objects.filter(job_post_id=postId)
+            applied_user = job_applied.filter(user_id=userId)
+
+            if len(applied_user) == 0:
+                return Response([])
+            
+        except JobApplication.DoesNotExist:
+            return Response([])
+
+        serializer = JobAppliedUserSerializer(applied_user, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
 class GetCategories(APIView):
     def get(self, request):
         categories = Categories.objects.all()

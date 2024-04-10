@@ -15,7 +15,7 @@ class NotificationsView(APIView):
         
         else:
             serializer = NotificationSerializer(notifications, many=True)
-            return Response(serializer, status=status.HTTP_200_OK)
+            return Response(serializer.data, status=status.HTTP_200_OK)
     
     def post(self, request, id):
         serializer = NotificationSerializer(data=request.data)
@@ -25,3 +25,12 @@ class NotificationsView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, id):
+        try:
+            notification = Notifications.objects.get(pk=id)
+            notification.delete()
+            return Response({'message': 'Notification deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+        
+        except Notifications.DoesNotExist:
+            return Response({'error': 'Notification not found'}, status=status.HTTP_404_NOT_FOUND)

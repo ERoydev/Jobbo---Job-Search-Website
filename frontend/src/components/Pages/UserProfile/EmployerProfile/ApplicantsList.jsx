@@ -29,7 +29,7 @@ export default function ApplicantsList({
         }
         fetchUsers();
     }, [])
-    console.log(applicants)
+    
     return (
         <>
             {applicants.length > 0 && applicants.map((employee) => <ApplicantsItems key={employee.id} {...employee} job_title={job_title} />)}

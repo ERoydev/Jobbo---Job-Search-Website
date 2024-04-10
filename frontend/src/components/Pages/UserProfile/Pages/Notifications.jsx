@@ -1,11 +1,6 @@
-import NotificationsBox from "./Notifications/NotificationsBox";
+import NotificationsList from "./Notifications/NotificationsList";
 
 export default function Notifications() {
-
-    const closeNotificationBox = (e) => {
-        const msgbox = e.target.parentNode.parentNode;
-        msgbox.style.display='none'
-    }
 
     return (
     <section>
@@ -16,7 +11,7 @@ export default function Notifications() {
         <div className="information applicants">
             <div className="container">
                 <div className="message-container">
-                    <NotificationsBox closeNotificationBox={closeNotificationBox} />
+                    <NotificationsList />
                 </div>
             </div>
         </div>
