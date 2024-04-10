@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
-from .models import JobPost, JobApplication, Categories, Notifications
+from .models import JobPost, JobApplication, Categories
 from user_api.models import User
-from .serializers import JobPostSerializer, JobAppliedUserSerializer, CategorySerializer,  NotificationSerializer
+from .serializers import JobPostSerializer, JobAppliedUserSerializer, CategorySerializer
 
 from rest_framework.views import APIView
 from rest_framework.authentication import TokenAuthentication
@@ -101,12 +101,3 @@ class GetCategories(APIView):
         serializer = CategorySerializer(categories, many=True)
         return Response(serializer.data)
     
-class NotificationsView(APIView):
-    def get(self, request):
-        notifications = Notifications.objects.all()
-
-        serializer = NotificationSerializer(notifications, many=True)
-        return Response({})
-    
-    def post(self, request):
-        pass

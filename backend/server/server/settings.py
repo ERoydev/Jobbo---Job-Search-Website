@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'api',
     'user_api',
     'django_filters',
+    'notifications',
 ]
 
 # TO ALLOW REACT DOMAIN TO REQUEST DATA FROM MY SERVER
@@ -54,11 +55,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 
+# TO ALLOW THE FOLLOWING HEADERS IN MY API REQUESTS
 CORS_ALLOW_HEADERS = [
     'Authorization',
     'Content-Type',
 ]
 
+# TO ALLOW THESE API METHODS IN MY API REQUESTS
 CORS_ALLOW_METHODS = [
     'GET',
     'POST',
@@ -115,7 +118,7 @@ DATABASES = {
     }
 }
 
-# SET USER MODEL '<app>.<model['name']>'
+# THIS SET MY CUSTOM USER MODEL AS DEFAULT USER MODEL IN MY APP => '<app>.<model['name']>
 AUTH_USER_MODEL = 'user_api.User'
 
 # Password validation

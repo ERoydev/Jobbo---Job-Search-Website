@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Header from "../../Header/Header";
@@ -6,18 +6,14 @@ import Footer from "../../Footer/Footer";
 import JobDescription from "./JobDescription";
 
 import formatDate from "../../../utils/convertDate";
-import * as UserService from "../../../services/UserService";
 import * as JobsService from "../../../services/JobsService";
+import * as NotifcationService from "../../../services/NotificationService";
+import AuthContext from "../../../contexts/AuthContext";
 
 export default function JobDetails() {
-    const [ownerId, setOwnerId] = useState({});
+    const { userId, email } = useContext(AuthContext);
     const [jobInfo, setJobInfo] = useState({});
     const { id } = useParams();
-
-    useEffect(() => {
-        const auth = localStorage.getItem('auth');
-        setOwnerId(JSON.parse(auth)._id)
-    })
 
     useEffect(() => {
         JobsService.getOneJob(id)
@@ -28,8 +24,10 @@ export default function JobDetails() {
     const applyClickHandler = (e) => {
         e.preventDefault();
 
-        JobsService.applyJob(id, ownerId);
+        JobsService.applyJob(id, userId);
+        NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
     }
+
 
     return(
         <>

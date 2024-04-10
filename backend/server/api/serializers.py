@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import JobPost, JobApplication, Categories, Notifications
+from .models import JobPost, JobApplication, Categories
 
 
 class JobPostSerializer(serializers.ModelSerializer):
@@ -41,8 +41,3 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
         fields = ["id", "name", "job_count"]
-
-class NotificationSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Notifications
-        fields = ["text", "created_at", "user"]
