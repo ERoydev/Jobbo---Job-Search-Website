@@ -33,3 +33,11 @@ class JobApplication(models.Model):
 class Categories(models.Model):
     name = models.CharField(max_length=200)
     job_count = models.IntegerField(default=0)
+
+class Notifications(models.Model):
+    text = models.CharField(max_length=255)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Notification: {self.text[:20]} (to: {self.user.universal_name})"

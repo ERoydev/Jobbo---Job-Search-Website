@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import ApplicantsItems from "./ApplicantsItem";
 import AuthContext from "../../../../contexts/AuthContext";
 import * as JobsService from "../../../../services/JobsService";
+import ApplicantsList from "./ApplicantsList";
 
 export default function Applicants() {
     const [applications, setApplications] = useState([]);
@@ -12,7 +12,7 @@ export default function Applicants() {
             .then(setApplications)
     }, [])
 
-    console.log(applications)
+
     return (
         <section>
             <header>
@@ -21,7 +21,9 @@ export default function Applicants() {
 
             <div className="information applicants">
                 <div className="container">
-                    <ApplicantsItems />
+
+                    {applications.length > 0 && applications.map((item) => <ApplicantsList key={item.id} job_title={item.job_title} applied={item.applicants}/>)}
+                    {applications.length < 1 && <p>No applicants</p>}
                 </div>
             </div>
         </section>

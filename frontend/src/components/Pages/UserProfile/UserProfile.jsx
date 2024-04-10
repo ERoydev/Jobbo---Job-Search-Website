@@ -28,9 +28,7 @@ export default function UserProfile() {
             <div className="userprofile">
                 { role === 'employee' && <EmployeeBar onComponentChangeHandler={onComponentChangeHandler} /> }
                 { role === 'employer' && <EmployerBar onComponentChangeHandler={onComponentChangeHandler} /> }
-
-                {showAccountSettings && <AccountSettings />}
-
+                
                 <Outlet />
             </div>
             <Footer />

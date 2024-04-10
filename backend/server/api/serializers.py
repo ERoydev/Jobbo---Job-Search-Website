@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import JobPost, JobApplication, Categories
+from .models import JobPost, JobApplication, Categories, Notifications
 
 
 class JobPostSerializer(serializers.ModelSerializer):
@@ -19,7 +19,8 @@ class JobPostSerializer(serializers.ModelSerializer):
             "job_street",
             "job_salary",
             "job_description",
-            "created_at"
+            "created_at",
+            "applicants"
         ]
 
     # To save the exact way user typed the text
@@ -40,3 +41,8 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Categories
         fields = ["id", "name", "job_count"]
+
+class NotificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notifications
+        fields = ["text", "created_at", "user"]

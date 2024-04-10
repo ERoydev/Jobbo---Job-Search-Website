@@ -24,7 +24,7 @@ export default function JobsListItem({
                 <div>
                     <p>{ownerInfo.universal_name}</p>
                     <p className="fullAddress">
-                    {ownerInfo.country}, {ownerInfo.city}, {ownerInfo.street}
+                    {props.job_country}, {props.job_city}, {props.job_street}
                     </p>
                     <p className="postedDate">Posted on: {formatDate(props.created_at)}</p>
                 </div>

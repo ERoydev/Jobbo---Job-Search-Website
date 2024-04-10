@@ -10,7 +10,6 @@ export default function EmployeeBar({
     <aside>
         <nav className="profile-settings">
             <ul>
-
                 <Link Link to={Path.EmployeeJobsApplied} onClick={onComponentChangeHandler}>
                     <li>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

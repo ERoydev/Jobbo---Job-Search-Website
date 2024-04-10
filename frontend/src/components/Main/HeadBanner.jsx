@@ -15,6 +15,7 @@ export default function HeadBanner({
         SearchFormSearchHandler(data)
         navigate(Path.SearchJob)
     }
+    
     return (
         <section className="head-banner">
             <div className="container">

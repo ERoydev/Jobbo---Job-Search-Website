@@ -154,6 +154,7 @@ aside {
         transition: all 0.3s ease-in;
     }
     transition: all 0.3s ease-in;
+
 }
 
 .profile-settings ul {
@@ -186,9 +187,16 @@ aside {
 
 .profile-settings a {
     font-size: 0.98em;
-    padding: 0.5em;
 }
 
+.profile-settings li {
+    padding: 1em 1em;
+}
+
+.profile-settings li p {
+    font-size: 0.98em;
+    padding: 0.3em;
+}
 
 .userprofile .jobTitle {
     justify-self: end;

@@ -1,11 +1,15 @@
+import { useEffect, useState } from "react";
+import * as UserService from "../../../../services/UserService";
+
 export default function ApplicantsItems({
-    job_title,
-    job_country,
-    job_city,
-    created_at,
     universal_name,
+    country,
+    city,
+    phone_number,
+    job_title,
     street
 }) {
+
     return(
         <div className="card">
             <div className="card-info">
@@ -17,15 +21,15 @@ export default function ApplicantsItems({
             </div>
             
             <div>
-                <p>Emil Roydev</p>
+                <p>{universal_name}</p>
                 <p className="fullAddress">
-                    Bulgaria, Ruse
+                    {country}, {city}{street ? `, ${street}` : ''}
                 </p>
-                <p className="phoneNumber">087 343 1923</p>
+                <p className="phoneNumber">{phone_number}</p>
             </div>
             </div>
             <div>
-                <p className="jobTitle">Regulator</p>
+                <p className="jobTitle">{job_title}</p>
             </div>
         </div>
     );
