@@ -2,6 +2,7 @@ import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as AuthService from '../services/AuthService';
 import Path from "../Paths";
+
 import usePersistedState from "../hooks/usePersistedState";
 
 export const AuthContext = createContext();
