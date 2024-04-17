@@ -7,6 +7,10 @@
     padding-right: 3em;
 }
 
+.main-nav {
+    height: 100%;
+}
+
 .main-nav li:nth-last-child(2) {
     margin-left: 3em;
     padding-right: 1.5em;

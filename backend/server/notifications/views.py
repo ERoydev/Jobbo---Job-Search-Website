@@ -6,14 +6,18 @@ from rest_framework.views import APIView
 from rest_framework import status
 # Create your views here.
 
+
 class NotificationsView(APIView):
+
     def get(self, request, id):
-        notifications = Notifications.objects.all()
+        notifications_all = Notifications.objects.all()
+        notifications = notifications_all.filter(user_id=id)
 
         if len(notifications) == 0:
             return Response({"no notifications"}, status=status.HTTP_204_NO_CONTENT)
         
         else:
+
             serializer = NotificationSerializer(notifications, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
     

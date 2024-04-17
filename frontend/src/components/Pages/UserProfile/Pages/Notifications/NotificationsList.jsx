@@ -12,6 +12,7 @@ export default function NotificationsList() {
         setNotifications(state => state.filter(user => user.id !== id))
     }
 
+    console.log(notifications)
     useEffect(() => {
         NotificationService.getNotifications(userId)
             .then(setNotifications)
