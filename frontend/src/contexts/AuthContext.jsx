@@ -21,9 +21,9 @@ export const AuthProvider = ({
 
         if (values.password !== values.confirmPassword) {
             throw new Error('Password do not match')
-        } else if (result) {
+        } else if (result.errorMessage) {
             setFailedRegister(result);
-        } else{
+        } else {
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
             navigate(Path.Home);
