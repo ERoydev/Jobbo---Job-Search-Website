@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'user_api',
     'django_filters',
     'notifications',
+    'documents',
 ]
 
 # TO ALLOW REACT DOMAIN TO REQUEST DATA FROM MY SERVER
