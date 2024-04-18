@@ -171,4 +171,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
         # Other authentication classes as needed
     ],
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser', 
+    ],
 }
