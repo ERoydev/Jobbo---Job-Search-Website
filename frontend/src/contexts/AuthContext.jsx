@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as AuthService from '../services/AuthService';
 import Path from "../Paths";
@@ -13,17 +13,21 @@ export const AuthProvider = ({
 }) => {
     const navigate = useNavigate()
     const [auth, setAuth] = usePersistedState('auth', {});
+    const [failedRegister, setFailedRegister] = useState({});
 
     const registerSubmitHandler = async (values) => {
-        
         const result = await AuthService.register(values);
+
 
         if (values.password !== values.confirmPassword) {
             throw new Error('Password do not match')
-        } else {
+        } else if (result) {
+            setFailedRegister(result);
+        } else{
             setAuth(result);
             localStorage.setItem('accessToken', result.accessToken)
             navigate(Path.Home);
+            setFailedRegister('');
         }
     }
 
@@ -52,6 +56,8 @@ export const AuthProvider = ({
         isAuthenticated: !!auth.accessToken,
         userId: auth._id,
         role: auth.role,
+        failedRegister,
+        setFailedRegister,
     } 
 
     return (

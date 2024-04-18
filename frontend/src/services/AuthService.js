@@ -4,6 +4,7 @@ const baseUrl = 'http://127.0.0.1:8000/users';
 
 
 export const register = async (values) => {
+
     const data = {
         email: values.email,
         password: values.password,
@@ -15,7 +16,12 @@ export const register = async (values) => {
 
     const result = await request.post(`${baseUrl}/register/`, data)
 
-    return result;
+    if (!result.status) {
+        return result;
+    } else {
+        return {'errorMessage': 'Registration failed. Please fill all the fields to register successfully!'}
+    }
+
 }
 
 export const login = async (email, password) => {
