@@ -1,0 +1,38 @@
+
+.documentsItem {
+    border-radius: 5px;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+}
+
+.appliedJobs h2 {
+    padding: 2em;
+    text-align: center;
+    font-size: 1em;
+}
+
+.documentsItem div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.documentsItem button {
+    padding: 0.5em 1em;
+
+}
+
+.documentsItem svg {
+    width: 8em;
+    height: auto;
+    align-self: center;
+}
+
+.documentInfo {
+    font-size: 0.7em;
+}

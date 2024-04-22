@@ -11,7 +11,7 @@ export const uploadDocument = async (formData, id) => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Document uploaded successfully');
+            return data;
         } else {
             console.error('Failed to upload document');
         }
@@ -29,7 +29,7 @@ export const getDocuments = async (userId) => {
             return response.data;
 
         } else {
-            console.log('error 0 documents uploaded')
+            console.log('Error 0 documents uploaded')
         }
     }
     
