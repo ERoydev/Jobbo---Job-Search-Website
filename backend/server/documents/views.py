@@ -5,6 +5,8 @@ from rest_framework import status
 from rest_framework.parsers import MultiPartParser
 from user_api.models import User
 from .models import Document
+from django.shortcuts import get_object_or_404
+from django.http import HttpResponse
 
 from .serializers import DocumentSerializer
 
@@ -35,3 +37,21 @@ class DocumentGetView(APIView):
         
         serializer = DocumentSerializer(documents_applied, many=True)
         return Response({'data': serializer.data, 'status': '200'})
+    
+class DocumentDownload(APIView):
+    
+    def get(self, request, pk):
+        document = get_object_or_404(Document, pk=pk)
+
+        document_file = document.file
+
+        with document_file.open('rb') as file:
+            file_content = file.read()
+        
+        # Create an HttpResponse with the file content as the response body
+        response = HttpResponse(file_content, content_type='application/pdf')  # Adjust content type as needed
+        
+        # Set the Content-Disposition header to trigger a file download
+        response['Content-Disposition'] = f'attachment; filename="{document_file.name}"'
+        
+        return response
