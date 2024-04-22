@@ -18,6 +18,12 @@ class DocumentUploadView(APIView):
             user = User.objects.get(id=userId)
         except User.DoesNotExist:
             return Response({'detail': 'User does not exist.'}, status=404)
+        
+        # Check the file is PDF format
+        uploaded_file = request.FILES.get('file')
+        if not uploaded_file.content_type == 'application/pdf':
+            return Response({'detail': 'Uploaded file is not a PDF.'}, status=400)
+
 
         serializer = DocumentSerializer(data=request.data)
         if serializer.is_valid():
