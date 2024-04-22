@@ -14,7 +14,7 @@ class NotificationsView(APIView):
         notifications = notifications_all.filter(user_id=id)
 
         if len(notifications) == 0:
-            return Response({"no notifications"}, status=status.HTTP_204_NO_CONTENT)
+            return Response([])
         
         else:
 

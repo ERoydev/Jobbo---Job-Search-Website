@@ -12,7 +12,6 @@ export default function Applicants() {
             .then(setApplications)
     }, [])
 
-
     return (
         <section>
             <header>
@@ -21,9 +20,7 @@ export default function Applicants() {
 
             <div className="information applicants">
                 <div className="container">
-
                     {applications.length > 0 && applications.map((item) => <ApplicantsList key={item.id} job_title={item.job_title} applied={item.applicants}/>)}
-                    {applications.length < 1 && <p>No applicants</p>}
                 </div>
             </div>
         </section>

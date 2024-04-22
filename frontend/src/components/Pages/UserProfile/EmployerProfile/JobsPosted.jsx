@@ -8,7 +8,6 @@ import JobsPostedItem from "./JobsPostedItem";
 
 
 export default function JobsPosted() {
-
     const [jobs, setJobs] = useState([]);
     const { userId } = useContext(AuthContext)
     const [ownerInfo, setOwnerInfo] = useState({});
@@ -25,18 +24,17 @@ export default function JobsPosted() {
     }, [])
 
     return (
-    <section>
-        <header>
-            <h1>Jobs posted</h1>
-        </header>
-        <div className="userprofile">
-            <div className="information applicants">
-                <div className="container">
-                    {jobs.map(job => <JobsPostedItem key={job.id} {...job} {...ownerInfo}/>)}
+        <section>
+            <header>
+                <h1>Jobs posted</h1>
+            </header>
+            <div className="userprofile">
+                <div className="information applicants">
+                    <div className="container">
+                        {jobs.map(job => <JobsPostedItem key={job.id} {...job} {...ownerInfo}/>)}
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
     );
 }

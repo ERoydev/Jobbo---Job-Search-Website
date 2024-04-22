@@ -12,7 +12,6 @@ export default function NotificationsList() {
         setNotifications(state => state.filter(user => user.id !== id))
     }
 
-    console.log(notifications)
     useEffect(() => {
         NotificationService.getNotifications(userId)
             .then(setNotifications)
@@ -21,6 +20,7 @@ export default function NotificationsList() {
     return (
         <>
             {notifications.length > 0 && notifications.map((item) => <NotificationsBox key={item.user} closeNotificationBox={closeNotificationBox} {...item} />)}
+            {notifications.length == 0 && <h2 className="noJobsMessage">You dont have any notifications yet.</h2>}
         </>
     );
 }

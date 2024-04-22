@@ -14,25 +14,25 @@ export default function EmployeeJobsApplied() {
             .then(setJobsApplied)
     }, [])
 
-    const createJobsList = async (jobId) => {
-        const result = await JobsService.getOneJob(jobId)
-        return result;
-    }
-
     useEffect(() => {
-       jobsApplied.forEach((el) => {
-        createJobsList(el.job_post_id)
-            .then(res => {
-                setJobList(state => [...state, res])
-            })
-       }) 
-    }, jobsApplied)
+        const fetchJobs = async () => {
+            const newJobList = [];
+            for (const el of jobsApplied) {
+                const job = await JobsService.getOneJob(el.job_post_id);
+                newJobList.push(job);
+            }
+            setJobList(newJobList);
+        };
+
+        fetchJobs();
+    }, [jobsApplied]);
+
 
     return(
         <div className="appliedJobs">
             <div className="SearchJobs">
                 {jobList && jobList.map((job) => <JobsListItem key={job.id} props={job}/>)}
-                {!jobList && <h1>You have not applied to any jobs.</h1>}
+                {jobList.length == 0 && <h2 className="noJobsMessage">You have not applied to any jobs.</h2>}
             </div>
         </div>
     );

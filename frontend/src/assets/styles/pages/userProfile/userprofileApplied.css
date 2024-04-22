@@ -10,3 +10,27 @@
 .jobPostedItem {
     color: black;
 }
+
+.applicants .card h3 {
+    display: none;
+    font-weight: 700;
+    width: 30%;
+}
+
+.applicants .card:focus,
+.applicants .card:hover {
+    background-color: var(--clr-btn-bgrd);
+    cursor: pointer;
+    transition: all 0.6s ease-in;
+}
+
+.applicants .card:focus h3,
+.applicants .card:hover h3 {
+    display: block;
+}
+
+
+.applicants .card:focus .jobTitle,
+.applicants .card:hover .jobTitle {
+    display: none;
+}

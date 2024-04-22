@@ -7,11 +7,9 @@ import ApplicantsItems from "./ApplicantsItem";
 
 export default function ApplicantsList({
     job_title,
-    applied
+    applied,
 }) {
-    // There is way for reusing the applicants from my employee profile with custom react hook TODO //
     const [applicants, setApplicants] = useState([]);
-
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -33,7 +31,6 @@ export default function ApplicantsList({
     return (
         <>
             {applicants.length > 0 && applicants.map((employee) => <ApplicantsItems key={employee.id} {...employee} job_title={job_title} />)}
-            {applicants.length < 1 && <p>No applicants</p>}
         </>
     );
 }
