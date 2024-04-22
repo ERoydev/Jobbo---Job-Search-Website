@@ -11,12 +11,29 @@ export const uploadDocument = async (formData, id) => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Document uploaded successfully:', data);
+            console.log('Document uploaded successfully');
         } else {
             console.error('Failed to upload document');
         }
 
     } catch (error) {
         console.error('Error uploading document:', error);
+    }
+}
+
+export const getDocuments = async (userId) => {
+    try {
+        const response = await request.get(`${baseUrl}/getDocument/${userId}/`)
+
+        if (response.status == 200) {
+            return response.data;
+
+        } else {
+            console.log('error 0 documents uploaded')
+        }
+    }
+    
+    catch (error) {
+        console.log('Error with get documents')
     }
 }

@@ -8,11 +8,14 @@ export default function MyDocuments() {
     const [documents, setDocuments] = useState([]);
     const [selectedFile, setSelectedFile] = useState(null);
 
+    useEffect(() => {
+        DocumentsService.getDocuments(userId)
+            .then(setDocuments)
+    }, [])
+
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files[0]);
     };
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,11 +27,13 @@ export default function MyDocuments() {
         }
     }
 
+    console.log(documents)
+
     return (
         <>
             <div className="appliedJobs">
-                <form method="post" enctype="multipart/form-data" onSubmit={handleSubmit}>
-                    <label for="document_upload">Upload CV:</label>
+                <form method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+                    <label htmlFor="document_upload">Upload CV:</label>
                     <input type="file" name="file" onChange={handleFileChange} />
                     <button className="auth-btn" type="submit">Submit</button>
                 </form>
