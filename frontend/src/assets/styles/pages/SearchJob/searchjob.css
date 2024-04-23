@@ -48,3 +48,7 @@
 .SearchJobs .card-info {
     color: black;
 }
+
+.SearchJobs .jobTitle {
+    text-align: end;
+}

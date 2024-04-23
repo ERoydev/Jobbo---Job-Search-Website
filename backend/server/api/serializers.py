@@ -34,7 +34,7 @@ class JobPostSerializer(serializers.ModelSerializer):
 class JobAppliedUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobApplication
-        fields= ["applied_at", "job_post_id", "user_id"]
+        fields= ["applied_at", "job_post_id", "user_id", "doc_id"]
 
 
 class CategorySerializer(serializers.ModelSerializer):

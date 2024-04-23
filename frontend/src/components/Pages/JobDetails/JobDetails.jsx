@@ -9,11 +9,20 @@ import formatDate from "../../../utils/convertDate";
 import * as JobsService from "../../../services/JobsService";
 import * as NotifcationService from "../../../services/NotificationService";
 import AuthContext from "../../../contexts/AuthContext";
+import useErrors from "../../../hooks/useErrors";
+import Modal from "./Modal";
+
+const initialValues = {
+    isApplied: '',
+}
 
 export default function JobDetails() {
     const { userId, email } = useContext(AuthContext);
     const [jobInfo, setJobInfo] = useState({});
     const { id } = useParams();
+    const {error, handleError, clearError} = useErrors(initialValues);
+    const [showModal, setShowModal] = useState(false);
+
 
     useEffect(() => {
         JobsService.getOneJob(id)
@@ -23,15 +32,20 @@ export default function JobDetails() {
     const applyClickHandler = async (e) => {
         e.preventDefault();
 
-        const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
+        setShowModal(true)
+        // const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
 
-        if (applied.length > 0) {
-            console.log('You have already applied')
-        } else {
-            // Apply and Create Notification
-            JobsService.applyJob(id, userId);
-            NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
-        }
+        // if (applied.length > 0) {
+        //     handleError('isApplied', 'You have already applied for that job.')
+        // } else {
+        //     // Apply and Create Notification
+        //     JobsService.applyJob(id, userId);
+        //     NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
+        // }
+    }
+
+    const closeModalHandler = () => {
+        setShowModal(false);
     }
 
 
@@ -39,9 +53,9 @@ export default function JobDetails() {
         <>
             <Header />
                 <main className="site-main post-form-container job-details-container">
+                    {showModal && <Modal closeModalHandler={closeModalHandler} userId={userId}/>}
                     <div className="container">
                         <div className="details-container">
-
                             <div className="details-job_description">
                                 <h2>{jobInfo.job_title}</h2>
                                 <div className="job-details">
@@ -55,6 +69,7 @@ export default function JobDetails() {
                                 <div className="btn-container">
                                     <button className="auth-btn apply-btn" onClick={applyClickHandler}>Apply now</button>
                                 </div>
+
                             </div>
                             
 

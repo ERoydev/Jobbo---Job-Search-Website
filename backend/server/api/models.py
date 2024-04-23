@@ -1,5 +1,6 @@
 from django.db import models
 from user_api.models import User
+from documents.models import Document
 
 class JobPost(models.Model):
     # company_img = models.ImageField(upload_to='companies/post_picture', blank=True, null=True)
@@ -28,6 +29,7 @@ class JobApplication(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(auto_now_add=True)  # Optional: Timestamp
+    doc_id = models.ForeignKey(Document, on_delete=models.CASCADE)
     # ... other application-specific fields
 
 class Categories(models.Model):
