@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
@@ -11,17 +11,19 @@ import * as NotifcationService from "../../../services/NotificationService";
 import AuthContext from "../../../contexts/AuthContext";
 import useErrors from "../../../hooks/useErrors";
 import Modal from "./Modal";
+import Path from "../../../Paths";
 
 const initialValues = {
     isApplied: '',
 }
 
 export default function JobDetails() {
-    const { userId, email } = useContext(AuthContext);
+    const { userId, email, role } = useContext(AuthContext);
     const [jobInfo, setJobInfo] = useState({});
     const { id } = useParams();
     const {error, handleError, clearError} = useErrors(initialValues);
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
 
 
     useEffect(() => {
@@ -50,15 +52,19 @@ export default function JobDetails() {
         }
 
         const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
-        
+
         if (applied.length > 0) {
             handleError('isApplied', 'You have already applied for that job.')
         } else {
             // Apply and Create Notification
             NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
             JobsService.applyJob(id, userId, docId);
+            setShowModal(false);
+            navigate(Path.EmployeeJobsApplied);
         }
     }
+
+    console.log(role)
 
 
     return(
@@ -78,9 +84,11 @@ export default function JobDetails() {
                               
                                 </div>
                                 
-                                <div className="btn-container">
-                                    <button className="auth-btn apply-btn" onClick={applyClickHandler}>Apply now</button>
-                                </div>
+                                {role == 'employer' ? '' : (
+                                    <div className="btn-container">
+                                        <button className="auth-btn apply-btn" onClick={applyClickHandler}>Apply now</button>
+                                    </div>
+                                )}
                                 {error.document && <p className="formError">{error.document}</p>}
 
                             </div>
