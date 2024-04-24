@@ -29,7 +29,7 @@ class JobApplication(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     job_post = models.ForeignKey(JobPost, on_delete=models.CASCADE)
     applied_at = models.DateTimeField(auto_now_add=True)  # Optional: Timestamp
-    doc_id = models.ForeignKey(Document, on_delete=models.CASCADE)
+    doc_id = models.CharField(max_length=255)
     # ... other application-specific fields
 
 class Categories(models.Model):

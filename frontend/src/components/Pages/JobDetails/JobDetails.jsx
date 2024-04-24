@@ -33,19 +33,31 @@ export default function JobDetails() {
         e.preventDefault();
 
         setShowModal(true)
-        // const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
-
-        // if (applied.length > 0) {
-        //     handleError('isApplied', 'You have already applied for that job.')
-        // } else {
-        //     // Apply and Create Notification
-        //     JobsService.applyJob(id, userId);
-        //     NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
-        // }
     }
 
     const closeModalHandler = () => {
         setShowModal(false);
+    }
+
+    const applySubmitHandler = async (docId) => {
+        
+        if (!docId) {
+            setShowModal(false);
+            handleError('document', 'You have to choose a document before applying.')
+            return;
+        } else {
+            clearError('document')
+        }
+
+        const applied = await JobsService.checkIfUserApplied(jobInfo.id, userId);
+        
+        if (applied.length > 0) {
+            handleError('isApplied', 'You have already applied for that job.')
+        } else {
+            // Apply and Create Notification
+            NotifcationService.createNotificationOnApply(jobInfo.ownerId, email, jobInfo.job_title)
+            JobsService.applyJob(id, userId, docId);
+        }
     }
 
 
@@ -53,7 +65,7 @@ export default function JobDetails() {
         <>
             <Header />
                 <main className="site-main post-form-container job-details-container">
-                    {showModal && <Modal closeModalHandler={closeModalHandler} userId={userId}/>}
+                    {showModal && <Modal closeModalHandler={closeModalHandler} userId={userId} applySubmitHandler={applySubmitHandler}/>}
                     <div className="container">
                         <div className="details-container">
                             <div className="details-job_description">
@@ -69,6 +81,7 @@ export default function JobDetails() {
                                 <div className="btn-container">
                                     <button className="auth-btn apply-btn" onClick={applyClickHandler}>Apply now</button>
                                 </div>
+                                {error.document && <p className="formError">{error.document}</p>}
 
                             </div>
                             

@@ -15,10 +15,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #dbdbdb;
-    padding: 50px;
+    padding: 3em 3em 2em 3em;
     z-index: 1000;
     border-radius: 5px;
-    /* width: 70%; */
+    width: 30em;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -44,15 +44,20 @@
     width: 3em;
 }
 
-.modal .modalDocumentItem:hover {
-    cursor: pointer;
-    background-color: rgb(90, 90, 90);
-}
-
 .modalDocumentItem p {
     font-size: 0.5em;
 }
 
 .choosedDocument {
     background-color: var(--clr-btn-bgrd);
+}
+
+.modalDocumentItem button {
+    font-size: 0.7em;
+    padding: 0.3em 0.8em;
+    cursor: pointer;
+}
+
+.modal .auth-btn {
+    margin-top: 1em;
 }

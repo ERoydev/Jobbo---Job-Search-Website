@@ -2,6 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics, status
 from rest_framework.response import Response
 from .models import JobPost, JobApplication, Categories
+from documents.models import Document
+
 from user_api.models import User
 from .serializers import JobPostSerializer, JobAppliedUserSerializer, CategorySerializer
 
@@ -75,9 +77,17 @@ class ApplyToJobView(APIView):
             if user.get_role() == 'employer':
                 return Response({"error": "Employer cannot apply to jobs."})
             
+
+            doc_id = request.data.get('doc_id', None)
+
+            job_application = JobApplication.objects.create(
+                user=user,
+                job_post=job_post,
+                doc_id=doc_id 
+            )
+
             # For M2M relationship:
             job_post.applicants.add(user)
-
             job_post.save()
             return Response({"message": "Successfully applied to job"})
         except JobPost.DoesNotExist:
