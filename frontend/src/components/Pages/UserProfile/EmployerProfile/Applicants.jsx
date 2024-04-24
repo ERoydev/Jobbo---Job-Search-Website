@@ -21,6 +21,7 @@ export default function Applicants() {
             <div className="information applicants">
                 <div className="container">
                     {applications.length > 0 && applications.map((item) => <ApplicantsList key={item.id} job_title={item.job_title} applied={item.applicants}/>)}
+                    {applications.length == 0 && <p className="noJobsMessage">No applicants yet.</p>}
                 </div>
             </div>
         </section>

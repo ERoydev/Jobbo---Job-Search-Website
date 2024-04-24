@@ -61,3 +61,22 @@ class DocumentDownload(APIView):
         response['Content-Disposition'] = f'attachment; filename="{document_file.name}"'
         
         return response
+    
+
+class DocumentDownloadApplicant(APIView):
+
+    def get(self, request, userId):
+        document = get_object_or_404(Document, user=userId)
+
+        document_file = document.file
+
+        with document_file.open('rb') as file:
+            file_content = file.read()
+        
+        # Create an HttpResponse with the file content as the response body
+        response = HttpResponse(file_content, content_type='application/pdf')  # Adjust content type as needed
+        
+        # Set the Content-Disposition header to trigger a file download
+        response['Content-Disposition'] = f'attachment; filename="{document_file.name}"'
+        
+        return response

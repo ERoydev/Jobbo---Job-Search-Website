@@ -38,8 +38,8 @@ export const getDocuments = async (userId) => {
     }
 }
 
-export const downloadDocument = async (id) => {
-    fetch(`http://127.0.0.1:8000/documents/${id}/download/`, {
+export const downloadDocument = async (url, id) => {
+    fetch(url, {
             method: "GET",
             headers: {
                 "Content-Type": "application/pdf",

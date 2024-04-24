@@ -9,15 +9,16 @@ export default function ApplicantsItems({
     city,
     phone_number,
     job_title,
-    street
+    street,
+    id,
 }) {
 
-    // const downloadHandler = () => {
-    //     DocumentService.downloadDocument();
-    // }
+    const downloadClickHandler = async () => {
+        DocumentService.downloadDocument(`http://127.0.0.1:8000/documents/${id}/downloadApplicant/`, id)
+    }
 
     return(
-        <div className="card">
+        <div className="card" onClick={downloadClickHandler}>
             <h3>Download CV</h3>
             <div className="card-info">
                 <div className="media">

@@ -6,7 +6,7 @@ export default function MyDocumentsList({
 }) {
     
     const downloadClickHandler = async (id) => {
-        DocumentsService.downloadDocument(id);
+        DocumentsService.downloadDocument(`http://127.0.0.1:8000/documents/${id}/download/`, id);
     };
 
     return(
