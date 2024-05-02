@@ -4,7 +4,6 @@ const baseUrl = 'http://127.0.0.1:8000/users';
 
 
 export const register = async (values) => {
-
     const data = {
         email: values.email,
         password: values.password,
