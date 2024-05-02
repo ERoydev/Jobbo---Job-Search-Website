@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import dj_database_url
-
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,12 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=jsh$$6szt=el^i8((zw(dq7kvf1t0_0fk6po7e+7pxuas1ks-'
+# SECRET_KEY = 'django-insecure-=jsh$$6szt=el^i8((zw(dq7kvf1t0_0fk6po7e+7pxuas1ks-' INITIAL SETTING
+
+SECRET_KEY = os.environ.get("SECRET_KEY ")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUT = "True"
+DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
-ALLOWED_HOSTS = ['.vercel.app']
+# ALLOWED_HOSTS = [] INITIAL SETTING
+
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+
 
 
 # Application definition
@@ -47,9 +52,8 @@ INSTALLED_APPS = [
     # Internal
     'api',
     'user_api',
-    'django_filters',
     'notifications',
-    'documents',
+    'documents'
 ]
 
 # TO ALLOW REACT DOMAIN TO REQUEST DATA FROM MY SERVER
@@ -110,20 +114,20 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "jobbo",
-#         "USER": "postgres",
-#         "PASSWORD": "test123",
-#         "HOST": "127.0.0.1",
-#         "PORT": "5432",
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "jobbo",
+        "USER": "postgres",
+        "PASSWORD": "test123",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    }
 }
+
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
+
 
 # THIS SET MY CUSTOM USER MODEL AS DEFAULT USER MODEL IN MY APP => '<app>.<model['name']>
 AUTH_USER_MODEL = 'user_api.User'
