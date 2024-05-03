@@ -40,6 +40,7 @@ git clone https://github.com/E.Roydev/Jobbo---Job-Search-Website
 #### 2. Create a Virtual Environment (Recommended):
 
 ```sh
+Go into backend/server
 python3 -m venv venv
 source venv/bin/activate # macOS/Linux
 venv\Scripts\activate.bat # Windows
