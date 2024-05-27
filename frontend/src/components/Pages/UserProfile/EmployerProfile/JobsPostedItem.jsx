@@ -10,10 +10,12 @@ export default function JobsPostedItem({
     universal_name,
     street,
     id,
+    jobId
     
 }) {
+
     return(
-        <Link to={`${Path.JobDetails}/${id}`} className="jobPostedItem" >            
+        <Link to={`${Path.JobDetails}/${jobId}`} className="jobPostedItem" >            
             <div className="card">
                 <div className="card-info">
 

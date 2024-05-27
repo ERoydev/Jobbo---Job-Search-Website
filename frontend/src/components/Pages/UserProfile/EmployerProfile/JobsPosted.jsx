@@ -22,8 +22,7 @@ export default function JobsPosted() {
         UserService.getUser(userId)
             .then(setOwnerInfo)
     }, [])
-
-
+        
     return (
         <section>
             <header>
@@ -32,7 +31,7 @@ export default function JobsPosted() {
             <div className="userprofile">
                 <div className="information applicants">
                     <div className="container">
-                        {jobs.length > 0 && jobs.map(job => <JobsPostedItem key={job.id} {...job} {...ownerInfo}/>)}
+                        {jobs.length > 0 && jobs.map(job => <JobsPostedItem key={job.id} {...job} {...ownerInfo} jobId={job.id}/>)}
                         {jobs.length == 0 && <p className="noJobsMessage">You haven't post any jobs yet.</p>}
                     </div>
                 </div>

@@ -64,9 +64,6 @@ export default function JobDetails() {
         }
     }
 
-    console.log(role)
-
-
     return(
         <>
             <Header />

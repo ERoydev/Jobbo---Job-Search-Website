@@ -1,6 +1,6 @@
 import * as request from '../lib/request';
 
-const baseUrl = 'https://jobbo.onrender.com/api/categories';
+const baseUrl = 'http://127.0.0.1:8000/api/categories';
 
 
 export const getAllCategories = async () => {
