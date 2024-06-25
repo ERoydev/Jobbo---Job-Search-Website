@@ -21,60 +21,6 @@ Jobbo is a web application that connects employers seeking skilled talent with q
   <li><strong>Database:</strong> PostgreSQL</li>
 </ul>
 
-## 🚀 Installation
-
-<ul>
-  <li>Ensure you have Python (version 3.x recommended), Git, and Node.js installed on your system</li>
-  <li>Node.js and npm</li>
-  <li>Git</li>
-</ul>
-
-
-
-#### 1. Clone the Repository:
-
-```sh
-git clone https://github.com/E.Roydev/Jobbo---Job-Search-Website
-```
-
-#### 2. Create a Virtual Environment (Recommended):
-
-```sh
-Go into backend/server
-python3 -m venv venv
-source venv/bin/activate # macOS/Linux
-venv\Scripts\activate.bat # Windows
-```
-
-#### 3. Install Dependencies:
-```sh
-pip install -r requirements.txt
-cd frontend && npm install
-```
-
-#### 4. Database Setup:
-(Configure your PostgreSQL database connection details in backend/settings.py)
-
-#### 5. Run Migrations:
-```sh
-  python manage.py migrate
-```
-#### 6. Start Development Server:
-```sh
-  python manage.py runserver
-```
-This will typically run the server on http://127.0.0.1:8000/.
-
-## ✔ Usage
-
-#### In the project path write in Terminal
-
-```sh
-python manage.py runserver
-```
-
-This will typically run the server on http://127.0.0.1:8000/.
-
 
 ## 🤝 Contributing
 
