@@ -1,7 +1,8 @@
+## This is a FrontEnd project so my backend is not well optimised and structured efficiently
+
 ## Description 
 Jobbo is a web application that connects employers seeking skilled talent with qualified employees searching for their dream jobs.<br> It features a user-friendly interface and robust features to streamline the job search and application process.
 
-## This is a FrontEnd project so my backend is not well optimised and structured efficiently
 
 ## Features
 <ul>
