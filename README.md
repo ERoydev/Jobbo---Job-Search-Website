@@ -11,9 +11,10 @@ Jobbo is a web application that connects employers seeking skilled talent with q
   <li><strong>Application Management:</strong> Employers can efficiently manage applications, review resumes, and schedule interviews.</li>
   <li><strong>Applicant Tracking:</strong> Employees can track their applications and receive updates on their job search progress.</li>
   <li><strong>Secure Authentication:</strong> Separate user roles (employers and employees) ensure secure access and data protection.</li>
-</ul>
+</ul> 
 
-<h1>Technologies Used</h1>
+
+<h1>Technologies Used</h1> 
 <div align="center">
     <img src="https://skillicons.dev/icons?i=react,html,css,django" />
     <img src="https://skillicons.dev/icons?i=python,javascript,postgres" /><br>
