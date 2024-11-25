@@ -23,7 +23,8 @@ Jobbo is a web application that connects employers seeking skilled talent with q
   <li><strong>Frontend:</strong> ReactJS</li>
   <li><strong>Backend:</strong> Django REST Framework</li>
   <li><strong>Database:</strong> PostgreSQL</li>
-</ul>
+</ul>  
+
 
 
 ## 🤝 Contributing
